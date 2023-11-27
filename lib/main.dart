@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-     // theme: theme,
+     // theme: theme, //Testing
       title: 'kusina_v3',
       debugShowCheckedModeBanner: false, // (^3)
       initialRoute: AppRoutes.ingredientsPageScreen,
