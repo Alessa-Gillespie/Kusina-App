@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
      // theme: theme,
-      title: 'kusina_v2',
+      title: 'kusina_v3',
       debugShowCheckedModeBanner: false, // (^3)
       initialRoute: AppRoutes.ingredientsPageScreen,
       routes: AppRoutes.routes,
