@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kusina_app_v3/recipe_block.dart';
 import 'package:kusina_app_v3/rounded_button.dart';
 
+// Import the provider packages
 import 'package:provider/provider.dart';
 import 'package:kusina_app_v3/stateManagement/buttons.dart';
 
@@ -72,6 +73,7 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     // Get the Buttons instance
     final buttons = context.watch<ButtonsModel>();
 
@@ -143,6 +145,7 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                     ),
                   ),
                   SizedBox(height: 30),
+                  if (buttons.ingredients[1] == Colors.yellow && buttons.filters[0] != Colors.black &&  buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black)
                   Padding(
                     padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                     child: RecipeBlock(
@@ -154,6 +157,7 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                       },
                     ),
                   ),
+                  if (buttons.ingredients[12] == Colors.yellow && buttons.filters[1] != Colors.black &&  buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black)
                   Padding(
                     padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                     child: RecipeBlock(

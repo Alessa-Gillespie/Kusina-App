@@ -16,6 +16,7 @@ class ButtonsModel extends ChangeNotifier {
     Colors.white, // (8UT23)
     Colors.white, // (8UT23)
     Colors.white, // (8UT23)
+    Colors.white, // (8UT23)
   ];
 
   List<Color> filters = [

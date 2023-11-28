@@ -44,7 +44,7 @@ if (filters[index] == Colors.white) {
 import 'package:flutter/material.dart';
 import 'package:kusina_app_v3/routes//app_routes.dart'; // Import this to make the Navigation work.
 
-// Import the provider package
+// Import the provider packages
 import 'package:provider/provider.dart';
 import 'package:kusina_app_v3/stateManagement/buttons.dart';
 
@@ -193,6 +193,13 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
                   _buildIngredientButtons('Apple', 9),
                   _buildIngredientButtons('Banana', 10),
                   _buildIngredientButtons('Orange', 11),
+                ],
+              ),
+              SizedBox(height: 30),
+              _buildIngredientCategoryName(context, 'Condiments'),
+              Row( // List of Buttons per Row
+                children: <Widget>[
+                  _buildIngredientButtons('Toyo', 12),
                 ],
               ),
               SizedBox(height: 30),
