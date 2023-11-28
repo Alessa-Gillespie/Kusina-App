@@ -20,7 +20,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
   //TEMPORARY CONTAINER PLACEHOLDER FOR IMAGE
   Container placeholder = Container(
     //put image widget here instead of container
-    height: 130,
+    height: 170,
     decoration: BoxDecoration(
       color: Colors.red,
       borderRadius: BorderRadius.circular(
@@ -98,7 +98,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     child: placeholder,
                     //recipe's image
                     text:
-                        'Long Recipe Name Recipe Name Recipe',
+                        'Recipe Name',
                     //recipe's name
                     color: kBlockColor,
                     onPress: () {
@@ -107,7 +107,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   ),
                   RecipeBlock(
                     child: placeholder,
-                    text: 'Recipe Name',
+                    text: 'Long Recipe Name Recipe Name Recipe Recipe Name ',
                     color: kBlockColor,
                     onPress: () {
                       //TODO: direct to recipe instruction page

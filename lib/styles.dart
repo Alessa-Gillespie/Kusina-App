@@ -49,8 +49,9 @@ const kNavBarTextTextStyle = TextStyle(
 );
 
 const kRecipeBlockTextTextStyle = TextStyle(
-  fontSize: 15,
+  fontSize: 19,
   fontWeight: FontWeight.w800,
+  height: 1.1,
   color: kTextColor,
 );
 
