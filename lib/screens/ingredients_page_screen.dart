@@ -175,6 +175,7 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
                   _buildIngredientButtons('Carrot', 3),
                   _buildIngredientButtons('Potato', 4),
                   _buildIngredientButtons('Tomato', 5),
+                  _buildIngredientButtons('Sibuyas', 13),
                 ],
               ),
               SizedBox(height: 30),
@@ -184,6 +185,13 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
                   _buildIngredientButtons('Fish', 6),
                   _buildIngredientButtons('Shrimp', 7),
                   _buildIngredientButtons('Crab', 8),
+                ],
+              ),
+              SizedBox(height: 30),
+              _buildIngredientCategoryName(context, 'Seasonings & Spices'),
+              Row( // List of Buttons per Row
+                children: <Widget>[
+                  _buildIngredientButtons('Salt', 14),
                 ],
               ),
               SizedBox(height: 30),

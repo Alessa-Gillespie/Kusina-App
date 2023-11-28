@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
 class ButtonsModel extends ChangeNotifier {
+
+
   List<Color> ingredients = [
     // Note in DART, list indices start at 0
 
     Colors.white, // (8UT23) [For Counting Purposes (Use Ctrl F)
+    Colors.white, // (8UT23)
+    Colors.white, // (8UT23)
     Colors.white, // (8UT23)
     Colors.white, // (8UT23)
     Colors.white, // (8UT23)
@@ -47,6 +51,17 @@ class ButtonsModel extends ChangeNotifier {
     ingredients = List.filled(ingredients.length, Colors.white);
     notifyListeners();
 }
+
+  String recipe = 'none';
+
+  String getMyRecipe() {
+    return recipe;
+  }
+
+  void setMyRecipe(String newRecipe) {
+    recipe = newRecipe;
+    notifyListeners();
+  }
 
 // Add other methods to manipulate ingredients and filters as needed.
 }
