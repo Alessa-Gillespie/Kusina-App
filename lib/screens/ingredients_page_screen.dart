@@ -20,6 +20,25 @@ disabledElevation, color, textColor, disabledColor, disabledTextColor,
 splashColor, highlightColor, shape, clipBehavior, animationDuration,
 minWidth, height, etc
 
+(^3)
+This code is a ternary operator
+It is a shorthand way of writing an if-else statement.
+It has the following syntax:
+
+condition ? expression1 : expression2
+
+This means that if the condition is true,
+then expression1 is executed, otherwise expression2
+is executed.
+
+Equivalent:
+
+if (filters[index] == Colors.white) {
+  foregroundColor = Colors.black;
+} else {
+  foregroundColor = Colors.white;
+}
+
  */
 
 import 'package:flutter/material.dart';
@@ -33,6 +52,89 @@ class IngredientsPageScreen extends StatefulWidget {
 class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
  // GlobalKey<NavigatorState> navigatorKey = GlobalKey(); (Ignore for now)
   // const _ingredientsPageScreenState({Key? key}) : super(key: key); // (^1) (Ignore for now)
+
+  List<Color> ingredients = [
+    // Note in DART, list indices start at 0
+
+    Colors.white, // (8UT23) [For Counting Purposes (Use Ctrl F)
+    Colors.white, // (8UT23)
+    Colors.white, // (8UT23)
+    Colors.white, // (8UT23)
+    Colors.white, // (8UT23)
+    Colors.white, // (8UT23)
+    Colors.white, // (8UT23)
+    Colors.white, // (8UT23)
+    Colors.white, // (8UT23)
+    Colors.white, // (8UT23)
+    Colors.white, // (8UT23)
+    Colors.white, // (8UT23)
+  ];
+
+  List<Color> filters = [
+    // Note in DART, list indices start at 0
+
+    Colors.white, // (8UT24) [For Counting Purposes (Use Ctrl F)
+    Colors.white, // (8UT24)
+    Colors.white, // (8UT24)
+    Colors.white, // (8UT24)
+  ];
+
+  Widget _buildIngredientButtons(String label, int index) {
+    return Padding(
+      padding: EdgeInsets.all(7), // Spacing
+      child: ElevatedButton(
+        onPressed: () {
+          setState(() {
+            // Toggle the color of the button white and yellow
+            if (ingredients[index] == Colors.white) {
+              ingredients[index] = Colors.yellow;
+
+            } else {
+              ingredients[index] = Colors.white;
+            }
+          });
+          // Handle button press
+        },
+        child: Text(label),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: ingredients[index], // background color
+          foregroundColor: Colors.black, // text color
+          side: BorderSide(color: Colors.black, width: 1), // border color and width
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20), // adjust as needed
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildFilterButtons(String label, int index) {
+    return Padding(
+      padding: EdgeInsets.all(7),
+      child: ElevatedButton(
+        onPressed: () {
+          setState(() {
+            // Toggle the color of the button between black and white
+            if (filters[index] == Colors.white) {
+              filters[index] = Colors.black;
+            } else {
+              filters[index] = Colors.white;
+            }
+          });
+          // Handle button press
+        },
+        child: Text(label),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: filters[index], // background color
+          foregroundColor: filters[index] == Colors.white ? Colors.black : Colors.white, // (^3)
+          side: BorderSide(color: Colors.black, width: 1), // border color and width
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20), // adjust as needed
+          ),
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,12 +159,25 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(right: 20), // To adjust "Clear" button away from the left side)
+                    padding: EdgeInsets.only(right: 20), // To adjust "Clear" button away from the left side
                     child: ElevatedButton(
                       onPressed: () {
-                        // TODO: Implement clear button functionality
+                        setState(() {
+                          // Set all elements in filters and ingredients to Colors.white
+                          filters = List.filled(filters.length, Colors.white);
+                          ingredients = List.filled(ingredients.length, Colors.white);
+                        });
                       },
-                      child: Text('Clear'),
+                      child: Text(
+                        'Clear',
+                        style: TextStyle(fontSize: 18), // Increase text size
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white, // background color
+                        foregroundColor: Colors.black, // text color
+                        // shadowColor: Colors.transparent, // shadow color
+                        side: BorderSide(color: Colors.white, width: 0), // border color and width
+                      ),
                     ),
                   ),
                 ],
@@ -70,23 +185,52 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
               SizedBox(height: 15), // Adjust the height for empty space as needed
               _buildIngredientCategoryName(context, 'Meat'),
               Row( // List of Buttons per Row
-                    children: _buildIngredientButtons(context, ['Beef', 'Chicken', 'Pork'], [1, 2, 3]),
+                  children: <Widget>[
+                    _buildIngredientButtons('Beef', 0),
+                    _buildIngredientButtons('Chicken', 1),
+                    _buildIngredientButtons('Pork', 2),
+                    ],
               ),
               SizedBox(height: 30),
               _buildIngredientCategoryName(context, 'Vegetable'),
               Row( // List of Buttons per Row
-                children: _buildIngredientButtons(context, ['Carrot', 'Potato', 'Tomato'], [4, 5, 6]),
+                children: <Widget>[
+                  _buildIngredientButtons('Carrot', 3),
+                  _buildIngredientButtons('Potato', 4),
+                  _buildIngredientButtons('Tomato', 5),
+                ],
               ),
               SizedBox(height: 30),
               _buildIngredientCategoryName(context, 'Seafoods'),
               Row( // List of Buttons per Row
-                children: _buildIngredientButtons(context, ['Fish', 'Shrimp', 'Crab'], [7, 8, 9]),
+                children: <Widget>[
+                  _buildIngredientButtons('Fish', 6),
+                  _buildIngredientButtons('Shrimp', 7),
+                  _buildIngredientButtons('Crab', 8),
+                ],
               ),
               SizedBox(height: 30),
               _buildIngredientCategoryName(context, 'Fruits'),
               Row( // List of Buttons per Row
-                children: _buildIngredientButtons(context, ['Apple', 'Banana', 'Orange'], [10, 11, 12]),
+                children: <Widget>[
+                  _buildIngredientButtons('Apple', 9),
+                  _buildIngredientButtons('Banana', 10),
+                  _buildIngredientButtons('Orange', 11),
+                ],
               ),
+              SizedBox(height: 30),
+              _buildIngredientCategoryName(context, 'Filter'),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: <Widget>[
+                    _buildFilterButtons('Breakfast', 0),
+                    _buildFilterButtons('Lunch', 1),
+                    _buildFilterButtons('Dinner', 2),
+                    _buildFilterButtons('Desserts', 3),
+                  ],
+                ),
+              )
             ],
           ),
         ),
@@ -96,27 +240,6 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
   }
 }
 
-List<Widget> _buildIngredientButtons(BuildContext context, List<String> items, List<int> indices) { // Takes a list of Strings and a list of integers.
-  return items.asMap().entries.map((entry) {
-    int index = entry.key;
-    String item = entry.value;
-    int customIndex = indices[index]; // Get the custom index from the indices list
-
-    return Row(
-      children: [
-        Padding(
-          padding: EdgeInsets.only(left: 15),
-          child: ElevatedButton(
-            onPressed: () {
-              print('Button $item at index $customIndex is pressed.');
-            },
-            child: Text('$item ($customIndex)'), // Name of the ingredient with its custom index
-          ),
-        ),
-      ],
-    );
-  }).toList();
-}
 
 Widget _buildIngredientCategoryName(BuildContext context, String category_name) {
   return Row(
@@ -131,6 +254,7 @@ Widget _buildIngredientCategoryName(BuildContext context, String category_name) 
       ),
     ],
   );
+
 }
 
 Widget _buildNavigationBar(BuildContext context) {
@@ -155,6 +279,20 @@ Widget _buildNavigationBar(BuildContext context) {
   );
 }
 
-
+Widget _buildItemButton(BuildContext context, String item) {
+  return Row(
+    children: [
+      Padding(
+        padding: EdgeInsets.all(5),
+        child: ElevatedButton(
+          onPressed: () {
+            // TODO: Implement item button functionality
+          },
+          child: Text(item),
+        ),
+      ),
+    ],
+  );
+}
 
 
