@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:kusina_app_v3/recipe_block.dart';
 import 'package:kusina_app_v3/rounded_button.dart';
 
+import 'package:kusina_app_v3/routes//app_routes.dart';
+
 // Import the provider packages
 import 'package:provider/provider.dart';
 import 'package:kusina_app_v3/stateManagement/buttons.dart';
@@ -153,7 +155,7 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                       text: 'Tinola',
                       color: Colors.white,
                       onPress: () {
-                        //TODO: direct to recipe instruction page
+                        Navigator.pushNamed(context, AppRoutes.tinola);
                       },
                     ),
                   ),
@@ -165,7 +167,7 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                       text: 'Tapsilog',
                       color: Colors.white,
                       onPress: () {
-                        //TODO: direct to recipe instruction page
+                        Navigator.pushNamed(context, AppRoutes.tapsilog);
                       },
                     ),
                   ),
