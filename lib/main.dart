@@ -1,5 +1,9 @@
 /*
 
+//TODO: create theme for app (color scheme, font styles and size) which will be used in all pages
+
+//TODO: import Roboto font family
+
 Code Notes:
 
 (^0)
