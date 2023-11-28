@@ -5,12 +5,40 @@ import 'package:kusina_app_v3/rounded_button.dart';
 import 'package:provider/provider.dart';
 import 'package:kusina_app_v3/stateManagement/buttons.dart';
 
+const spaceBetweenTextAndBlock = 17;
+
+const spaceBetweenRecipeBlocks = 18;
+
 class ResultsPageScreen extends StatefulWidget {
   @override
   resultsPageScreenState createState() => resultsPageScreenState();
 }
 
 class resultsPageScreenState extends State<ResultsPageScreen> {
+
+  Container placeholder = Container(
+    //put image widget here instead of container
+    height: 130,
+    decoration: BoxDecoration(
+      color: Colors.red,
+      borderRadius: BorderRadius.circular(
+          10.0), //TODO: Fix border radius border between container/image and text should be 0
+    ),
+  );
+
+  Widget buildImageContainer(String imagePath) {
+    return Container(
+      height: 130,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(imagePath),
+          fit: BoxFit.cover,
+        ),
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+    );
+  }
+
   Widget _buildFilterButtons(String label, int index) {
     return Padding(
       padding: EdgeInsets.all(7),
@@ -114,6 +142,30 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                       ],
                     ),
                   ),
-        ]))));
+                  SizedBox(height: 30),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                    child: RecipeBlock(
+                      child: buildImageContainer('images/Tinola.jpg'),
+                      text: 'Tinola',
+                      color: Colors.white,
+                      onPress: () {
+                        //TODO: direct to recipe instruction page
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                    child: RecipeBlock(
+                      child: buildImageContainer('images/Tapsilog.jpg'),
+                      text: 'Tapsilog',
+                      color: Colors.white,
+                      onPress: () {
+                        //TODO: direct to recipe instruction page
+                      },
+                    ),
+                  ),
+        ]
+                ))));
   }
 }

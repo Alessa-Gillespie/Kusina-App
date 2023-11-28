@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kusina_app_v3/recipe_block.dart';
 import 'package:kusina_app_v3/rounded_button.dart';
+import 'package:kusina_app_v3/routes//app_routes.dart';
 
 //for headings etc.
 const kBigBoldTextStyle = TextStyle(
@@ -92,11 +93,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                         ? kInactiveButtonColor
                         : kActiveButtonColor,
                     onPress: () {
-                      setState(() {
-                        isButtonPressed =
-                            isButtonPressed == false ? true : false;
-                      });
-                      print(isButtonPressed);
+                      Navigator.pushNamed(context, AppRoutes.ingredientsPageScreen);
                     },
                   )
                 ],
@@ -125,7 +122,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     child: placeholder,
                     //recipe's image
                     text:
-                        'Long Recipe Name Recipe Name Recipe Name Recipe Name Recipe Name Recipe Name',
+                        'Long Recipe Name Recipe Name Recipe',
                     //recipe's name
                     color: Colors.white,
                     onPress: () {

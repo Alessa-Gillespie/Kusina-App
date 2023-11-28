@@ -21,7 +21,7 @@ class RecipeBlock extends StatelessWidget {
     return  GestureDetector(
       onTap: onPress,
       child: Container(
-          height: 180,
+          height: 170,
           margin: EdgeInsets.only(bottom: 18),
           decoration: BoxDecoration(
               color: color,
