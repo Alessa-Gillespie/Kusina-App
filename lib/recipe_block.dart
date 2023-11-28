@@ -31,7 +31,7 @@ class RecipeBlock extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                child, //image
+                child, //image (height should be 170)
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16,9,16,9),
                   child: Text(

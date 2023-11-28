@@ -20,7 +20,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
   //TEMPORARY CONTAINER PLACEHOLDER FOR IMAGE
   Container placeholder = Container(
     //put image widget here instead of container
-    height: 170,
+    height: 170, //this should be the image height
     decoration: BoxDecoration(
       color: Colors.red,
       borderRadius: BorderRadius.circular(
@@ -95,7 +95,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     height: 17, //spaceBetweenTextAndBlock
                   ),
                   RecipeBlock(
-                    child: placeholder,
+                    child: placeholder,//child height should be 170
                     //recipe's image
                     text:
                         'Recipe Name',
