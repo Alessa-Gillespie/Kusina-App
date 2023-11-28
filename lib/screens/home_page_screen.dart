@@ -2,41 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:kusina_app_v3/recipe_block.dart';
 import 'package:kusina_app_v3/rounded_button.dart';
 import 'package:kusina_app_v3/routes//app_routes.dart';
-
-//for headings etc.
-const kBigBoldTextStyle = TextStyle(
-  fontSize: 27.49,
-  fontWeight: FontWeight.w800,
-  height: 1.1,
-);
-
-//default font size and weight
-const kNormalTextStyle = TextStyle(
-  fontSize: 16.99,
-  color: Colors.black,
-);
-
-const kNormalBoldTextStyle = TextStyle(
-  fontSize: 16.99,
-  color: Colors.black,
-  fontWeight: FontWeight.w800,
-);
-
-const kSeeMoreTextStyle = TextStyle(
-  fontSize: 10.5,
-);
-
-//background color
-const backgroundColor = Color(0xFFFFFDE7);
+import 'package:kusina_app_v3/styles.dart';
 
 const spaceBetweenTextAndBlock = 17;
-
 const spaceBetweenRecipeBlocks = 18;
 
+/*
 const kInactiveButtonColor = Colors.yellow;
-
 const kActiveButtonColor = Colors.black;
-
+*/
 class HomePageScreen extends StatefulWidget {
   @override
   _HomePageScreenState createState() => _HomePageScreenState();
@@ -60,7 +34,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: kBackgroundColor,
       appBar: AppBar(
         //TODO: edit the header (add color, change font style)
         title: Text('Kusina'),
@@ -76,13 +50,15 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 children: <Widget>[
                   Text(
                     'Ready to cook?',
-                    style: kNormalTextStyle,
+                    style: kBodyTextStyle,
                   ),
                   SizedBox(
                     height: 17,
                   ),
                   Text('What ingredients \ndo you have?',
-                      textAlign: TextAlign.center, style: kBigBoldTextStyle),
+                      textAlign: TextAlign.center,
+                      style: kHeading1TextStyle,
+                  ),
                   SizedBox(
                     height: 17,
                   ),
@@ -90,8 +66,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     text: 'Select Ingredients',
                     icon: Icons.arrow_forward_rounded,
                     color: isButtonPressed == false
-                        ? kInactiveButtonColor
-                        : kActiveButtonColor,
+                        ? kInactiveFilledButtonColor
+                        : kActiveFilledButtonColor,
                     onPress: () {
                       Navigator.pushNamed(context, AppRoutes.ingredientsPageScreen);
                     },
@@ -110,9 +86,9 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     children: <Text>[
                       Text(
                         'Recipe Suggestions',
-                        style: kNormalBoldTextStyle,
+                        style: kBodyBoldTextStyle,
                       ),
-                      Text('See more', style: kSeeMoreTextStyle),
+                      Text('See more', style: kSmallTextStyle),
                     ],
                   ),
                   SizedBox(
@@ -124,7 +100,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     text:
                         'Long Recipe Name Recipe Name Recipe',
                     //recipe's name
-                    color: Colors.white,
+                    color: kBlockColor,
                     onPress: () {
                       //TODO: direct to recipe instruction page
                     },
@@ -132,7 +108,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   RecipeBlock(
                     child: placeholder,
                     text: 'Recipe Name',
-                    color: Colors.white,
+                    color: kBlockColor,
                     onPress: () {
                       //TODO: direct to recipe instruction page
                     },
@@ -140,7 +116,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   RecipeBlock(
                     child: placeholder,
                     text: 'Recipe Name',
-                    color: Colors.white,
+                    color: kBlockColor,
                     onPress: () {
                       //TODO: direct to recipe instruction page
                     },

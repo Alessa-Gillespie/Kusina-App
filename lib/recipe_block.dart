@@ -1,19 +1,21 @@
 //TODO: make recipe block responsive to text length (text height changes but image height stays the same)
 import 'package:flutter/material.dart';
+import 'package:kusina_app_v3/styles.dart';
 
 //style from home page screen
+/*
 const kNormalBoldTextStyle = TextStyle(
   fontSize: 16.99,
   color: Colors.black,
   fontWeight: FontWeight.w800,
 );
-
+*/
 class RecipeBlock extends StatelessWidget {
   RecipeBlock({required this.child, required this.text, this.onPress, this.color});
 
-  final String? text;
-  final Color? color;
-  final Widget child;
+  final String? text; //recipe name text
+  final Color? color; //block color
+  final Widget child; //image
   final Function()? onPress;
 
   @override
@@ -24,7 +26,7 @@ class RecipeBlock extends StatelessWidget {
           height: 170,
           margin: EdgeInsets.only(bottom: 18),
           decoration: BoxDecoration(
-              color: color,
+              color: color, //block color
               borderRadius: BorderRadius.circular(10.0),
               boxShadow:  [
                 BoxShadow(
@@ -37,12 +39,12 @@ class RecipeBlock extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              child,
+              child, //image
               Padding(
                 padding: const EdgeInsets.fromLTRB(15,6,15,6),
                 child: Text(
-                  text!,
-                  style: kNormalBoldTextStyle,
+                  text!, //recipe name text
+                  style: kRecipeBlockTextTextStyle,
                 ),
               ),
             ],
