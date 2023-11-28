@@ -24,7 +24,7 @@ class AppRoutes {
 
   //static const String shoppingListPageEmptyScreen = '/shopping_list_page_empty_screen';
 
-  // static const String resultsPageScreen = '/results_page_screen';
+  static const String resultsPageScreen = '/results_page_screen';
 
  // static const String favoritesPageEmptyScreen = '/favorites_page_empty_screen';
 
