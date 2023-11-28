@@ -70,22 +70,22 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
               SizedBox(height: 15), // Adjust the height for empty space as needed
               _buildIngredientCategoryName(context, 'Meat'),
               Row( // List of Buttons per Row
-                    children: _buildIngredientButtons(context, ['Beef', 'Chicken', 'Pork']),
+                    children: _buildIngredientButtons(context, ['Beef', 'Chicken', 'Pork'], [1, 2, 3]),
               ),
               SizedBox(height: 30),
               _buildIngredientCategoryName(context, 'Vegetable'),
               Row( // List of Buttons per Row
-                children: _buildIngredientButtons(context, ['Carrot', 'Potato', 'Tomato']),
+                children: _buildIngredientButtons(context, ['Carrot', 'Potato', 'Tomato'], [4, 5, 6]),
               ),
               SizedBox(height: 30),
               _buildIngredientCategoryName(context, 'Seafoods'),
               Row( // List of Buttons per Row
-                children: _buildIngredientButtons(context, ['Fish', 'Shrimp', 'Crab']),
+                children: _buildIngredientButtons(context, ['Fish', 'Shrimp', 'Crab'], [7, 8, 9]),
               ),
               SizedBox(height: 30),
               _buildIngredientCategoryName(context, 'Fruits'),
               Row( // List of Buttons per Row
-                children: _buildIngredientButtons(context, ['Apple', 'Banana', 'Orange']),
+                children: _buildIngredientButtons(context, ['Apple', 'Banana', 'Orange'], [10, 11, 12]),
               ),
             ],
           ),
@@ -96,20 +96,26 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
   }
 }
 
-List<Widget> _buildIngredientButtons(BuildContext context, List<String> items) { // Takes a list of Strings.
-  return items.map((item) => Row(
-    children: [
-      Padding(
-        padding: EdgeInsets.only(left: 15),
-        child: ElevatedButton(
-          onPressed: () {
-            // TODO: Implement item button functionality
-          },
-          child: Text(item), // Name of the ingredient
+List<Widget> _buildIngredientButtons(BuildContext context, List<String> items, List<int> indices) { // Takes a list of Strings and a list of integers.
+  return items.asMap().entries.map((entry) {
+    int index = entry.key;
+    String item = entry.value;
+    int customIndex = indices[index]; // Get the custom index from the indices list
+
+    return Row(
+      children: [
+        Padding(
+          padding: EdgeInsets.only(left: 15),
+          child: ElevatedButton(
+            onPressed: () {
+              print('Button $item at index $customIndex is pressed.');
+            },
+            child: Text('$item ($customIndex)'), // Name of the ingredient with its custom index
+          ),
         ),
-      ),
-    ],
-  )).toList();
+      ],
+    );
+  }).toList();
 }
 
 Widget _buildIngredientCategoryName(BuildContext context, String category_name) {
