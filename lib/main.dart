@@ -41,16 +41,23 @@ Sets text to black color
  */
 
 
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // (^0)
 import 'package:kusina_app_v3/routes//app_routes.dart';
+import 'package:kusina_app_v3/stateManagement/buttons.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized(); // (^1)
+  WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp, // (^2)
+    DeviceOrientation.portraitUp,
   ]);
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ButtonsModel(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

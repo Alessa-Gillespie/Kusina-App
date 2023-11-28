@@ -44,6 +44,10 @@ if (filters[index] == Colors.white) {
 import 'package:flutter/material.dart';
 import 'package:kusina_app_v3/routes//app_routes.dart'; // Import this to make the Navigation work.
 
+// Import the provider package
+import 'package:provider/provider.dart';
+import 'package:kusina_app_v3/stateManagement/buttons.dart';
+
 class IngredientsPageScreen extends StatefulWidget {
   @override
   _ingredientsPageScreenState createState() => _ingredientsPageScreenState();
@@ -53,58 +57,32 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
  // GlobalKey<NavigatorState> navigatorKey = GlobalKey(); (Ignore for now)
   // const _ingredientsPageScreenState({Key? key}) : super(key: key); // (^1) (Ignore for now)
 
-  List<Color> ingredients = [
-    // Note in DART, list indices start at 0
-
-    Colors.white, // (8UT23) [For Counting Purposes (Use Ctrl F)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
-  ];
-
-  List<Color> filters = [
-    // Note in DART, list indices start at 0
-
-    Colors.white, // (8UT24) [For Counting Purposes (Use Ctrl F)
-    Colors.white, // (8UT24)
-    Colors.white, // (8UT24)
-    Colors.white, // (8UT24)
-  ];
-
   Widget _buildIngredientButtons(String label, int index) {
     return Padding(
       padding: EdgeInsets.all(7), // Spacing
       child: ElevatedButton(
         onPressed: () {
-          setState(() {
-            // Toggle the color of the button white and yellow
-            if (ingredients[index] == Colors.white) {
-              ingredients[index] = Colors.yellow;
+          // Get the Buttons instance
+          final buttons = context.read<ButtonsModel>();
 
-            } else {
-              ingredients[index] = Colors.white;
-            }
-          });
-          // Handle button press
+          // Update the ingredients list
+          if (buttons.ingredients[index] == Colors.white) {
+            buttons.updateIngredientsButton(index, Colors.yellow);
+          } else {
+            buttons.updateIngredientsButton(index, Colors.white);
+          }
         },
         child: Text(label),
         style: ElevatedButton.styleFrom(
-          backgroundColor: ingredients[index], // background color
+          // Use the color from the ingredients list in the Buttons instance
+          backgroundColor: context.watch<ButtonsModel>().ingredients[index],
           foregroundColor: Colors.black, // text color
           side: BorderSide(color: Colors.black, width: 1), // border color and width
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20), // adjust as needed
           ),
         ),
-      ),
+      )
     );
   }
 
@@ -113,20 +91,18 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
       padding: EdgeInsets.all(7),
       child: ElevatedButton(
         onPressed: () {
-          setState(() {
-            // Toggle the color of the button between black and white
-            if (filters[index] == Colors.white) {
-              filters[index] = Colors.black;
-            } else {
-              filters[index] = Colors.white;
-            }
-          });
+          final buttonsModel = context.read<ButtonsModel>();
+          if (buttonsModel.filters[index] == Colors.white) {
+            buttonsModel.updateFilters(index, Colors.black);
+          } else {
+            buttonsModel.updateFilters(index, Colors.white);
+          }
           // Handle button press
         },
         child: Text(label),
         style: ElevatedButton.styleFrom(
-          backgroundColor: filters[index], // background color
-          foregroundColor: filters[index] == Colors.white ? Colors.black : Colors.white, // (^3)
+          backgroundColor: context.watch<ButtonsModel>().filters[index],
+          foregroundColor: context.watch<ButtonsModel>().filters[index] == Colors.white ? Colors.black : Colors.white,  // (^3)
           side: BorderSide(color: Colors.black, width: 1), // border color and width
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20), // adjust as needed
@@ -162,11 +138,12 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
                     padding: EdgeInsets.only(right: 20), // To adjust "Clear" button away from the left side
                     child: ElevatedButton(
                       onPressed: () {
-                        setState(() {
-                          // Set all elements in filters and ingredients to Colors.white
-                          filters = List.filled(filters.length, Colors.white);
-                          ingredients = List.filled(ingredients.length, Colors.white);
-                        });
+                        // Get the Buttons instance
+                        final buttons = context.read<ButtonsModel>();
+
+                        // Set all elements in filters and ingredients to Colors.white
+                        buttons.clearFilters();
+                        buttons.clearIngredients();
                       },
                       child: Text(
                         'Clear',
@@ -230,7 +207,7 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
                     _buildFilterButtons('Desserts', 3),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -254,7 +231,6 @@ Widget _buildIngredientCategoryName(BuildContext context, String category_name) 
       ),
     ],
   );
-
 }
 
 Widget _buildNavigationBar(BuildContext context) {
@@ -262,7 +238,7 @@ Widget _buildNavigationBar(BuildContext context) {
     padding: EdgeInsets.all(20.0), // To adjust the button to not reach the edge or the bottom.
     child: MaterialButton( // (^2)
       onPressed: () {
-        Navigator.pushNamed(context, AppRoutes.homePage); // Method to navigate to Results Page.
+        Navigator.pushNamed(context, AppRoutes.resultsPageScreen); // Method to navigate to Results Page.
       },
       color: Colors.yellow,
       shape: RoundedRectangleBorder(
@@ -279,20 +255,8 @@ Widget _buildNavigationBar(BuildContext context) {
   );
 }
 
-Widget _buildItemButton(BuildContext context, String item) {
-  return Row(
-    children: [
-      Padding(
-        padding: EdgeInsets.all(5),
-        child: ElevatedButton(
-          onPressed: () {
-            // TODO: Implement item button functionality
-          },
-          child: Text(item),
-        ),
-      ),
-    ],
-  );
-}
+
+
+
 
 
