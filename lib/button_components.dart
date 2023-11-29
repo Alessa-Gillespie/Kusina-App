@@ -194,7 +194,7 @@ class FilterButton extends StatelessWidget {
   final Function()? onPress;
 
   //filter button styles
-  final EdgeInsets _padding = EdgeInsets.symmetric(horizontal: 20, vertical: 8);
+  final EdgeInsets _padding = EdgeInsets.symmetric(horizontal: 18, vertical: 5);
   final Color _inactiveButtonColor = Colors.transparent,
       _activeButtonColor = kActiveFilterButtonColor;
   final Color _inactiveBorderColor = kTextColor,

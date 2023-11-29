@@ -122,7 +122,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     },
                   ),
                   IngredientButton(
-                    text: 'breakfast',
+                    text: 'Chicken',
                     onPress: () {
                       //change button color
                       setState((){
@@ -133,7 +133,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   ),
                   SizedBox(height: 10,),
                   FilterButton(
-                    text: 'breakfast',
+                    text: 'Breakfast',
                     onPress: () {
                       //change button color
                       setState((){
@@ -144,7 +144,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   ),
                   SizedBox(height: 10,),
                   BottomButton(
-                    text: 'Bottom Button',
+                    text: 'Shortcut to [insert page]',
                     onPress: () {
                       //change button color
                       setState((){
