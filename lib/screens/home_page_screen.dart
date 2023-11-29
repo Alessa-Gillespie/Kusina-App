@@ -29,7 +29,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
   );
 
   //if button is pressed, it will change its color
-  bool isButtonPressed = false;
+  bool isMiddleButtonPressed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -62,10 +62,10 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   SizedBox(
                     height: 17,
                   ),
-                  RoundedButton(
+                  MiddleButton(
                     text: 'Select Ingredients',
                     icon: Icons.arrow_forward_rounded,
-                    color: isButtonPressed == false
+                    color: isMiddleButtonPressed == false
                         ? kInactiveFilledButtonColor
                         : kActiveFilledButtonColor,
                     onPress: () {

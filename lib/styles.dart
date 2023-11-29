@@ -80,8 +80,7 @@ const kBottomButtonText = TextStyle(
 );
 
 const kMiddleButtonText = TextStyle(
-  fontSize: 15,
-  fontWeight: FontWeight.w800,
+  fontSize: 19,
   color: kTextColor,
 );
 
