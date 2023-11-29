@@ -24,12 +24,12 @@ class NavBar extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               IconGroup(
-                icon: Icons.home_rounded,
-                text: 'Home',
-                onPress: () {
+                  icon: Icons.home_rounded,
+                  text: 'Home',
+                  onPress: () {
 
-                  Navigator.pushNamed(context, AppRoutes.ingredientsPageScreen);
-                }
+                    Navigator.pushNamed(context, AppRoutes.ingredientsPageScreen);
+                  }
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 12),
@@ -52,7 +52,7 @@ class NavBar extends StatelessWidget {
                   icon: Icons.home_rounded,
                   text: 'Favorites',
                   onPress: () {
-                   // Navigator.pushNamed(context, AppRoutes.favoritesPageScreen);
+                    // Navigator.pushNamed(context, AppRoutes.favoritesPageScreen);
                   }
               ),
             ],
