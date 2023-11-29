@@ -158,6 +158,7 @@ class IngredientButton extends StatelessWidget {
     return GestureDetector(
       onTap: onPress,
       child: Container(
+        margin: EdgeInsets.only(right: 15),
         decoration: BoxDecoration(
           color: _isPressed == false //button color
               ? _inactiveButtonColor
@@ -217,25 +218,30 @@ class FilterButton extends StatelessWidget {
     return GestureDetector(
       onTap: onPress,
       child: Container(
+        height: 20,
+        alignment: Alignment.center,
+        margin: EdgeInsets.only(right: 11),
         decoration: BoxDecoration(
           color: _isPressed == false //button color
               ? _inactiveButtonColor
               : _activeButtonColor,
           border: Border.all(
-              width: 2.5,
+              width: 1.5,
               color: _isPressed == false //border color
                   ? _inactiveBorderColor
                   : _activeBorderColor
           ),
           borderRadius: BorderRadius.circular(30),
         ),
-        child: Padding(
-          padding: _padding,
-          child: Text(
-            text!, //button text
-            style: _isPressed == false //text style and color
-                ? _inactiveTextStyle
-                : _activeTextStyle,
+        child: Flexible(
+          child: Padding(
+            padding: _padding,
+            child: Text(
+              text!, //button text
+              style: _isPressed == false //text style and color
+                  ? _inactiveTextStyle
+                  : _activeTextStyle,
+            ),
           ),
         ),
       ),

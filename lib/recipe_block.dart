@@ -16,7 +16,7 @@ class RecipeBlock extends StatelessWidget {
       onTap: onPress,
       child: Expanded(
         child: Container(
-            margin: EdgeInsets.only(bottom: 18),
+            margin: EdgeInsets.only(bottom: 22),
             decoration: BoxDecoration(
                 color: color, //block color
                 borderRadius: BorderRadius.circular(10.0),

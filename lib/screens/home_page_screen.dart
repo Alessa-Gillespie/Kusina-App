@@ -151,6 +151,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       setState((){
                         BottomButton.changeButtonColor();
                       });
+                      //Navigator.pushNamed(context, AppRoutes.favoritesPageScreen);
                       //add to some list for processing for result?
                     },
                   ),

@@ -6,6 +6,7 @@ import 'package:kusina_app_v3/screens/home_page_screen.dart';
 import 'package:kusina_app_v3/screens/results_page_screen.dart';
 import 'package:kusina_app_v3/screens/missing_ingredients_page.dart';
 import 'package:kusina_app_v3/screens/shopping_list_screen.dart';
+import 'package:kusina_app_v3/screens/favorites_page_screen.dart';
 
 // Recipe Instruction Pages
 import 'package:kusina_app_v3/recipes/tinola.dart';
