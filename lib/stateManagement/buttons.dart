@@ -45,6 +45,11 @@ class ButtonsModel extends ChangeNotifier {
     return recipeBank.contains(recipe);
   }
 
+  void removeFromRecipeBank(String recipe) {
+    recipeBank.remove(recipe);
+    notifyListeners();
+  }
+
   List<String> missingIngredientsBank = [];
 
   void addToMissingIngredientsBank(String item) {
@@ -68,6 +73,11 @@ class ButtonsModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  void removeFromMissingIngredientsBank(String ingredient) {
+    missingIngredientsBank.remove(ingredient);
+    notifyListeners();
+  }
+
   void clearFilters() {
     filters = List.filled(filters.length, Colors.white);
     notifyListeners();
@@ -76,7 +86,7 @@ class ButtonsModel extends ChangeNotifier {
   void clearIngredients() {
     ingredients = List.filled(ingredients.length, Colors.white);
     notifyListeners();
-}
+  }
 
   String recipe = 'none';
 
