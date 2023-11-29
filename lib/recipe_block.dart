@@ -1,4 +1,3 @@
-
 //template for creating a recipe block (or tile)
 import 'package:flutter/material.dart';
 import 'package:kusina_app_v3/styles.dart';
