@@ -114,7 +114,7 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
 
   @override
   Widget build(BuildContext context) {
-    mediaQueryData = MediaQuery.of(context);
+    // mediaQueryData = MediaQuery.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Ingredients'),

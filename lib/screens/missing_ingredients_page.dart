@@ -61,11 +61,33 @@ class _MissingIngredientsPage extends State<MissingIngredientsPage> {
 }
 
 Widget _buildNavigationBar(BuildContext context, Size deviceSize) {
+  final buttons = context.read<ButtonsModel>();
   return Padding(
     padding: EdgeInsets.all(deviceSize.width * 0.05), // Use a percentage of the screen width
     child: MaterialButton(
       onPressed: () {
-        Navigator.pushNamed(context, AppRoutes.resultsPageScreen);
+
+        if (buttons.getMyRecipe() == 'Tinola') {
+          buttons.addToRecipeBank(buttons.getMyRecipe());
+          if (buttons.ingredients[1] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Chicken');
+          }
+          if (buttons.ingredients[13] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Sibuyas');
+          }
+        }
+
+        if (buttons.getMyRecipe() == 'Tapsilog') {
+          buttons.addToRecipeBank(buttons.getMyRecipe());
+          if (buttons.ingredients[14] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Salt');
+          }
+          if (buttons.ingredients[12] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Toyo');
+          }
+        }
+
+        Navigator.pushNamed(context, AppRoutes.shoppingListScreen);
       },
       color: Colors.yellow,
       shape: RoundedRectangleBorder(

@@ -32,6 +32,32 @@ class ButtonsModel extends ChangeNotifier {
     Colors.white, // (8UT24)
   ];
 
+  List<String> recipeBank = [];
+
+  void addToRecipeBank(String item) {
+    if (!recipeBank.contains(item)) {
+      recipeBank.add(item);
+      notifyListeners();
+    }
+  }
+
+  bool isRecipeInBank(String recipe) {
+    return recipeBank.contains(recipe);
+  }
+
+  List<String> missingIngredientsBank = [];
+
+  void addToMissingIngredientsBank(String item) {
+    if (!missingIngredientsBank.contains(item)) {
+      missingIngredientsBank.add(item);
+      notifyListeners();
+    }
+  }
+
+  bool isIngredientMissing(String ingredient) {
+    return missingIngredientsBank.contains(ingredient);
+  }
+
   void updateFilters(int index, Color color) {
     filters[index] = color;
     notifyListeners();
