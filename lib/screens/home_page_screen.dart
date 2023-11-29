@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kusina_app_v3/recipe_block.dart';
-import 'package:kusina_app_v3/rounded_button.dart';
+import 'package:kusina_app_v3/buttons.dart';
 import 'package:kusina_app_v3/routes//app_routes.dart';
 import 'package:kusina_app_v3/styles.dart';
 
@@ -65,13 +65,13 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   MiddleButton(
                     text: 'Select Ingredients',
                     icon: Icons.arrow_forward_rounded,
-                    color: isMiddleButtonPressed == false
-                        ? kInactiveFilledButtonColor
-                        : kActiveFilledButtonColor,
                     onPress: () {
+                      setState(() {
+                        MiddleButton.changeButtonColor();
+                      });
                       Navigator.pushNamed(context, AppRoutes.ingredientsPageScreen);
                     },
-                  )
+                  ),
                 ],
               ),
             ),
@@ -119,6 +119,38 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     color: kBlockColor,
                     onPress: () {
                       //TODO: direct to recipe instruction page
+                    },
+                  ),
+                  IngredientButton(
+                    text: 'breakfast',
+                    onPress: () {
+                      //change button color
+                      setState((){
+                        IngredientButton.changeButtonColor();
+                      });
+                      //add to some list for processing for result?
+                    },
+                  ),
+                  SizedBox(height: 10,),
+                  FilterButton(
+                    text: 'breakfast',
+                    onPress: () {
+                      //change button color
+                      setState((){
+                        FilterButton.changeButtonColor();
+                      });
+                      //add to some list for processing for result?
+                    },
+                  ),
+                  SizedBox(height: 10,),
+                  BottomButton(
+                    text: 'Bottom Button',
+                    onPress: () {
+                      //change button color
+                      setState((){
+                        BottomButton.changeButtonColor();
+                      });
+                      //add to some list for processing for result?
                     },
                   ),
                 ],

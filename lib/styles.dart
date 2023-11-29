@@ -11,6 +11,7 @@ const kTextColor = Colors.black;
 
 const kActiveIngredientButtonColor = kMainColor;
 const kInactiveFilledButtonColor = kMainColor;
+const kActiveFilterButtonColor = kTextColor;
 const kRecipeSubheadingColor = kMainColor;
 const kEmptyPageTextColor = kNavBarTextColor;
 
@@ -84,11 +85,15 @@ const kMiddleButtonText = TextStyle(
   color: kTextColor,
 );
 
-const kIngredientButtonText = kMiddleButtonText;
+const kIngredientButtonText = TextStyle(
+  fontSize: 19,
+  fontWeight: FontWeight.w600,
+  color: kTextColor,
+);
 
 const kFilterButtonText = TextStyle(
-  fontSize: 13.69,
-  fontWeight: FontWeight.w800,
+  fontSize: 14,
+  fontWeight: FontWeight.w500,
   color: kTextColor,
 );
 
