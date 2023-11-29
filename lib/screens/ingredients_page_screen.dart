@@ -1,4 +1,32 @@
 /*
+//TODO: make the block of ingredient/filter buttons responsive (nag-aautomatic next
+   row if magooverlow). make spacing between each ingredient/filter buttons consistent/same
+
+Pseudocode:
+int GapBetweenButtons
+
+List  <Ingredient Button> categoryIngredients           //each category can
+  //contains all ingredient buttons under a category     have a different list or you can come from one list
+                                                          containing all ingredients pero categorized
+
+
+method rowBuilder(categoryIngredients)
+  for(initial: 0; until list.length; nextItemOnList())
+    if button.length is kasya pa sa width ng row
+      add button to row
+      add GapBetweenButtons
+    else
+      create new row and add that button
+
+  return Column
+
+//widget containing ingredient buttons
+method ingredientBlockBuilder(category) //can be used by different categories
+  return Expanded //to take all remaining space
+          child: rowBuilder
+
+
+
 
 Code Notes:
 
