@@ -3,6 +3,7 @@ import 'package:kusina_app_v3/recipe_block.dart';
 import 'package:kusina_app_v3/button_components.dart';
 import 'package:kusina_app_v3/routes//app_routes.dart';
 import 'package:kusina_app_v3/styles.dart';
+import 'package:kusina_app_v3/navbar.dart';
 
 const spaceBetweenTextAndBlock = 17;
 const spaceBetweenRecipeBlocks = 18;
@@ -159,6 +160,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
           ),
         ],
       ),
+      bottomNavigationBar: NavBar(),
     );
   }
 }

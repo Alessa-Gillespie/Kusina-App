@@ -6,7 +6,8 @@ const kAppBar = Color(0xFFFFFCE7);
 const kBackgroundColor = Color(0xFFFFFFF5);
 const kBlockColor = Colors.white;
 const kMainColor = Color(0xFFEFD003);
-const kNavBarTextColor = Color(0xFFE1D78F);
+const kNavBarColor = Color(0xFFFFF8C9);
+const kNavBarTextColor = Color(0xFFD9CA88);
 const kTextColor = Colors.black;
 
 const kActiveIngredientButtonColor = kMainColor;
@@ -45,8 +46,10 @@ const kHeading2TextStyle = TextStyle(
 );
 
 const kNavBarTextTextStyle = TextStyle(
-  fontSize: 9.13,
-  color: kTextColor,
+  fontSize: 12,
+  color: kNavBarTextColor,
+  fontWeight: FontWeight.w500,
+  height: 1.1,
 );
 
 const kRecipeBlockTextTextStyle = TextStyle(
