@@ -58,6 +58,7 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
   // const _ingredientsPageScreenState({Key? key}) : super(key: key); // (^1) (Ignore for now)
 
   Widget _buildIngredientButtons(String label, int index) {
+    MediaQueryData mediaQueryData = MediaQuery.of(context);
     return Padding(
       padding: EdgeInsets.all(7), // Spacing
       child: ElevatedButton(
@@ -114,6 +115,7 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
 
   @override
   Widget build(BuildContext context) {
+    mediaQueryData = MediaQuery.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Ingredients'),

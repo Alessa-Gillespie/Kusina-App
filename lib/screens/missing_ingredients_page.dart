@@ -11,11 +11,11 @@ class MissingIngredientsPage extends StatefulWidget {
 }
 
 class _MissingIngredientsPage extends State<MissingIngredientsPage> {
-  List<String> items = ['Apples', 'Bananas', 'Oranges'];
 
   @override
   Widget build(BuildContext context) {
     final buttons = context.read<ButtonsModel>();
+    final deviceSize = MediaQuery.of(context).size; // Get the size of the device
 
     return Scaffold(
       appBar: AppBar(
@@ -32,7 +32,7 @@ class _MissingIngredientsPage extends State<MissingIngredientsPage> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                Icon(Icons.shopping_cart, size: 90),
+                Icon(Icons.shopping_cart, size: deviceSize.width * 0.2), // Use a percentage of the screen width
                 if (buttons.getMyRecipe() == 'Tinola') ...[
                   if (buttons.ingredients[1] != Colors.yellow) ...[
                     Text('Chicken'),
@@ -55,31 +55,27 @@ class _MissingIngredientsPage extends State<MissingIngredientsPage> {
           ),
         ),
       ),
-      bottomNavigationBar: _buildNavigationBar(context),
+      bottomNavigationBar: _buildNavigationBar(context, deviceSize),
     );
   }
 }
 
-Widget _buildNavigationBar(BuildContext context) {
+Widget _buildNavigationBar(BuildContext context, Size deviceSize) {
   return Padding(
-    padding: EdgeInsets.all(20.0),
-    // To adjust the button to not reach the edge or the bottom.
-    child: MaterialButton( // (^2)
+    padding: EdgeInsets.all(deviceSize.width * 0.05), // Use a percentage of the screen width
+    child: MaterialButton(
       onPressed: () {
-        Navigator.pushNamed(context,
-            AppRoutes.resultsPageScreen); // Method to navigate to Results Page.
+        Navigator.pushNamed(context, AppRoutes.resultsPageScreen);
       },
       color: Colors.yellow,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(
-            30.0), // Adjusting the roundness of the edges.
+        borderRadius: BorderRadius.circular(deviceSize.width * 0.075), // Use a percentage of the screen width
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 10.0),
-        // Adjust this value to create more or less space vertically between the text.
+        padding: EdgeInsets.symmetric(vertical: deviceSize.height * 0.01), // Use a percentage of the screen height
         child: Text(
           'Add To Shopping Cart',
-          style: TextStyle(fontSize: 24),
+          style: TextStyle(fontSize: deviceSize.width * 0.06), // Use a percentage of the screen width
         ),
       ),
     ),
