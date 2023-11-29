@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kusina_app_v3/recipe_block.dart';
-import 'package:kusina_app_v3/buttons.dart';
+import 'package:kusina_app_v3/button_components.dart';
 import 'package:kusina_app_v3/routes//app_routes.dart';
 import 'package:kusina_app_v3/styles.dart';
 
