@@ -10,6 +10,19 @@ class RecipeBlock extends StatelessWidget {
   final Widget child; //image
   final Function()? onPress;
 
+  Widget _buildImageContainer(String imagePath) {
+    return Container(
+      height: 170,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(imagePath),
+          fit: BoxFit.cover,
+        ),
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return  GestureDetector(
@@ -31,7 +44,7 @@ class RecipeBlock extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                child, //image (height should be 170)
+                child, //_buildImageContainer
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16,9,16,9),
                   child: Text(
