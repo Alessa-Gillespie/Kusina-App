@@ -30,7 +30,7 @@ class AppRoutes {
   static const String shoppingListScreen= '/shopping_list_screen';
   static const String resultsPageScreen = '/results_page_screen';
   // static const String favoritesPageEmptyScreen = '/favorites_page_empty_screen';
-  // static const String favoritesPageScreen = '/favorites_page_screen';
+  static const String favoritesPageScreen = '/favorites_page_screen';
   // static const String appNavigationScreen = '/app_navigation_screen';
 
    // Recipe Instruction Pages
@@ -51,7 +51,7 @@ class AppRoutes {
     resultsPageScreen: (context) => ResultsPageScreen(),
     shoppingListScreen: (context) => ShoppingList(),
     // favoritesPageEmptyScreen: (context) => FavoritesPageEmptyScreen(),
-    // favoritesPageScreen: (context) => FavoritesPageScreen(),
+    favoritesPageScreen: (context) => FavoritesPageScreen(),
     // appNavigationScreen: (context) => AppNavigationScreen()
 
     // Recipe Instruction Pages

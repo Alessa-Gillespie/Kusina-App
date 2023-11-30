@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kusina_app_v3/navbar.dart';
 import 'package:kusina_app_v3/recipe_block.dart';
 import 'package:kusina_app_v3/button_components.dart';
-
 import 'package:kusina_app_v3/routes//app_routes.dart';
 
 // Import the provider packages
@@ -172,6 +172,8 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                     ),
                   ),
         ]
-                ))));
+                ))),
+        bottomNavigationBar: NavBar(),
+    );
   }
 }

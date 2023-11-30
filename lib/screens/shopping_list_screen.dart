@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kusina_app_v3/routes//app_routes.dart';
+import 'package:kusina_app_v3/navbar.dart';
 
 // Import the provider packages
 import 'package:provider/provider.dart';
@@ -136,6 +137,7 @@ class _shoppingListState extends State<ShoppingList> {
           ),
         ),
       ),
+      bottomNavigationBar: NavBar(),
     );
   }
 }

@@ -133,17 +133,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     },
                   ),
                   SizedBox(height: 10,),
-                  FilterButton(
-                    text: 'Breakfast',
-                    onPress: () {
-                      //change button color
-                      setState((){
-                        FilterButton.changeButtonColor();
-                      });
-                      //add to some list for processing for result?
-                    },
-                  ),
-                  SizedBox(height: 10,),
                   BottomButton(
                     text: 'Shortcut to [insert page]',
                     onPress: () {

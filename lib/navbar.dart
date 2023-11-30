@@ -28,7 +28,7 @@ class NavBar extends StatelessWidget {
                   text: 'Home',
                   onPress: () {
 
-                    Navigator.pushNamed(context, AppRoutes.ingredientsPageScreen);
+                    Navigator.pushNamed(context, AppRoutes.homePage);
                   }
               ),
               Padding(
@@ -52,7 +52,7 @@ class NavBar extends StatelessWidget {
                   icon: Icons.home_rounded,
                   text: 'Favorites',
                   onPress: () {
-                    // Navigator.pushNamed(context, AppRoutes.favoritesPageScreen);
+                    Navigator.pushNamed(context, AppRoutes.favoritesPageScreen);
                   }
               ),
             ],

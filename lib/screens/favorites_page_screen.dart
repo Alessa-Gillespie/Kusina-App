@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kusina_app_v3/recipe_block.dart';
 import 'package:kusina_app_v3/button_components.dart';
-import 'package:kusina_app_v3/routes//app_routes.dart';
 import 'package:kusina_app_v3/styles.dart';
 import 'package:kusina_app_v3/navbar.dart';
 
@@ -18,6 +17,8 @@ class FavoritesPageScreen extends StatefulWidget {
 }
 
 class _FavoritesPageScreenState extends State<FavoritesPageScreen> {
+  bool favoritesListIsEmpty = false;
+
   //TEMPORARY CONTAINER PLACEHOLDER FOR IMAGE
   Container placeholder = Container(
     //put image widget here instead of container
@@ -60,7 +61,7 @@ class _FavoritesPageScreenState extends State<FavoritesPageScreen> {
                     },
                   ),
                   FilterButton(
-                    text: 'Breakfast',
+                    text: 'Lunch',
                     onPress: () {
                       //change button color
                       setState((){
@@ -70,7 +71,7 @@ class _FavoritesPageScreenState extends State<FavoritesPageScreen> {
                     },
                   ),
                   FilterButton(
-                    text: 'Breakfast',
+                    text: 'Dinner',
                     onPress: () {
                       //change button color
                       setState((){
@@ -80,7 +81,7 @@ class _FavoritesPageScreenState extends State<FavoritesPageScreen> {
                     },
                   ),
                   FilterButton(
-                    text: 'Breakfast',
+                    text: 'Dessert',
                     onPress: () {
                       //change button color
                       setState((){
@@ -90,7 +91,7 @@ class _FavoritesPageScreenState extends State<FavoritesPageScreen> {
                     },
                   ),
                   FilterButton(
-                    text: 'Breakfast',
+                    text: 'Snack',
                     onPress: () {
                       //change button color
                       setState((){
@@ -109,37 +110,60 @@ class _FavoritesPageScreenState extends State<FavoritesPageScreen> {
   }
 
   Widget _buildRecipeBlocks(){
-    return Padding(
-      padding: const EdgeInsets.all(25),
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.all(25),
+        child: ListView(
+          children: <RecipeBlock>[
+            RecipeBlock(
+              child: placeholder, //child height should be 170
+              //recipe's image
+              text: 'Recipe Name', //recipe's name
+              color: kBlockColor,
+              onPress: () {
+                //TODO: direct to recipe instruction page
+              },
+            ),
+            RecipeBlock(
+              child: placeholder, //child height should be 170
+              //recipe's image
+              text: 'Recipe Name', //recipe's name
+              color: kBlockColor,
+              onPress: () {
+                //TODO: direct to recipe instruction page
+              },
+            ),
+            RecipeBlock(
+              child: placeholder, //child height should be 170
+              //recipe's image
+              text: 'Recipe Name', //recipe's name
+              color: kBlockColor,
+              onPress: () {
+                //TODO: direct to recipe instruction page
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildEmptySection(){
+    return Expanded(
       child: Column(
-        children: <RecipeBlock>[
-          RecipeBlock(
-            child: placeholder, //child height should be 170
-            //recipe's image
-            text: 'Recipe Name', //recipe's name
-            color: kBlockColor,
-            onPress: () {
-              //TODO: direct to recipe instruction page
-            },
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Icon(
+            Icons.folder_rounded,
+            color: kEmptyPageTextColor,
+            size: 100,
           ),
-          RecipeBlock(
-            child: placeholder, //child height should be 170
-            //recipe's image
-            text: 'Recipe Name', //recipe's name
-            color: kBlockColor,
-            onPress: () {
-              //TODO: direct to recipe instruction page
-            },
-          ),
-          RecipeBlock(
-            child: placeholder, //child height should be 170
-            //recipe's image
-            text: 'Recipe Name', //recipe's name
-            color: kBlockColor,
-            onPress: () {
-              //TODO: direct to recipe instruction page
-            },
-          ),
+          Text(
+            'You haven\'t added your\nfavorites yet',
+            textAlign: TextAlign.center,
+            style: kEmptyPageTextTextStyle,
+          )
         ],
       ),
     );
@@ -151,20 +175,16 @@ class _FavoritesPageScreenState extends State<FavoritesPageScreen> {
       backgroundColor: kBackgroundColor,
       appBar: AppBar(
           //TODO: edit the header (add color, change font style)
-          title: Text('Kusina'),
+          title: Text('Favorites'),
       ),
-      body: ListView(
+      body: Column(//recipe blocks
         children: <Widget>[
           SizedBox(height: 22),
-          Expanded(
-            child: Column(//recipe blocks
-              children: <Widget>[
-                _buildFilterSection(),//filter
-                _buildRecipeBlocks(),//recipe blocks
-              ],
-          ),
-        ),
-       ],
+          _buildFilterSection(),//filter
+          favoritesListIsEmpty
+          ? _buildEmptySection()//empty display
+          : _buildRecipeBlocks(),// recipe blocks
+        ],
       ),
       bottomNavigationBar: NavBar(),
     );
