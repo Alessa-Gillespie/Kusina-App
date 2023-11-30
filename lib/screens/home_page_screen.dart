@@ -10,10 +10,6 @@ import 'package:kusina_app_v3/navbar.dart';
 const spaceBetweenTextAndBlock = 17;
 const spaceBetweenRecipeBlocks = 18;
 
-/*
-const kInactiveButtonColor = Colors.yellow;
-const kActiveButtonColor = Colors.black;
-*/
 class HomePageScreen extends StatefulWidget {
   @override
   _HomePageScreenState createState() => _HomePageScreenState();
@@ -117,12 +113,11 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   RecipeBlock(
                     child: placeholder,//child height should be 170
                     //recipe's image
-                    text:
-                        'Recipe Name',
+                    text:'Recipe Name',
                     //recipe's name
                     color: kBlockColor,
                     onPress: () {
-                      //TODO: direct to recipe instruction page
+                      Navigator.pushNamed(context, AppRoutes.recipeInstructionsPageScreen);
                     },
                   ),
                   RecipeBlock(

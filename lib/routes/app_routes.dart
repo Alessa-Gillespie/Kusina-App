@@ -7,6 +7,7 @@ import 'package:kusina_app_v3/screens/results_page_screen.dart';
 import 'package:kusina_app_v3/screens/missing_ingredients_page.dart';
 import 'package:kusina_app_v3/screens/shopping_list_screen.dart';
 import 'package:kusina_app_v3/screens/favorites_page_screen.dart';
+import 'package:kusina_app_v3/screens/recipe_instructions_page_screen.dart';
 
 // Recipe Instruction Pages
 import 'package:kusina_app_v3/recipes/tinola.dart';
@@ -29,6 +30,7 @@ class AppRoutes {
   // static const String recipesPageScreen = '/recipes_page_screen';
   static const String shoppingListScreen= '/shopping_list_screen';
   static const String resultsPageScreen = '/results_page_screen';
+  static const String recipeInstructionsPageScreen = '/recipe_instructions_page_screen';
   // static const String favoritesPageEmptyScreen = '/favorites_page_empty_screen';
   static const String favoritesPageScreen = '/favorites_page_screen';
   // static const String appNavigationScreen = '/app_navigation_screen';
@@ -49,6 +51,7 @@ class AppRoutes {
     // recipesPageScreen: (context) => RecipesPageScreen(),
     // shoppingListPageEmptyScreen: (context) => ShoppingListPageEmptyScreen(),
     resultsPageScreen: (context) => ResultsPageScreen(),
+    recipeInstructionsPageScreen: (context) => RecipeInstructionsPageScreen(),
     shoppingListScreen: (context) => ShoppingList(),
     // favoritesPageEmptyScreen: (context) => FavoritesPageEmptyScreen(),
     favoritesPageScreen: (context) => FavoritesPageScreen(),
