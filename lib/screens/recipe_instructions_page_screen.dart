@@ -253,6 +253,8 @@ class _RecipeInstructionsPageScreenState extends State<RecipeInstructionsPageScr
       child: FloatingActionButton(
         onPressed: (){
           //TODO: copy back button functionality of AppBar built-in class
+          //goes back from the where the recipe block is pressed (from home, recipes, or results)
+          Navigator.pushNamed(context, AppRoutes.homePage); //temporary only
         },
         backgroundColor: kBlockColor,
         shape: CircleBorder(),
