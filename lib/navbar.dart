@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'styles.dart';
 import 'package:kusina_app_v3/routes/app_routes.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 enum Button {
   home,
@@ -10,6 +11,12 @@ enum Button {
 }
 
 class NavBar extends StatelessWidget {
+  NavBar({this.onPress, required this.selectedIndex});
+  final onPress;
+  final selectedIndex;
+
+  final Color _InactiveNavColor = kNavBarTextColor,
+      _ActiveNavColor = kMainColor;
 
   @override
   Widget build(BuildContext context) {
@@ -24,18 +31,23 @@ class NavBar extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               IconGroup(
-                  icon: Icons.home_rounded,
+                  icon: FontAwesomeIcons.house,
                   text: 'Home',
+                  color: selectedIndex == 0
+                      ? _ActiveNavColor
+                      : _InactiveNavColor,
                   onPress: () {
-
                     Navigator.pushNamed(context, AppRoutes.homePage);
                   }
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 12),
                 child: IconGroup(
-                    icon: Icons.home_rounded,
+                    icon: FontAwesomeIcons.bookOpen,
                     text: 'Recipes',
+                    color: selectedIndex == 1
+                        ? _ActiveNavColor
+                        : _InactiveNavColor,
                     onPress: () {
                       Navigator.pushNamed(context, AppRoutes.resultsPageScreen); //if no selected ingredients,
                                                                                  // it should be recipes page instead
@@ -43,15 +55,21 @@ class NavBar extends StatelessWidget {
                 ),
               ),
               IconGroup(
-                  icon: Icons.shopping_cart_rounded,
+                  icon: FontAwesomeIcons.cartShopping,
                   text: 'Shopping List',
+                  color: selectedIndex == 2
+                      ? _ActiveNavColor
+                      : _InactiveNavColor,
                   onPress: () {
                     Navigator.pushNamed(context, AppRoutes.shoppingListScreen);
                   }
               ),
               IconGroup(
-                  icon: Icons.home_rounded,
+                  icon: FontAwesomeIcons.solidHeart,
                   text: 'Favorites',
+                  color: selectedIndex == 3
+                      ? _ActiveNavColor
+                      : _InactiveNavColor,
                   onPress: () {
                     Navigator.pushNamed(context, AppRoutes.favoritesPageScreen);
                   }
@@ -63,14 +81,15 @@ class NavBar extends StatelessWidget {
     );
   }
 }
+
 class IconGroup extends StatelessWidget{
-  IconGroup({ required this.text, required this.icon, required this.onPress,});
+  IconGroup({ required this.text, required this.icon, required this.onPress,this.color});
 
   //named parameters
   final String? text;
   final Function()? onPress;
   final IconData? icon;
-  final Color? iconColor = kNavBarTextColor;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -87,13 +106,14 @@ class IconGroup extends StatelessWidget{
             // ),
             Icon(
                 icon,
-                color: iconColor,
-                size: 35
+                color: color,
+                size: 24
             ),
+            SizedBox(height: 3),
             Text(
               text!,
               textAlign: TextAlign.center,
-              style: kNavBarTextTextStyle,
+              style: kNavBarTextTextStyle.copyWith(color: color),
             )
           ],
         ),

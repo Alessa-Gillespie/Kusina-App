@@ -165,7 +165,9 @@ class _shoppingListState extends State<ShoppingList> {
                   ),
                 ),
       ),
-      bottomNavigationBar: NavBar(),
+      bottomNavigationBar: NavBar(
+        selectedIndex: 2,
+      ),
     );
   }
 }

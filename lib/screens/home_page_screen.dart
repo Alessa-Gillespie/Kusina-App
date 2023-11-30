@@ -169,7 +169,12 @@ class _HomePageScreenState extends State<HomePageScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: NavBar(),
+      bottomNavigationBar: NavBar(
+        selectedIndex: 0,
+        // onPress: (){
+        //   Navigator.pushNamed(context, AppRoutes.ingredientsPageScreen);
+        // },
+      ),
     );
   }
 }

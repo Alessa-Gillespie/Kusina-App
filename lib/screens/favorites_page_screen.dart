@@ -187,7 +187,9 @@ class _FavoritesPageScreenState extends State<FavoritesPageScreen> {
           : _buildRecipeBlocks(),// display favorite recipes
         ],
       ),
-      bottomNavigationBar: NavBar(),
+      bottomNavigationBar: NavBar(
+        selectedIndex: 3,
+      ),
     );
   }
 

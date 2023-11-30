@@ -172,7 +172,9 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                   ),
         ]
                 ))),
-        bottomNavigationBar: NavBar(),
+      bottomNavigationBar: NavBar(
+        selectedIndex: 1,
+      ),
     );
   }
 }
