@@ -37,7 +37,8 @@ class NavBar extends StatelessWidget {
                     icon: Icons.home_rounded,
                     text: 'Recipes',
                     onPress: () {
-                      Navigator.pushNamed(context, AppRoutes.ingredientsPageScreen);
+                      Navigator.pushNamed(context, AppRoutes.resultsPageScreen); //if no selected ingredients,
+                                                                                 // it should be recipes page instead
                     }
                 ),
               ),

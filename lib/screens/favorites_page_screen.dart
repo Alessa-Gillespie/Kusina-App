@@ -17,7 +17,8 @@ class FavoritesPageScreen extends StatefulWidget {
 }
 
 class _FavoritesPageScreenState extends State<FavoritesPageScreen> {
-  bool favoritesListIsEmpty = false;
+  bool _favoritesListIsEmpty = true;//depends sa "database" ng favorites and controls the display of _buildEmptySection()
+                                    //NOTE: this bool is just a placeholder variable
 
   //TEMPORARY CONTAINER PLACEHOLDER FOR IMAGE
   Container placeholder = Container(
@@ -181,9 +182,9 @@ class _FavoritesPageScreenState extends State<FavoritesPageScreen> {
         children: <Widget>[
           SizedBox(height: 22),
           _buildFilterSection(),//filter
-          favoritesListIsEmpty
+          _favoritesListIsEmpty
           ? _buildEmptySection()//empty display
-          : _buildRecipeBlocks(),// recipe blocks
+          : _buildRecipeBlocks(),// display favorite recipes
         ],
       ),
       bottomNavigationBar: NavBar(),
