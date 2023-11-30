@@ -1,4 +1,6 @@
+//TODO: disable back button in app from home
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:kusina_app_v3/recipe_block.dart';
 import 'package:kusina_app_v3/button_components.dart';
 import 'package:kusina_app_v3/routes//app_routes.dart';
@@ -38,7 +40,15 @@ class _HomePageScreenState extends State<HomePageScreen> {
       backgroundColor: kBackgroundColor,
       appBar: AppBar(
         //TODO: edit the header (add color, change font style)
-        title: Text('Kusina'),
+        title: Text(
+          'Kusina',
+          style: GoogleFonts.sansitaSwashed(
+            textStyle: Theme.of(context).textTheme.displayLarge,
+            fontSize: 25,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        automaticallyImplyLeading: false,
       ),
       body: ListView(
         children: <Widget>[
@@ -84,12 +94,21 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 children: <Widget>[
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Text>[
+                    children: <Widget>[
                       Text(
                         'Recipe Suggestions',
                         style: kBodyBoldTextStyle,
                       ),
-                      Text('See more', style: kSmallTextStyle),
+                      TextButton(
+                        onPressed: (){
+                          //TODO: link to recipes page (no selected ingredients)
+                          Navigator.pushNamed(context, AppRoutes.ingredientsPageScreen);
+                        },
+                        child: Text(
+                            'See more',
+                            style: kSmallTextStyle
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(

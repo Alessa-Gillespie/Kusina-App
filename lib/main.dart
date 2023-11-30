@@ -44,6 +44,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // (^0)
 import 'package:kusina_app_v3/routes//app_routes.dart';
 import 'package:kusina_app_v3/stateManagement/buttons.dart';
+import 'package:kusina_app_v3/styles.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -69,12 +71,14 @@ class MyApp extends StatelessWidget {
       routes: AppRoutes.routes,
       theme: ThemeData( // (^4)
        // primarySwatch: Colors.blue, (Ignore For Now)
+        textTheme: GoogleFonts.robotoTextTheme(), //default font family
         appBarTheme: AppBarTheme( // (^5))
-          backgroundColor: Colors.white, // (^6)
+          backgroundColor: kAppBarBackgroundColor, // (^6)
           elevation: 0, // (^7)
           iconTheme: IconThemeData(color: Colors.black), // (^7)
           foregroundColor: Colors.black, // (^8)
         ),
+        scaffoldBackgroundColor: kBackgroundColor,
       ),
     );
   }

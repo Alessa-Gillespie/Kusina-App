@@ -23,12 +23,12 @@ class _shoppingListState extends State<ShoppingList> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Icon(
-              Icons.folder_rounded,
+              Icons.shopping_cart_rounded,
               color: kEmptyPageTextColor,
               size: 100,
             ),
             Text(
-              'You haven\'t added your\nfavorites yet',
+              'Your shopping list is empty',
               textAlign: TextAlign.center,
               style: kEmptyPageTextTextStyle,
             )

@@ -146,7 +146,6 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Ingredients'),
-        backgroundColor: Colors.white,
       ),
       body: SafeArea(
         child: SingleChildScrollView( // Making Widget below it scrollable.

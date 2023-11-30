@@ -200,7 +200,7 @@ class FilterButton extends StatelessWidget {
       _activeButtonColor = kActiveFilterButtonColor;
   final Color _inactiveBorderColor = kTextColor,
       _activeBorderColor = kActiveFilterButtonColor;
-  final TextStyle _inactiveTextStyle = kFilterButtonText.copyWith(fontWeight: FontWeight.w600),
+  final TextStyle _inactiveTextStyle = kFilterButtonText.copyWith(),
       _activeTextStyle = kFilterButtonText.copyWith(color: Colors.white);
 
   //inherit changeColor() and build() of Parent Class
@@ -226,7 +226,7 @@ class FilterButton extends StatelessWidget {
               ? _inactiveButtonColor
               : _activeButtonColor,
           border: Border.all(
-              width: 1.5,
+              width: 1,
               color: _isPressed == false //border color
                   ? _inactiveBorderColor
                   : _activeBorderColor

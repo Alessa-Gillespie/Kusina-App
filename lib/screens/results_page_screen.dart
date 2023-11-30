@@ -82,7 +82,6 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
     return Scaffold(
         appBar: AppBar(
           title: Text('Results'),
-          backgroundColor: Colors.white,
         ),
         body: SafeArea(
             child: SingleChildScrollView(

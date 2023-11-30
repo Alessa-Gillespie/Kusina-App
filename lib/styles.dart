@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 //COLORS
 const kActiveFilledButtonColor = Color(0xFFF5BD1F);
-const kAppBar = Color(0xFFFFFCE7);
+const kAppBarBackgroundColor = Color(0xFFFFFCE7);
 const kBackgroundColor = Color(0xFFFFFFF5);
 const kBlockColor = Colors.white;
 const kMainColor = Color(0xFFEFD003);
@@ -54,7 +54,6 @@ const kNavBarTextTextStyle = TextStyle(
 
 const kRecipeBlockTextTextStyle = TextStyle(
   fontSize: 19,
-  fontWeight: FontWeight.w800,
   height: 1.1,
   color: kTextColor,
 );
@@ -96,7 +95,6 @@ const kIngredientButtonText = TextStyle(
 
 const kFilterButtonText = TextStyle(
   fontSize: 14,
-  fontWeight: FontWeight.w500,
   color: kTextColor,
 );
 
