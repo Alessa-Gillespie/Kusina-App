@@ -275,12 +275,6 @@ class _RecipeInstructionsPageScreenState extends State<RecipeInstructionsPageScr
           _buildRecipeContainer(),
         ],
       ),
-      bottomNavigationBar: NavBar(
-        selectedIndex: 0,
-        // onPress: (){
-        //   Navigator.pushNamed(context, AppRoutes.ingredientsPageScreen);
-        // },
-      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
       floatingActionButton: _buildBackButton(),
     );
