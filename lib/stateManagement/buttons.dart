@@ -6,21 +6,28 @@ class ButtonsModel extends ChangeNotifier {
   List<Color> ingredients = [
     // Note in DART, list indices start at 0
 
-    Colors.white, // (8UT23) [For Counting Purposes (Use Ctrl F)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
-    Colors.white, // (8UT23)
+    Colors.white, // (8UT23) [For Counting Purposes (Use Ctrl F) ('Beef', 0)
+    Colors.white, // (8UT23) ('Chicken', 1)
+    Colors.white, // (8UT23) ('Pork/Baboy', 2)
+    Colors.white, // (8UT23) ('Carrot', 3)
+    Colors.white, // (8UT23) ('Potato/Patatas', 4)
+    Colors.white, // (8UT23) ('Tomato/Kamatis', 5)
+    Colors.white, // (8UT23) ('Fish/Isda', 6)
+    Colors.white, // (8UT23) ('Shrimp/Hipon', 7)
+    Colors.white, // (8UT23) ('Crab/Alimango', 8)
+    Colors.white, // (8UT23) ('Apple/Mansanas', 9)
+    Colors.white, // (8UT23) ('Banana', 10)
+    Colors.white, // (8UT23) ('Orange', 11)
+    Colors.white, // (8UT23) ('Toyo', 12)
+    Colors.white, // (8UT23) ('Sibuyas', 13)
+    Colors.white, // (8UT23) ('Salt', 14)
+    Colors.white, // (8UT23) ('Kanin', 15)
+    Colors.white, // (8UT23) ('Green Papaya', 16)
+    Colors.white, // (8UT23) ('Garlic/Bawang', 17)
+    Colors.white, // (8UT23) ('Ginger/Luya', 18)
+    Colors.white, // (8UT23) ('Fish Sauce/Patis', 19)
+    Colors.white, // (8UT23) ('Hot Pepper Leaves', 20)
+    Colors.white, // (8UT23) ('Ground Black Pepper', 21)
   ];
 
   void updateIngredientsButton(int index, Color color) {
@@ -31,10 +38,10 @@ class ButtonsModel extends ChangeNotifier {
   List<Color> filters = [
     // Note in DART, list indices start at 0
 
-    Colors.white, // (8UT24) [For Counting Purposes (Use Ctrl F)
-    Colors.white, // (8UT24)
-    Colors.white, // (8UT24)
-    Colors.white, // (8UT24)
+    Colors.white, // (8UT24) [For Counting Purposes (Use Ctrl F) ('Breakfast', 0)
+    Colors.white, // (8UT24) ('Lunch', 1)
+    Colors.white, // (8UT24) ('Dinner', 2)
+    Colors.white, // (8UT24) ('Desserts', 3)
   ];
 
   List<String> recipeBank = [];
