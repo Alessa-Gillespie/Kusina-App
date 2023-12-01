@@ -58,11 +58,15 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
         },
         child: Text(label),
         style: ElevatedButton.styleFrom(
-          backgroundColor: context.watch<ButtonsModel>().filters[index],
+          backgroundColor: context
+              .watch<ButtonsModel>()
+              .filters[index],
           foregroundColor:
-              context.watch<ButtonsModel>().filters[index] == Colors.white
-                  ? Colors.black
-                  : Colors.white,
+          context
+              .watch<ButtonsModel>()
+              .filters[index] == Colors.white
+              ? Colors.black
+              : Colors.white,
           // (^3)
           side: BorderSide(color: Colors.black, width: 1),
           // border color and width
@@ -76,115 +80,225 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     // Get the Buttons instance
     final buttons = context.watch<ButtonsModel>();
 
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Results'),
-        ),
-        body: SafeArea(
-            child: SingleChildScrollView(
-                child: Column(children: <Widget>[
-          SizedBox(height: 50),
-          Row(children: <Widget>[
-            Padding(
-                padding: EdgeInsets.only(left: 20),
-                // To adjust "Select Ingredients" Header away from the left side)
-                child: Text(
-                  'You can make 1 ingredient with the\nwith the ingredient you selected',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                )),
-          ]),
-          SizedBox(height: 30),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            // MainAxisAlignment.spaceBetween value means that the free space is evenly distributed between the children.
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(left: 15),
-                // To adjust "Select Ingredients" Header away from the left side)
-                child: Text(
-                  'Ingredients\n(selected ingredients)',
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 0),
-                // To adjust "Select Ingredients" Header away from the left side)
-                child: Text(
-                  'edit',
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
-            ],
-          ),
-                  SizedBox(height: 30),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    // MainAxisAlignment.spaceBetween value means that the free space is evenly distributed between the children.
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.only(left: 20),
-                        // To adjust "Select Ingredients Header away from the left edge)
-                        child: Text(
-                          "Filter",
-                          style: TextStyle(fontSize: 24),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: <Widget>[
-                        _buildFilterButtons('Breakfast', 0),
-                        _buildFilterButtons('Lunch', 1),
-                        _buildFilterButtons('Dinner', 2),
-                        _buildFilterButtons('Desserts', 3),
-                      ],
+      appBar: AppBar(
+        title: Text('Results'),
+      ),
+      body: SafeArea(
+          child: SingleChildScrollView(
+              child: Column(children: <Widget>[
+                  SizedBox(height: 50),
+              Row(children: <Widget>[
+                Padding(
+                    padding: EdgeInsets.only(left: 20),
+                    // To adjust "Select Ingredients" Header away from the left side)
+                    child: Text(
+                      'You can make 1 ingredient with the\nwith the ingredient you selected',
+                      style: TextStyle(
+                          fontSize: 24, fontWeight: FontWeight.bold),
+                    )),
+              ]),
+              SizedBox(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                // MainAxisAlignment.spaceBetween value means that the free space is evenly distributed between the children.
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(left: 15),
+                    // To adjust "Select Ingredients" Header away from the left side)
+                    child: Text(
+                      'Ingredients\n(selected ingredients)',
+                      style: TextStyle(fontSize: 20),
                     ),
                   ),
-                  SizedBox(height: 30),
-                  if (buttons.ingredients[1] == Colors.yellow
-                      || buttons.ingredients[15] == Colors.yellow
-                      || buttons.ingredients[16] == Colors.yellow
-                      || buttons.ingredients[17] == Colors.yellow
-                      || buttons.ingredients[13] == Colors.yellow
-                      || buttons.ingredients[18] == Colors.yellow
-                      || buttons.ingredients[12] == Colors.yellow
-                      || buttons.ingredients[20] == Colors.yellow
-                      || buttons.ingredients[21] == Colors.yellow
-                      && buttons.filters[0] != Colors.black &&  buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black)
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                     child: RecipeBlock(
-                       child: buildImageContainer('images/Tinola.jpg'),
-                       text: 'Tinola',
-                       color: Colors.white,
-                       onPress: () {
-                         Navigator.pushNamed(context, AppRoutes.tinola);
-                       },
-                     ),
+                    padding: EdgeInsets.only(left: 0),
+                    // To adjust "Select Ingredients" Header away from the left side)
+                    child: Text(
+                      'edit',
+                      style: TextStyle(fontSize: 20),
+                    ),
                   ),
-                  if (buttons.ingredients[12] == Colors.yellow && buttons.filters[1] != Colors.black &&  buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black)
+                ],
+              ),
+              SizedBox(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                // MainAxisAlignment.spaceBetween value means that the free space is evenly distributed between the children.
+                children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                     child: RecipeBlock(
-                       child: buildImageContainer('images/Tapsilog.jpg'),
-                       text: 'Tapsilog',
-                       color: Colors.white,
-                       onPress: () {
-                         Navigator.pushNamed(context, AppRoutes.tapsilog);
-                      },
-                     ),
+                    padding: EdgeInsets.only(left: 20),
+                    // To adjust "Select Ingredients Header away from the left edge)
+                    child: Text(
+                      "Filter",
+                      style: TextStyle(fontSize: 24),
+                    ),
                   ),
-        ]
-                ))),
-      bottomNavigationBar: NavBar(
-        selectedIndex: 1,
+                ],
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: <Widget>[
+                    _buildFilterButtons('Breakfast', 0),
+                    _buildFilterButtons('Lunch', 1),
+                    _buildFilterButtons('Dinner', 2),
+                    _buildFilterButtons('Desserts', 3),
+                  ],
+                ),
+              ),
+              SizedBox(height: 30),
+              if (buttons.ingredients[1] == Colors.yellow
+          || buttons.ingredients[15] == Colors.yellow
+          || buttons.ingredients[16] == Colors.yellow
+          || buttons.ingredients[17] == Colors.yellow
+          || buttons.ingredients[13] == Colors.yellow
+          || buttons.ingredients[18] == Colors.yellow
+          || buttons.ingredients[12] == Colors.yellow
+          || buttons.ingredients[20] == Colors.yellow
+          || buttons.ingredients[21] == Colors.yellow
+          && buttons.filters[0] != Colors.black && buttons.filters[2] != Colors.
+              black && buttons.filters[3] != Colors.black)
+          Padding(
+          padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+      child: RecipeBlock(
+        child: buildImageContainer('images/Tinola.jpg'),
+        text: 'Tinola',
+        color: Colors.white,
+        onPress: () {
+          final buttons = context.read<ButtonsModel>();
+          buttons.setMyRecipe('Tinola');
+          Navigator.pushNamed(context, AppRoutes.testingV1);
+        },
       ),
+    ),
+    if (buttons.ingredients[0] == Colors.yellow
+    || buttons.ingredients[22] == Colors.yellow
+    || buttons.ingredients[23] == Colors.yellow
+    || buttons.ingredients[17] == Colors.yellow
+    || buttons.ingredients[24] == Colors.yellow
+    || buttons.ingredients[25] == Colors.yellow
+    || buttons.ingredients[26] == Colors.yellow
+    || buttons.ingredients[14] == Colors.yellow
+    || buttons.ingredients[15] == Colors.yellow
+    && buttons.filters[1] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black)
+    Padding(
+    padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+    child: RecipeBlock(
+    child: buildImageContainer('images/Tapsilog.jpg'),
+    text: 'Tapsilog',
+    color: Colors.white,
+    onPress: () {
+      final buttons = context.read<ButtonsModel>();
+      buttons.setMyRecipe('Tapsilog');
+      Navigator.pushNamed(context, AppRoutes.testingV1);
+    },
+    ),
+    ),
+    if (buttons.ingredients[27] == Colors.yellow
+    || buttons.ingredients[28] == Colors.yellow
+    || buttons.ingredients[29] == Colors.yellow
+    || buttons.ingredients[22] == Colors.yellow
+    || buttons.ingredients[30] == Colors.yellow
+    || buttons.ingredients[31] == Colors.yellow
+    || buttons.ingredients[32] == Colors.yellow
+    || buttons.ingredients[33] == Colors.yellow
+    || buttons.ingredients[34] == Colors.yellow
+    && buttons.filters[1] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[0] != Colors.black)
+    Padding(
+    padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+    child: RecipeBlock(
+    child: buildImageContainer('images/cassava_cake.jpg'),
+    text: 'Cassava Cake',
+    color: Colors.white,
+    onPress: () {
+      final buttons = context.read<ButtonsModel>();
+      buttons.setMyRecipe('Cassava Cake');
+      Navigator.pushNamed(context, AppRoutes.testingV1);
+    },
+    ),
+    ),
+                if (buttons.ingredients[2] == Colors.yellow
+                || buttons.ingredients[35] == Colors.yellow
+                || buttons.ingredients[4] == Colors.yellow
+                || buttons.ingredients[3] == Colors.yellow
+                || buttons.ingredients[12] == Colors.yellow
+                || buttons.ingredients[36] == Colors.yellow
+                || buttons.ingredients[13] == Colors.yellow
+                || buttons.ingredients[17] == Colors.yellow
+                || buttons.ingredients[33] == Colors.yellow
+                || buttons.ingredients[37] == Colors.yellow
+                || buttons.ingredients[38] == Colors.yellow
+                || buttons.ingredients[39] == Colors.yellow
+                || buttons.ingredients[14] == Colors.yellow
+                || buttons.ingredients[40] == Colors.yellow
+                        && buttons.filters[0] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black)
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                    child: RecipeBlock(
+                      child: buildImageContainer('images/menudo.jpg'),
+                      text: 'Menudo',
+                      color: Colors.white,
+                      onPress: () {
+                        final buttons = context.read<ButtonsModel>();
+                        buttons.setMyRecipe('Menudo');
+                        Navigator.pushNamed(context, AppRoutes.testingV1);
+                      },
+                    ),
+                  ),
+                if (buttons.ingredients[0] == Colors.yellow
+                    || buttons.ingredients[41] == Colors.yellow
+                    || buttons.ingredients[42] == Colors.yellow
+                    || buttons.ingredients[43] == Colors.yellow
+                    || buttons.ingredients[44] == Colors.yellow
+                    || buttons.ingredients[45] == Colors.yellow
+                    || buttons.ingredients[13] == Colors.yellow
+                    || buttons.ingredients[12] == Colors.yellow && buttons.filters[0] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black)
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                    child: RecipeBlock(
+                      child: buildImageContainer('images/bulalo.png'),
+                      text: 'Bulalo',
+                      color: Colors.white,
+                      onPress: () {
+                        final buttons = context.read<ButtonsModel>();
+                        buttons.setMyRecipe('Bulalo');
+                        Navigator.pushNamed(context, AppRoutes.testingV1);
+                      },
+                    ),
+                  ),
+                if (buttons.ingredients[46] == Colors.yellow
+                    || buttons.ingredients[47] == Colors.yellow
+                    || buttons.ingredients[2] == Colors.yellow
+                    || buttons.ingredients[13] == Colors.yellow
+                    || buttons.ingredients[3] == Colors.yellow
+                    || buttons.ingredients[47] == Colors.yellow
+                    || buttons.ingredients[21] == Colors.yellow
+                    || buttons.ingredients[48] == Colors.yellow
+                    || buttons.ingredients[49] == Colors.yellow
+                    || buttons.ingredients[14] == Colors.yellow
+                    || buttons.ingredients[22] == Colors.yellow && buttons.filters[0] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black)
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                    child: RecipeBlock(
+                      child: buildImageContainer('images/lumpiang_shanghai.jpg'),
+                      text: 'Lumpiang Shanghai',
+                      color: Colors.white,
+                      onPress: () {
+                        final buttons = context.read<ButtonsModel>();
+                        buttons.setMyRecipe('Lumpiang Shanghai');
+                        Navigator.pushNamed(context, AppRoutes.testingV1);
+                      },
+                    ),
+                  ),
+    ]
+    ))),
+    bottomNavigationBar: NavBar(
+    selectedIndex: 1,
+    ),
     );
   }
 }

@@ -95,7 +95,7 @@ class _TestingV1State extends State<TestingV1> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Tinola',
+                  Text('Testing',
                     style: kHeading1TextStyle,
                     textAlign: TextAlign.left,
                   ),
@@ -137,8 +137,8 @@ class _TestingV1State extends State<TestingV1> {
     );
     Widget listIcon = FloatingActionButton.small(
       onPressed: (){
-        final buttons = context.read<ButtonsModel>();
-        buttons.setMyRecipe('Tinola');
+        // final buttons = context.read<ButtonsModel>();
+        // buttons.setMyRecipe('Tinola');
         Navigator.pushNamed(context, AppRoutes.missingIngredients);
       },
       backgroundColor: Colors.transparent,
@@ -306,7 +306,7 @@ class _TestingV1State extends State<TestingV1> {
       backgroundColor: kBackgroundColor,
       body: ListView(
         children: <Widget>[
-          _buildImageContainer('images/Tinola.jpg'),
+          _buildImageContainer(' '),
           _buildRecipeContainer(),
         ],
       ),
