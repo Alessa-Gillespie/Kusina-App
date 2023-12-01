@@ -37,7 +37,7 @@ Recipe tinolaRecipeObject =  Recipe( //incomplete info for attributes
     '1 cup long grain white rice',
     '4 to 5 cups water',
     '2 teaspoons salt',
-    '1/4 cup rousong pork floss',
+    '1/4 cup rousong pork flosss',
   ],
   instructionsList: [
     '1. Pour water in a cooking pot. Bring to a boil.',
