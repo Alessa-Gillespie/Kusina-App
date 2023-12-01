@@ -40,10 +40,12 @@ Sets text to black color
 
 
 import 'package:provider/provider.dart';
+import 'package:kusina_app_v3/stateManagement/buttons.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // (^0)
 import 'package:kusina_app_v3/routes//app_routes.dart';
-import 'package:kusina_app_v3/stateManagement/buttons.dart';
+
 import 'package:kusina_app_v3/styles.dart';
 import 'package:google_fonts/google_fonts.dart';
 

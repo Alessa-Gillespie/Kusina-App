@@ -88,7 +88,7 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
   Widget _buildIngredientButtons(String label, int index) {
     MediaQueryData mediaQueryData = MediaQuery.of(context);
     return Padding(
-      padding: EdgeInsets.all(7), // Spacing
+      padding: EdgeInsets.all(3), // Spacing
       child: ElevatedButton(
         onPressed: () {
           // Get the Buttons instance
@@ -142,63 +142,69 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // mediaQueryData = MediaQuery.of(context);
+    var screenSize = MediaQuery.of(context).size; // Get the screen size
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Ingredients'),
       ),
       body: SafeArea(
-        child: SingleChildScrollView( // Making Widget below it scrollable.
+        child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              SizedBox(height: 30), // Adjust the height as needed
+              SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween, // MainAxisAlignment.spaceBetween value means that the free space is evenly distributed between the children.
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsets.only(left: 20), // To adjust "Select Ingredients" Header away from the left side)
+                    padding: EdgeInsets.only(left: screenSize.width * 0.05), // Use a percentage of the screen width
                     child: Text(
                       'Select Ingredients',
                       style: TextStyle(fontSize: 24),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(right: 20), // To adjust "Clear" button away from the left side
+                    padding: EdgeInsets.only(right: screenSize.width * 0.05), // Use a percentage of the screen width
                     child: ElevatedButton(
                       onPressed: () {
-                        // Get the Buttons instance
                         final buttons = context.read<ButtonsModel>();
-
-                        // Set all elements in filters and ingredients to Colors.white
                         buttons.clearFilters();
                         buttons.clearIngredients();
                       },
                       child: Text(
                         'Clear',
-                        style: TextStyle(fontSize: 18), // Increase text size
+                        style: TextStyle(fontSize: 18),
                       ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white, // background color
-                        foregroundColor: Colors.black, // text color
-                        // shadowColor: Colors.transparent, // shadow color
-                        side: BorderSide(color: Colors.white, width: 0), // border color and width
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.black,
+                        side: BorderSide(color: Colors.white, width: 0),
                       ),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 15), // Adjust the height for empty space as needed
+              SizedBox(height: screenSize.height * 0.015), // Use a percentage of the screen height
               _buildIngredientCategoryName(context, 'Meat'),
-              Row( // List of Buttons per Row
-                  children: <Widget>[
-                    _buildIngredientButtons('Beef', 0),
-                    _buildIngredientButtons('Chicken', 1),
-                    _buildIngredientButtons('Pork', 2),
-                    ],
+              Wrap( // Use Wrap instead of Row for the list of buttons
+                alignment: WrapAlignment.start,
+                spacing: screenSize.width * 0.02, // Space between children in the main axis
+                runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
+                children: <Widget>[
+                  _buildIngredientButtons('Beef', 0),
+                  _buildIngredientButtons('Chicken', 1),
+                  _buildIngredientButtons('Pork', 2),
+                  _buildIngredientButtons('Pork', 2),
+                  _buildIngredientButtons('Pork', 2),
+                  _buildIngredientButtons('Pork', 2),
+                  _buildIngredientButtons('Pork', 2),
+                ],
               ),
-              SizedBox(height: 30),
+              SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
               _buildIngredientCategoryName(context, 'Vegetable'),
-              Row( // List of Buttons per Row
+              Wrap( // Use Wrap instead of Row for the list of buttons
+                spacing: screenSize.width * 0.02, // Space between children in the main axis
+                runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
                 children: <Widget>[
                   _buildIngredientButtons('Carrot', 3),
                   _buildIngredientButtons('Potato', 4),
@@ -206,9 +212,11 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
                   _buildIngredientButtons('Sibuyas', 13),
                 ],
               ),
-              SizedBox(height: 30),
+              SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
               _buildIngredientCategoryName(context, 'Seafoods'),
-              Row( // List of Buttons per Row
+              Wrap( // Use Wrap instead of Row for the list of buttons
+                spacing: screenSize.width * 0.02, // Space between children in the main axis
+                runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
                 children: <Widget>[
                   _buildIngredientButtons('Fish', 6),
                   _buildIngredientButtons('Shrimp', 7),

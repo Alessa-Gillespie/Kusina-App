@@ -23,6 +23,11 @@ class ButtonsModel extends ChangeNotifier {
     Colors.white, // (8UT23)
   ];
 
+  void updateIngredientsButton(int index, Color color) {
+    ingredients[index] = color;
+    notifyListeners();
+  }
+
   List<Color> filters = [
     // Note in DART, list indices start at 0
 
@@ -68,10 +73,6 @@ class ButtonsModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void updateIngredientsButton(int index, Color color) {
-    ingredients[index] = color;
-    notifyListeners();
-  }
 
   void removeFromMissingIngredientsBank(String ingredient) {
     missingIngredientsBank.remove(ingredient);
