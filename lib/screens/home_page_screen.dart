@@ -126,8 +126,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
 
   Widget _buildRecipeBlocks (List<Recipe>? favoritesList){ //extracts recipes from list and puts each in a RecipeBlock in a column
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: favoritesList!.map((item) => RecipeBlock(recipe: item)).toList(),
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: favoritesList!.map((item) => RecipeBlock(recipe: item)).toList(),
     );
   }
 

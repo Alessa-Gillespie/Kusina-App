@@ -62,31 +62,16 @@ class _RecipeInstructionsPageScreenState extends State<RecipeInstructionsPageScr
     color: kMainColor,
   );
 
-  /*
-  //TEMPORARY CONTAINER PLACEHOLDER FOR IMAGE
-  Container placeholder = Container(
-    //put image widget here instead of container
-    height: 170, //this should be the image height
-    decoration: BoxDecoration(
-      color: Colors.red,
-      borderRadius: BorderRadius.circular(
-          10.0),
-          ),
-  );
-   */
-
   Widget _buildImageContainer(){
     return  Container(
-      width: 600,
       height: 220,
-      color: Colors.blue,
-      //TODO: display image here
-      // decoration: BoxDecoration(
-      //   image: DecorationImage(
-      //     image: AssetImage(_recipeImagePath),
-      //     fit: BoxFit.cover,
-      //   ),
-      // ),
+      decoration: BoxDecoration(
+        color: Colors.blue,
+        image: DecorationImage(
+                image: AssetImage(_recipeImagePath!),
+                fit: BoxFit.cover,
+        ),
+      ),
     );
   }
 
@@ -128,6 +113,7 @@ class _RecipeInstructionsPageScreenState extends State<RecipeInstructionsPageScr
   Widget _buildActionButtons(){
     Widget heartIcon = FloatingActionButton.small(
       onPressed: (){
+        //TODO: add this functionality: heart icon is pressed, this should display in favorites
         setState(() {
           isHeartIconPressed == true
               ? isHeartIconPressed = false
@@ -137,7 +123,7 @@ class _RecipeInstructionsPageScreenState extends State<RecipeInstructionsPageScr
       backgroundColor: Colors.transparent,
       elevation: 0,
       child:  isHeartIconPressed == true
-          ? activeHeart
+          ? activeHeart //TODO: find a way to make color stay on if pressed whenever recipe instruction page is launched
           : inactiveHeart,
     );
     Widget listIcon = FloatingActionButton.small(
@@ -276,7 +262,7 @@ class _RecipeInstructionsPageScreenState extends State<RecipeInstructionsPageScr
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kBackgroundColor,
+      backgroundColor: kBlockColor,
       body: ListView(
         children: <Widget>[
           _buildImageContainer(),

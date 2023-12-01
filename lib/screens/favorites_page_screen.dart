@@ -4,14 +4,31 @@ import 'package:kusina_app_v3/recipe_block.dart';
 import 'package:kusina_app_v3/button_components.dart';
 import 'package:kusina_app_v3/styles.dart';
 import 'package:kusina_app_v3/navbar.dart';
+import 'package:kusina_app_v3/recipe.dart';
 
 const spaceBetweenTextAndBlock = 17;
 const spaceBetweenRecipeBlocks = 18;
 
-/*
-const kInactiveButtonColor = Colors.yellow;
-const kActiveButtonColor = Colors.black;
-*/
+//TEMPORARY
+Recipe lugawRecipeObject =  Recipe(
+  name: 'Lugaw (from favorites page)',
+  imagePath: 'images/Tinola.jpg',
+  ingredientsList: [
+    '1 cup long grain white rice',
+    '4 to 5 cups water',
+    '2 teaspoons salt',
+    '1/4 cup rousong pork floss',
+  ],
+  instructionsList: [
+    '1. Pour water in a cooking pot. Bring to a boil.',
+    '2. Put-in the rice. Continue cooking for 30 minutes or until the texture becomes thick, while stirring once in awhile.',
+    '3. Add the salt, stir and then cook for 2 minutes more.',
+    '4. Transfer to a serving bowl. Top with a tablespoon of rousing.',
+    '5. Serve hot. Share and enjoy!',
+  ],
+  //video:
+  sourceLink: 'https://panlasangpinoy.com/lugaw-recipe/', //source
+);
 class FavoritesPageScreen extends StatefulWidget {
   @override
   _FavoritesPageScreenState createState() => _FavoritesPageScreenState();
@@ -19,7 +36,7 @@ class FavoritesPageScreen extends StatefulWidget {
 
 class _FavoritesPageScreenState extends State<FavoritesPageScreen> {
   bool _favoritesListIsEmpty = true;//depends sa "database" ng favorites and controls the display of _buildEmptySection()
-                                    //NOTE: this bool is just a placeholder variable
+                                    //NOTE: this bool is just a placeholder variable to control the display
 
   //TEMPORARY CONTAINER PLACEHOLDER FOR IMAGE
   Container placeholder = Container(
@@ -117,33 +134,15 @@ class _FavoritesPageScreenState extends State<FavoritesPageScreen> {
         padding: const EdgeInsets.all(25),
         child: ListView(
           children: <RecipeBlock>[
-            // RecipeBlock(
-            //   child: placeholder, //child height should be 170
-            //   //recipe's image
-            //   text: 'Recipe Name', //recipe's name
-            //   color: kBlockColor,
-            //   onPress: () {
-            //     //TODO: direct to recipe instruction page
-            //   },
-            // ),
-            // RecipeBlock(
-            //   child: placeholder, //child height should be 170
-            //   //recipe's image
-            //   text: 'Recipe Name', //recipe's name
-            //   color: kBlockColor,
-            //   onPress: () {
-            //     //TODO: direct to recipe instruction page
-            //   },
-            // ),
-            // RecipeBlock(
-            //   child: placeholder, //child height should be 170
-            //   //recipe's image
-            //   text: 'Recipe Name', //recipe's name
-            //   color: kBlockColor,
-            //   onPress: () {
-            //     //TODO: direct to recipe instruction page
-            //   },
-            // ),
+            RecipeBlock(
+                recipe: lugawRecipeObject
+            ),
+            RecipeBlock(
+                recipe: lugawRecipeObject
+            ),
+            RecipeBlock(
+                recipe: lugawRecipeObject
+            ),
           ],
         ),
       ),
@@ -176,7 +175,6 @@ class _FavoritesPageScreenState extends State<FavoritesPageScreen> {
     return Scaffold(
       backgroundColor: kBackgroundColor,
       appBar: AppBar(
-          //TODO: edit the header (add color, change font style)
           title: Text('Favorites'),
       ),
       body: Column(//recipe blocks
