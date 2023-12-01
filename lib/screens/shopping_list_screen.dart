@@ -44,6 +44,9 @@ class _shoppingListState extends State<ShoppingList> {
     final buttons = context.read<ButtonsModel>();
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Shopping List'),
+      ),
       body: SafeArea(
       // final buttons = context.read<ButtonsModel>();
         child: context.read<ButtonsModel>().isRecipeBankEmpty()
