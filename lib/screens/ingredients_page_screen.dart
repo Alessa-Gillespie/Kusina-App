@@ -1,6 +1,5 @@
 /*
-//TODO: make the block of ingredient/filter buttons responsive (nag-aautomatic next
-   row if magooverlow). make spacing between each ingredient/filter buttons consistent/same
+//TODO: align ingredients buttons to the left
 
 Pseudocode:
 int GapBetweenButtons
@@ -71,6 +70,7 @@ if (filters[index] == Colors.white) {
 
 import 'package:flutter/material.dart';
 import 'package:kusina_app_v3/routes//app_routes.dart'; // Import this to make the Navigation work.
+import 'package:kusina_app_v3/styles.dart';
 
 // Import the provider packages
 import 'package:provider/provider.dart';
@@ -145,6 +145,7 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
     var screenSize = MediaQuery.of(context).size; // Get the screen size
 
     return Scaffold(
+      backgroundColor: kBlockColor,
       appBar: AppBar(
         title: Text('Ingredients'),
       ),

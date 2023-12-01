@@ -120,7 +120,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 ),
                 TextButton(
                   onPressed: (){
-                    //TODO: link to recipes page (no selected ingredients)
+                    //TODO: link MiddleButton to recipes page (no selected ingredients)
                     Navigator.pushNamed(context, AppRoutes.ingredientsPageScreen);//temporary only
                   },
                   child: Text(

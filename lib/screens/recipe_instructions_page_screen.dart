@@ -65,7 +65,6 @@ class _RecipeInstructionsPageScreenState extends State<RecipeInstructionsPageScr
   Widget _buildImageContainer(){
     return  Container(
       height: 220,
-      //TODO: display image here
       decoration: BoxDecoration(
         color: Colors.blue,
         image: DecorationImage(
@@ -114,6 +113,7 @@ class _RecipeInstructionsPageScreenState extends State<RecipeInstructionsPageScr
   Widget _buildActionButtons(){
     Widget heartIcon = FloatingActionButton.small(
       onPressed: (){
+        //TODO: add this functionality: heart icon is pressed, this should display in favorites
         setState(() {
           isHeartIconPressed == true
               ? isHeartIconPressed = false
@@ -123,7 +123,7 @@ class _RecipeInstructionsPageScreenState extends State<RecipeInstructionsPageScr
       backgroundColor: Colors.transparent,
       elevation: 0,
       child:  isHeartIconPressed == true
-          ? activeHeart
+          ? activeHeart //TODO: find a way to make color stay on if pressed whenever recipe instruction page is launched
           : inactiveHeart,
     );
     Widget listIcon = FloatingActionButton.small(
