@@ -56,19 +56,16 @@ class HomePageScreen extends StatefulWidget {
 }
 
 class _HomePageScreenState extends State<HomePageScreen> {
+  //placeholder for featured list "database"
+  List<Recipe>? _featuredList =[  //hardcoded recipe objects
+    lugawRecipeObject,
+    lugawRecipeObject,
+    lugawRecipeObject,
+    lugawRecipeObject,
+  ];
+
   //if button is pressed, it will change its color
   bool isMiddleButtonPressed = false;
-
-  //TEMPORARY CONTAINER PLACEHOLDER FOR IMAGE
-  Container placeholder = Container(
-    //put image widget here instead of container
-    height: 170, //this should be the image height
-    decoration: BoxDecoration(
-      color: Colors.red,
-      borderRadius: BorderRadius.circular(
-          10.0), //TODO: Fix border radius border between container/image and text should be 0
-    ),
-  );
 
   Widget _buildIngredientsSection(){
     return Container(
@@ -105,40 +102,46 @@ class _HomePageScreenState extends State<HomePageScreen> {
     );
   }
 
-  Widget _buildRecipeSuggestionsBlock() {
+  Widget _buildRecipeSuggestionsHeader(){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Text(
+          'Recipe Suggestions',
+          style: kBodyBoldTextStyle,
+        ),
+        TextButton(
+          onPressed: (){
+            //TODO: link 'See more' button to recipes page (no selected ingredients)
+            Navigator.pushNamed(context, AppRoutes.ingredientsPageScreen);//temporary only
+          },
+          child: Text(
+              'See more',
+              style: kSmallTextStyle
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildRecipeBlocks (List<Recipe>? favoritesList){ //extracts recipes from list and puts each in a RecipeBlock in a column
+    return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: favoritesList!.map((item) => RecipeBlock(recipe: item)).toList(),
+    );
+  }
+
+  Widget _buildRecipeSuggestionsSection() {
     return Padding(
       padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),
       child: Expanded(
         child: Column(
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  'Recipe Suggestions',
-                  style: kBodyBoldTextStyle,
-                ),
-                TextButton(
-                  onPressed: (){
-                    //TODO: link MiddleButton to recipes page (no selected ingredients)
-                    Navigator.pushNamed(context, AppRoutes.ingredientsPageScreen);//temporary only
-                  },
-                  child: Text(
-                      'See more',
-                      style: kSmallTextStyle
-                  ),
-                ),
-              ],
-            ),
+            _buildRecipeSuggestionsHeader(),
             SizedBox(
               height: 17, //spaceBetweenTextAndBlock
             ),
-            RecipeBlock(
-              recipe: lugawRecipeObject
-            ),
-            RecipeBlock(
-                recipe: tinolaRecipeObject
-            ),
+            _buildRecipeBlocks(_featuredList),
           ],
         ),
       ),
@@ -163,7 +166,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
       body: ListView(
         children: <Widget>[
           _buildIngredientsSection(),
-          _buildRecipeSuggestionsBlock(),
+          _buildRecipeSuggestionsSection(),
         ],
       ),
       bottomNavigationBar: NavBar(
