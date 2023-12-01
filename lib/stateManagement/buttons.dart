@@ -94,6 +94,22 @@ class ButtonsModel extends ChangeNotifier {
     Colors.white, // (8UT24) ('Desserts', 3)
   ];
 
+
+
+  Map<String, bool> _heartIcons = {};
+
+  bool isHeartIconPressed(String id) => _heartIcons[id] ?? false;
+
+  void toggleHeartIcon(String id) {
+    _heartIcons[id] = !isHeartIconPressed(id);
+    notifyListeners();
+  }
+
+  bool isAnyHeartIconPressed() {
+    return _heartIcons.values.any((isPressed) => isPressed);
+  }
+
+
   List<String> recipeBank = [];
 
   void addToRecipeBank(String item) {

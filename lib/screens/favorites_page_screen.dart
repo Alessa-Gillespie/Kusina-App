@@ -5,12 +5,17 @@ import 'package:kusina_app_v3/button_components.dart';
 import 'package:kusina_app_v3/styles.dart';
 import 'package:kusina_app_v3/navbar.dart';
 import 'package:kusina_app_v3/recipe.dart';
+import 'package:kusina_app_v3/routes//app_routes.dart';
+
+// Import the provider packages
+import 'package:provider/provider.dart';
+import 'package:kusina_app_v3/stateManagement/buttons.dart';
 
 const spaceBetweenTextAndBlock = 17;
 const spaceBetweenRecipeBlocks = 18;
 
 //TEMPORARY
-Recipe lugawRecipeObject =  Recipe(
+Recipe lugawRecipeObject = Recipe(
   name: 'Lugaw (from favorites page)',
   imagePath: 'images/Tinola.jpg',
   ingredientsList: [
@@ -29,14 +34,16 @@ Recipe lugawRecipeObject =  Recipe(
   //video:
   sourceLink: 'https://panlasangpinoy.com/lugaw-recipe/', //source
 );
+
 class FavoritesPageScreen extends StatefulWidget {
   @override
   _FavoritesPageScreenState createState() => _FavoritesPageScreenState();
 }
 
 class _FavoritesPageScreenState extends State<FavoritesPageScreen> {
-  bool _favoritesListIsEmpty = true;//depends sa "database" ng favorites and controls the display of _buildEmptySection()
-                                    //NOTE: this bool is just a placeholder variable to control the display
+  bool _favoritesListIsEmpty =
+      true; //depends sa "database" ng favorites and controls the display of _buildEmptySection()
+  //NOTE: this bool is just a placeholder variable to control the display
 
   //TEMPORARY CONTAINER PLACEHOLDER FOR IMAGE
   Container placeholder = Container(
@@ -49,111 +56,55 @@ class _FavoritesPageScreenState extends State<FavoritesPageScreen> {
     ),
   );
 
-  Widget _buildFilterSection(){
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(left: 25),
-            child: Text(
-              'Filter',
-              style: kBodyBoldTextStyle,
-            ),
+  Widget _buildFilterButtons(String label, int index) {
+    return Padding(
+      padding: EdgeInsets.all(7),
+      child: ElevatedButton(
+        onPressed: () {
+          final buttonsModel = context.read<ButtonsModel>();
+          if (buttonsModel.filters[index] == Colors.white) {
+            buttonsModel.updateFilters(index, Colors.black);
+          } else {
+            buttonsModel.updateFilters(index, Colors.white);
+          }
+          // Handle button press
+        },
+        child: Text(label),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: context.watch<ButtonsModel>().filters[index],
+          foregroundColor:
+              context.watch<ButtonsModel>().filters[index] == Colors.white
+                  ? Colors.black
+                  : Colors.white,
+          // (^3)
+          side: BorderSide(color: Colors.black, width: 1),
+          // border color and width
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20), // adjust as needed
           ),
-          SizedBox(height: 5),
-          Container(
-            height: 34,
-            child: Flexible(
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: <Widget>[
-                  SizedBox(width: 25),
-                  FilterButton(
-                    text: 'Breakfast',
-                    onPress: () {
-                    //change button color
-                    setState((){
-                       FilterButton.changeButtonColor();
-                    });
-                    //add to some list for processing for result?
-                    },
-                  ),
-                  FilterButton(
-                    text: 'Lunch',
-                    onPress: () {
-                      //change button color
-                      setState((){
-                        FilterButton.changeButtonColor();
-                      });
-                      //add to some list for processing for result?
-                    },
-                  ),
-                  FilterButton(
-                    text: 'Dinner',
-                    onPress: () {
-                      //change button color
-                      setState((){
-                        FilterButton.changeButtonColor();
-                      });
-                      //add to some list for processing for result?
-                    },
-                  ),
-                  FilterButton(
-                    text: 'Dessert',
-                    onPress: () {
-                      //change button color
-                      setState((){
-                        FilterButton.changeButtonColor();
-                      });
-                      //add to some list for processing for result?
-                    },
-                  ),
-                  FilterButton(
-                    text: 'Snack',
-                    onPress: () {
-                      //change button color
-                      setState((){
-                        FilterButton.changeButtonColor();
-                      });
-                      //add to some list for processing for result?
-                    },
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildRecipeBlocks(){
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.all(25),
-        child: ListView(
-          children: <RecipeBlock>[
-            RecipeBlock(
-                recipe: lugawRecipeObject
-            ),
-            RecipeBlock(
-                recipe: lugawRecipeObject
-            ),
-            RecipeBlock(
-                recipe: lugawRecipeObject
-            ),
-          ],
         ),
       ),
     );
   }
 
-  Widget _buildEmptySection(){
-    return Expanded(
+  Widget buildImageContainer(String imagePath) {
+    return Container(
+      height: 130,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(imagePath),
+          fit: BoxFit.cover,
+        ),
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+    );
+  }
+
+  Widget _buildEmptySection() {
+    return Center(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Icon(
             Icons.folder_rounded,
@@ -172,24 +123,222 @@ class _FavoritesPageScreenState extends State<FavoritesPageScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final buttons = context.watch<ButtonsModel>();
     return Scaffold(
       backgroundColor: kBackgroundColor,
       appBar: AppBar(
-          title: Text('Favorites'),
+        title: Text('Favorites'),
       ),
-      body: Column(//recipe blocks
-        children: <Widget>[
-          SizedBox(height: 22),
-          _buildFilterSection(),//filter
-          _favoritesListIsEmpty
-          ? _buildEmptySection()//empty display
-          : _buildRecipeBlocks(),// display favorite recipes
-        ],
+
+      // context.read<ButtonsModel>().isAnyHeartIconPressed()
+      //                 ? _buildEmptySection()//empty display
+      //                 :
+
+      body: SafeArea(
+        child: !context.read<ButtonsModel>().isAnyHeartIconPressed()
+            ? _buildEmptySection() //empty display
+            : SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              SizedBox(height: 22),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text(
+                      "Filter",
+                      style: TextStyle(fontSize: 24),
+                    ),
+                  ),
+                ],
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: <Widget>[
+                    _buildFilterButtons('Breakfast', 0),
+                    _buildFilterButtons('Lunch', 1),
+                    _buildFilterButtons('Dinner', 2),
+                    _buildFilterButtons('Desserts', 3),
+                  ],
+                ),
+              ), //filter
+              SizedBox(height: 30),
+              if ((buttons.filters[0] != Colors.black &&
+                  buttons.filters[3] != Colors.black) && (buttons.isHeartIconPressed('tinola')))
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                  child: RecipeBlock(
+                    child: buildImageContainer('images/Tinola.jpg'),
+                    text: 'Tinola',
+                    color: Colors.white,
+                    onPress: () {
+                      final buttons = context.read<ButtonsModel>();
+                      buttons.setMyRecipe('Tinola');
+                      Navigator.pushNamed(context, AppRoutes.tinola);
+                    },
+                  ),
+                ),
+              if ((buttons.isHeartIconPressed('tapsilog')) &&
+                  (buttons.filters[1] != Colors.black &&
+                      buttons.filters[2] != Colors.black &&
+                      buttons.filters[3] != Colors.black))
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                  child: RecipeBlock(
+                    child: buildImageContainer('images/Tapsilog.jpg'),
+                    text: 'Tapsilog',
+                    color: Colors.white,
+                    onPress: () {
+                      final buttons = context.read<ButtonsModel>();
+                      buttons.setMyRecipe('Tapsilog');
+                      Navigator.pushNamed(context, AppRoutes.tapsilog);
+                    },
+                  ),
+                ),
+              if ((buttons.isHeartIconPressed('cassava_cake')) &&
+                  (buttons.filters[1] != Colors.black &&
+                      buttons.filters[2] != Colors.black &&
+                      buttons.filters[0] != Colors.black))
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                  child: RecipeBlock(
+                    child: buildImageContainer('images/cassava_cake.jpg'),
+                    text: 'Cassava Cake',
+                    color: Colors.white,
+                    onPress: () {
+                      final buttons = context.read<ButtonsModel>();
+                      buttons.setMyRecipe('Cassava Cake');
+                      Navigator.pushNamed(context, AppRoutes.cassava_cake);
+                    },
+                  ),
+                ),
+              if ((buttons.isHeartIconPressed('menudo')) &&
+                  (buttons.filters[0] != Colors.black &&
+                      buttons.filters[2] != Colors.black &&
+                      buttons.filters[3] != Colors.black))
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                  child: RecipeBlock(
+                    child: buildImageContainer('images/menudo.jpg'),
+                    text: 'Menudo',
+                    color: Colors.white,
+                    onPress: () {
+                      final buttons = context.read<ButtonsModel>();
+                      buttons.setMyRecipe('Menudo');
+                      Navigator.pushNamed(context, AppRoutes.menudo);
+                    },
+                  ),
+                ),
+              if ((buttons.isHeartIconPressed('bulalo')) &&
+                  (buttons.filters[0] != Colors.black &&
+                      buttons.filters[2] != Colors.black &&
+                      buttons.filters[3] != Colors.black))
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                  child: RecipeBlock(
+                    child: buildImageContainer('images/bulalo.png'),
+                    text: 'Bulalo',
+                    color: Colors.white,
+                    onPress: () {
+                      final buttons = context.read<ButtonsModel>();
+                      buttons.setMyRecipe('Bulalo');
+                      Navigator.pushNamed(context, AppRoutes.bulalo);
+                    },
+                  ),
+                ),
+              if ((buttons.isHeartIconPressed('lumpiang_shanghai')) &&
+                  (buttons.filters[0] != Colors.black &&
+                      buttons.filters[2] != Colors.black &&
+                      buttons.filters[3] != Colors.black))
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                  child: RecipeBlock(
+                    child: buildImageContainer('images/lumpiang_shanghai.jpg'),
+                    text: 'Lumpiang Shanghai',
+                    color: Colors.white,
+                    onPress: () {
+                      final buttons = context.read<ButtonsModel>();
+                      buttons.setMyRecipe('Lumpiang Shanghai');
+                      Navigator.pushNamed(context, AppRoutes.lumpiang_shanghai);
+                    },
+                  ),
+                ),
+              if ((buttons.isHeartIconPressed('champorado')) &&
+                  (buttons.filters[0] != Colors.black &&
+                      buttons.filters[1] != Colors.black &&
+                      buttons.filters[2] != Colors.black))
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                  child: RecipeBlock(
+                    child: buildImageContainer('images/champorado.png'),
+                    text: 'Champorado',
+                    color: Colors.white,
+                    onPress: () {
+                      final buttons = context.read<ButtonsModel>();
+                      buttons.setMyRecipe('Champorado');
+                      Navigator.pushNamed(context, AppRoutes.champorado);
+                    },
+                  ),
+                ),
+              if ((buttons.isHeartIconPressed('daing')) &&
+                  (buttons.filters[0] != Colors.black &&
+                      buttons.filters[3] != Colors.black))
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                  child: RecipeBlock(
+                    child: buildImageContainer('images/daing.jpg'),
+                    text: 'Daing',
+                    color: Colors.white,
+                    onPress: () {
+                      final buttons = context.read<ButtonsModel>();
+                      buttons.setMyRecipe('Daing');
+                      Navigator.pushNamed(context, AppRoutes.daing);
+                    },
+                  ),
+                ),
+              if ((buttons.isHeartIconPressed('tuyo')) &&
+                  (buttons.filters[0] != Colors.black &&
+                      buttons.filters[2] != Colors.black &&
+                      buttons.filters[3] != Colors.black))
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                  child: RecipeBlock(
+                    child: buildImageContainer('images/tuyo.jpg'),
+                    text: 'Tuyo',
+                    color: Colors.white,
+                    onPress: () {
+                      final buttons = context.read<ButtonsModel>();
+                      buttons.setMyRecipe('Tuyo');
+                      Navigator.pushNamed(context, AppRoutes.tuyo);
+                    },
+                  ),
+                ),
+              if ((buttons.isHeartIconPressed('omelet')) &&
+                  (buttons.filters[1] != Colors.black &&
+                      buttons.filters[2] != Colors.black &&
+                      buttons.filters[3] != Colors.black))
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                  child: RecipeBlock(
+                    child: buildImageContainer('images/omelet.jpg'),
+                    text: 'Omelet',
+                    color: Colors.white,
+                    onPress: () {
+                      final buttons = context.read<ButtonsModel>();
+                      buttons.setMyRecipe('Omelet');
+                      Navigator.pushNamed(context, AppRoutes.omelet);
+                    },
+                  ),
+                ),
+              // display favorite recipes
+            ],
+          ),
+        ),
       ),
       bottomNavigationBar: NavBar(
         selectedIndex: 3,
       ),
     );
   }
-
 }

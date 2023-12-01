@@ -86,7 +86,7 @@ class _TapsilogState extends State<Tapsilog> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Tinola',
+                  Text('Tapsilog',
                     style: kHeading1TextStyle,
                     textAlign: TextAlign.left,
                   ),
@@ -103,7 +103,7 @@ class _TapsilogState extends State<Tapsilog> {
               Positioned(
                 top: -10,
                 right: 0,
-                child: _buildActionButtons(),
+                child: _buildActionButtons('tapsilog'),
               ),
             ]
         ),
@@ -111,39 +111,38 @@ class _TapsilogState extends State<Tapsilog> {
     );
   }
 
-  Widget _buildActionButtons(){
-    Widget heartIcon = FloatingActionButton.small(
-      onPressed: (){
-        setState(() {
-          isHeartIconPressed == true
-              ? isHeartIconPressed = false
-              : isHeartIconPressed = true;
-        });
-      },
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      child:  isHeartIconPressed == true
-          ? activeHeart
-          : inactiveHeart,
-    );
-    Widget listIcon = FloatingActionButton.small(
-      onPressed: (){
-        final buttons = context.read<ButtonsModel>();
-        buttons.setMyRecipe('Tapsilog');
-        Navigator.pushNamed(context, AppRoutes.missingIngredients);
-      },
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      child: Icon(
-        FontAwesomeIcons.list,
-        color: kTextColor,
-      ),
-    );
-    return Column(
-      children: [
-        heartIcon,
-        listIcon,
-      ],
+  Widget _buildActionButtons(String heartIconId){
+    return Consumer<ButtonsModel>(
+        builder: (context, heartIconModel, child) {
+          Widget heartIcon = FloatingActionButton.small(
+            onPressed: (){
+              heartIconModel.toggleHeartIcon(heartIconId);
+            },
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            child:  heartIconModel.isHeartIconPressed(heartIconId) == true
+                ? activeHeart
+                : inactiveHeart,
+          );
+          Widget listIcon = FloatingActionButton.small(
+            onPressed: (){
+              final buttons = context.read<ButtonsModel>();
+              Navigator.pushNamed(context, AppRoutes.missingIngredients);
+            },
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            child: Icon(
+              FontAwesomeIcons.list,
+              color: kTextColor,
+            ),
+          );
+          return Column(
+            children: [
+              heartIcon,
+              listIcon,
+            ],
+          );
+        }
     );
   }
 
@@ -155,16 +154,21 @@ class _TapsilogState extends State<Tapsilog> {
 
     // List of ingredients
     List<String> ingredients = [
-      '1 whole Chicken, cut into serving pieces',
-      '36 ounces Rice washing',
-      '1/2 piece Green Papaya, cut into wedges',
-      '1 tablespoon Garlic minced',
-      '1 piece Onion chopped',
-      '1 thumb Ginger, cut into strips',
-      '2 tablespoon Fish Sauce',
-      '3 tablespoons Fish Sauce',
-      '1 cup Hot Pepper Leaves',
-      '1/4 teaspoon Ground Black Pepper',
+      '1 lb. Beef Sirloin, sliced thinly',
+      '3 pieces Eggs',
+      '6 tablespoons Cooking oil',
+       '',
+      'Tapa Marinade',
+      '3 tablespoons Knorr Liquid Seasoning',
+      '6 cloves Garlic, crushed',
+      '3/4 cups Pineapple Juice',
+      '2 tablespoons Brown Sugar',
+      '1/4 teaspoon ground White Pepper',
+       '',
+      'Sinangag',
+      '5 cups leftover Rice',
+      '1 teaspoon Salt',
+      '5 cloves Garlic, crushed',
     ];
 
     return Column(
@@ -193,13 +197,12 @@ class _TapsilogState extends State<Tapsilog> {
 
     // List of instructions
     List<String> instructionsList = [
-      '1. Sauté the garlic, onion, and ginger',
-      '2. Put-in the chicken and cook until color turns light brown',
-      '3. Add the fish sauce. Stir. Pour rice washing into the cooking pot. Let boil. Cover the pot and simmer for 45 minutes. Note: add water if needed.',
-      '4. Add green papaya. Cook for 5 minutes',
-      '5. Add the hot pepper leaves or malunggay leaves. Stir and cook for 1 minute.',
-      '6. Season with ground black pepper. Note you can also add fish sauce or salt if needed.',
-      '7. Transfer to a serving bowl. Serve hot. Share and enjoy!',
+      '1. Prepare the tapa by placing the beef in a large bowl. Combine with all the tapa marinade ingredients. Mix well and cover the bowl. Place inside the fridge and marinate overnight.',
+      '2. Cook the garlic fried rice (sinangag na kanin) by heating 3 tablespoons cooking oil in a pan. Add crushed garlic. Cook until garlic turns light brown. Add the leftover rice. Stir-fry for 3 minutes.',
+      '3. Season with salt. Continue to stir-fry for 3 to 5 minutes. Set aside.',
+      '4. Start to cook the tapa. Heat a pan and pour the marinated beef into it, including the marinade. Add ¾ cups water. Let the mixture boil. Cover the pan and continue to cook until the liquid reduces to half. Add 3 tablespoons cooking oil into the mixture. Continue to cook until the liquid completely evaporates. Fry the beef tapa in remaining oil until medium brown. Set aside.',
+      '5. Fry the egg by pouring 1 tablespoon oil on a pan. Crack a piece of egg and sprinkle enough salt on top. Cook for 30 seconds. Pour 2 tablespoons water on the side of the pan. Cover and let the water boil. Continue to cook until the egg yolks gets completely cooked by the steam.',
+      '6. Arrange the beef tapa, sinangag, and fried egg on a large plate to form Tapsilog. Serve with vinegar as dipping sauce for tapa.',
       // Add more instructions as needed
     ];
 
@@ -257,7 +260,7 @@ class _TapsilogState extends State<Tapsilog> {
     );
 
     Text link = Text(
-      'https://panlasangpinoy.com/filipino-chicken-tinola-recipe/e',
+      'https://panlasangpinoy.com/tapsilog-recipe/',
       style: kBodyTextStyle,
     );
 

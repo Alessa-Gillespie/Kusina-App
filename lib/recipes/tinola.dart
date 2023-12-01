@@ -103,7 +103,7 @@ class _TinolaState extends State<Tinola> {
               Positioned(
                 top: -10,
                 right: 0,
-                child: _buildActionButtons(),
+                child: _buildActionButtons('tinola'),
               ),
             ]
         ),
@@ -111,39 +111,38 @@ class _TinolaState extends State<Tinola> {
     );
   }
 
-  Widget _buildActionButtons(){
-    Widget heartIcon = FloatingActionButton.small(
-      onPressed: (){
-        setState(() {
-          isHeartIconPressed == true
-              ? isHeartIconPressed = false
-              : isHeartIconPressed = true;
-        });
-      },
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      child:  isHeartIconPressed == true
-          ? activeHeart
-          : inactiveHeart,
-    );
-    Widget listIcon = FloatingActionButton.small(
-      onPressed: (){
-        final buttons = context.read<ButtonsModel>();
-        buttons.setMyRecipe('Tinola');
-        Navigator.pushNamed(context, AppRoutes.missingIngredients);
-      },
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      child: Icon(
-        FontAwesomeIcons.list,
-        color: kTextColor,
-      ),
-    );
-    return Column(
-      children: [
-        heartIcon,
-        listIcon,
-      ],
+  Widget _buildActionButtons(String heartIconId){
+    return Consumer<ButtonsModel>(
+        builder: (context, heartIconModel, child) {
+          Widget heartIcon = FloatingActionButton.small(
+            onPressed: (){
+              heartIconModel.toggleHeartIcon(heartIconId);
+            },
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            child:  heartIconModel.isHeartIconPressed(heartIconId) == true
+                ? activeHeart
+                : inactiveHeart,
+          );
+          Widget listIcon = FloatingActionButton.small(
+            onPressed: (){
+              final buttons = context.read<ButtonsModel>();
+              Navigator.pushNamed(context, AppRoutes.missingIngredients);
+            },
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            child: Icon(
+              FontAwesomeIcons.list,
+              color: kTextColor,
+            ),
+          );
+          return Column(
+            children: [
+              heartIcon,
+              listIcon,
+            ],
+          );
+        }
     );
   }
 

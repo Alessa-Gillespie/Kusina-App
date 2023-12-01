@@ -151,258 +151,261 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(left: screenSize.width * 0.05), // Use a percentage of the screen width
-                    child: Text(
-                      'Select Ingredients',
-                      style: TextStyle(fontSize: 24),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: screenSize.width * 0.05), // Use a percentage of the screen width
-                    child: ElevatedButton(
-                      onPressed: () {
-                        final buttons = context.read<ButtonsModel>();
-                        buttons.clearFilters();
-                        buttons.clearIngredients();
-                      },
-                      child: Text(
-                        'Clear',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        foregroundColor: Colors.black,
-                        side: BorderSide(color: Colors.white, width: 0),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: screenSize.height * 0.015), // Use a percentage of the screen height
-              _buildIngredientCategoryName(context, 'Karne / Meat'),
-              Wrap( // Use Wrap instead of Row for the list of buttons
-                alignment: WrapAlignment.start,
-                spacing: screenSize.width * 0.02, // Space between children in the main axis
-                runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
-                children: <Widget>[
-                  _buildIngredientButtons('Beef', 0),
-                  _buildIngredientButtons('Chicken', 1),
-                  _buildIngredientButtons('Baboy', 2),
-                  _buildIngredientButtons('Atay ng Baboy', 35),
-                  _buildIngredientButtons('Hotdog', 38),
-                ],
-              ),
-              SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
-              _buildIngredientCategoryName(context, 'Gulay at Dahon / Vegetables'),
-              Wrap( // Use Wrap instead of Row for the list of buttons
-                spacing: screenSize.width * 0.02, // Space between children in the main axis
-                runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
-                children: <Widget>[
-                  _buildIngredientButtons('Carrots', 3),
-                  _buildIngredientButtons('Patatas', 4),
-                  _buildIngredientButtons('Kamatis', 5),
-                  _buildIngredientButtons('Sibuyas', 13),
-                  _buildIngredientButtons('Bawang', 17),
-                  _buildIngredientButtons('Hot Pepper Leaves', 20),
-                  _buildIngredientButtons('Kamoteng Kahoy', 27),
-                  _buildIngredientButtons('Repolyo', 41),
-                  _buildIngredientButtons('Bok Choy', 42),
-                  _buildIngredientButtons('Mais', 43),
-                  _buildIngredientButtons('Green Onions', 45),
-                  _buildIngredientButtons('Red Onion', 58),
-                ],
-              ),
-              SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
-              _buildIngredientCategoryName(context, 'Lamang Dagat / Seafoods'),
-              Wrap( // Use Wrap instead of Row for the list of buttons
-                spacing: screenSize.width * 0.02, // Space between children in the main axis
-                runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
-                children: <Widget>[
-                  _buildIngredientButtons('Isda', 6),
-                  _buildIngredientButtons('Hipon', 7),
-                  _buildIngredientButtons('Crab', 8),
-                  _buildIngredientButtons('Bangus', 53),
-                  _buildIngredientButtons('Tuyo Salted Dried Fish', 57),
-                ],
-              ),
-              SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
-              _buildIngredientCategoryName(context, 'Dressings & Vinegar'),
-              Wrap( // Use Wrap instead of Row for the list of buttons
-                spacing: screenSize.width * 0.02, // Space between children in the main axis
-                runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
-                children: <Widget>[
-                  _buildIngredientButtons('Suka', 54),
-                ],
-              ),
-              SizedBox(height: 30),
-              _buildIngredientCategoryName(context, 'Seasonings & Spice Blends'),
-              Wrap( // List of Buttons per Row
-                spacing: screenSize.width * 0.02,
-                runSpacing: screenSize.height * 0.01,
-                children: <Widget>[
-                  _buildIngredientButtons('Salt', 14),
-                  _buildIngredientButtons('Ground Black Pepper', 21),
-                  _buildIngredientButtons('Pamintang Puti', 26),
-                  _buildIngredientButtons('Pepper', 40),
-                  _buildIngredientButtons('Black Pepper', 44),
-                  _buildIngredientButtons('Cayenne Pepper Powder', 55),
-                  _buildIngredientButtons('Sea Salt', 56),
-                ],
-              ),
-              SizedBox(height: 30),
-              _buildIngredientCategoryName(context, 'Prutas / Fruits'),
-              Wrap( // List of Buttons per Row
-                spacing: screenSize.width * 0.02,
-                runSpacing: screenSize.height * 0.01,
-                children: <Widget>[
-                  _buildIngredientButtons('Mansanas', 9),
-                  _buildIngredientButtons('Saging', 10),
-                  _buildIngredientButtons('Orange', 11),
-                  _buildIngredientButtons('Green Papaya', 16),
-                  _buildIngredientButtons('Lemon', 36),
-                ],
-              ),
-              SizedBox(height: 30),
-              _buildIngredientCategoryName(context, 'Condiments'),
-              Wrap( // List of Buttons per Row
-                spacing: screenSize.width * 0.02,
-                runSpacing: screenSize.height * 0.01,
-                children: <Widget>[
-                  _buildIngredientButtons('Toyo', 12),
-                  _buildIngredientButtons('Patis', 19),
-                  _buildIngredientButtons('Knorr Liquid Seasoning', 23),
-                ],
-              ),
-              SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
-              _buildIngredientCategoryName(context, 'Grains & Cereals'),
-              Wrap( // Use Wrap instead of Row for the list of buttons
-                spacing: screenSize.width * 0.02, // Space between children in the main axis
-                runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
-                children: <Widget>[
-                  _buildIngredientButtons('Kanin', 15),
-                  _buildIngredientButtons('Kaning Malagkit', 51),
-                ],
-              ),
-              SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
-              _buildIngredientCategoryName(context, 'Pre-made Doughs & Wrappers'),
-              Wrap( // Use Wrap instead of Row for the list of buttons
-                spacing: screenSize.width * 0.02, // Space between children in the main axis
-                runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
-                children: <Widget>[
-                  _buildIngredientButtons('Lumpia Wrapper', 46),
-                ],
-              ),
-              SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
-              _buildIngredientCategoryName(context, 'Sauces & Dips'),
-              Wrap( // Use Wrap instead of Row for the list of buttons
-                spacing: screenSize.width * 0.02, // Space between children in the main axis
-                runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
-                children: <Widget>[
-                  _buildIngredientButtons('Tomato Sauce', 37),
-                ],
-              ),
-              SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
-              _buildIngredientCategoryName(context, 'Dairy-Free & Meat Substitutes'),
-              Wrap( // Use Wrap instead of Row for the list of buttons
-                spacing: screenSize.width * 0.02, // Space between children in the main axis
-                runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
-                children: <Widget>[
-                  _buildIngredientButtons('Gata ng Niyog', 18),
-                ],
-              ),
-              SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
-              _buildIngredientCategoryName(context, 'Inumin'),
-              Wrap( // Use Wrap instead of Row for the list of buttons
-                spacing: screenSize.width * 0.02, // Space between children in the main axis
-                runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
-                children: <Widget>[
-                  _buildIngredientButtons('Pineapple Juice', 24),
-                  _buildIngredientButtons('Tubig', 52),
-                ],
-              ),
-              SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
-              _buildIngredientCategoryName(context, 'Dairy & Eggs'),
-              Wrap( // Use Wrap instead of Row for the list of buttons
-                spacing: screenSize.width * 0.02, // Space between children in the main axis
-                runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
-                children: <Widget>[
-                  _buildIngredientButtons('Itlog', 22),
-                  _buildIngredientButtons('Evaporated Milk', 29),
-                  _buildIngredientButtons('Butter', 30),
-                  _buildIngredientButtons('Condensed Milk', 32),
-                ],
-              ),
-              SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
-              _buildIngredientCategoryName(context, 'Mga Keso'),
-              Wrap( // Use Wrap instead of Row for the list of buttons
-                spacing: screenSize.width * 0.02, // Space between children in the main axis
-                runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
-                children: <Widget>[
-                  _buildIngredientButtons('Cheddar Cheese', 31),
-                ],
-              ),
-              SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
-              _buildIngredientCategoryName(context, 'Herbs & Spices'),
-              Wrap( // Use Wrap instead of Row for the list of buttons
-                spacing: screenSize.width * 0.02, // Space between children in the main axis
-                runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
-                children: <Widget>[
-                  _buildIngredientButtons('Luya', 18),
-                  _buildIngredientButtons('Dried Bay Leaves', 39),
-                  _buildIngredientButtons('Garlic Powder', 47),
-                  _buildIngredientButtons('Parsley', 48),
-                ],
-              ),
-              SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
-              _buildIngredientCategoryName(context, 'Oils & Fats'),
-              Wrap( // Use Wrap instead of Row for the list of buttons
-                spacing: screenSize.width * 0.02, // Space between children in the main axis
-                runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
-                children: <Widget>[
-                  _buildIngredientButtons('Sesame Oil', 49),
-                ],
-              ),
-              SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
-              _buildIngredientCategoryName(context, 'Sugars & Sweeteners'),
-              Wrap( // Use Wrap instead of Row for the list of buttons
-                spacing: screenSize.width * 0.02, // Space between children in the main axis
-                runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
-                children: <Widget>[
-                  _buildIngredientButtons('Brown Sugar', 25),
-                  _buildIngredientButtons('White Sugar', 33),
-                ],
-              ),
-              SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
-              _buildIngredientCategoryName(context, 'Baking'),
-              Wrap( // Use Wrap instead of Row for the list of buttons
-                spacing: screenSize.width * 0.02, // Space between children in the main axis
-                runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
-                children: <Widget>[
-                  _buildIngredientButtons('Harina', 34),
-                  _buildIngredientButtons('Cocoa Powder', 50),
-                ],
-              ),
-              SizedBox(height: 30),
-              _buildIngredientCategoryName(context, 'Filter'),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: <Widget>[
+                SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    _buildFilterButtons('Breakfast', 0),
-                    _buildFilterButtons('Lunch', 1),
-                    _buildFilterButtons('Dinner', 2),
-                    _buildFilterButtons('Desserts', 3),
+                    Padding(
+                      padding: EdgeInsets.only(left: screenSize.width * 0.05), // Use a percentage of the screen width
+                      child: Text(
+                        'Select Ingredients',
+                        style: TextStyle(fontSize: 24),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(right: screenSize.width * 0.05), // Use a percentage of the screen width
+                      child: ElevatedButton(
+                        onPressed: () {
+                          final buttons = context.read<ButtonsModel>();
+                          buttons.clearFilters();
+                          buttons.clearIngredients();
+                        },
+                        child: Text(
+                          'Clear',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          foregroundColor: Colors.black,
+                          side: BorderSide(color: Colors.white, width: 0),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
-              ),
-            ],
+                SizedBox(height: screenSize.height * 0.015), // Use a percentage of the screen height
+                _buildIngredientCategoryName(context, 'Karne / Meat'),
+                Wrap( // Use Wrap instead of Row for the list of buttons
+                  alignment: WrapAlignment.start,
+                  spacing: screenSize.width * 0.02, // Space between children in the main axis
+                  runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
+                  children: <Widget>[
+                    _buildIngredientButtons('Beef', 0),
+                    _buildIngredientButtons('Chicken', 1),
+                    _buildIngredientButtons('Baboy', 2),
+                    _buildIngredientButtons('Atay ng Baboy', 35),
+                    _buildIngredientButtons('Hotdog', 38),
+                  ],
+                ),
+                SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
+                _buildIngredientCategoryName(context, 'Gulay at Dahon / Vegetables'),
+                Wrap( // Use Wrap instead of Row for the list of buttons
+                  spacing: screenSize.width * 0.02, // Space between children in the main axis
+                  runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
+                  children: <Widget>[
+                    _buildIngredientButtons('Carrots', 3),
+                    _buildIngredientButtons('Patatas', 4),
+                    _buildIngredientButtons('Kamatis', 5),
+                    _buildIngredientButtons('Sibuyas', 13),
+                    _buildIngredientButtons('Bawang', 17),
+                    _buildIngredientButtons('Hot Pepper Leaves', 20),
+                    _buildIngredientButtons('Kamoteng Kahoy', 27),
+                    _buildIngredientButtons('Repolyo', 41),
+                    _buildIngredientButtons('Bok Choy', 42),
+                    _buildIngredientButtons('Mais', 43),
+                    _buildIngredientButtons('Green Onions', 45),
+                    _buildIngredientButtons('Red Onion', 58),
+                  ],
+                ),
+                SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
+                _buildIngredientCategoryName(context, 'Lamang Dagat / Seafoods'),
+                Wrap( // Use Wrap instead of Row for the list of buttons
+                  spacing: screenSize.width * 0.02, // Space between children in the main axis
+                  runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
+                  children: <Widget>[
+                    _buildIngredientButtons('Isda', 6),
+                    _buildIngredientButtons('Hipon', 7),
+                    _buildIngredientButtons('Crab', 8),
+                    _buildIngredientButtons('Bangus', 53),
+                    _buildIngredientButtons('Tuyo Salted Dried Fish', 57),
+                  ],
+                ),
+                SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
+                _buildIngredientCategoryName(context, 'Dressings & Vinegar'),
+                Wrap( // Use Wrap instead of Row for the list of buttons
+                  spacing: screenSize.width * 0.02, // Space between children in the main axis
+                  runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
+                  children: <Widget>[
+                    _buildIngredientButtons('Suka', 54),
+                  ],
+                ),
+                SizedBox(height: 30),
+                _buildIngredientCategoryName(context, 'Seasonings & Spice Blends'),
+                Wrap( // List of Buttons per Row
+                  spacing: screenSize.width * 0.02,
+                  runSpacing: screenSize.height * 0.01,
+                  children: <Widget>[
+                    _buildIngredientButtons('Salt', 14),
+                    _buildIngredientButtons('Ground Black Pepper', 21),
+                    _buildIngredientButtons('Pamintang Puti', 26),
+                    _buildIngredientButtons('Pepper', 40),
+                    _buildIngredientButtons('Black Pepper', 44),
+                    _buildIngredientButtons('Cayenne Pepper Powder', 55),
+                    _buildIngredientButtons('Sea Salt', 56),
+                  ],
+                ),
+                SizedBox(height: 30),
+                _buildIngredientCategoryName(context, 'Prutas / Fruits'),
+                Wrap( // List of Buttons per Row
+                  spacing: screenSize.width * 0.02,
+                  runSpacing: screenSize.height * 0.01,
+                  children: <Widget>[
+                    _buildIngredientButtons('Mansanas', 9),
+                    _buildIngredientButtons('Saging', 10),
+                    _buildIngredientButtons('Orange', 11),
+                    _buildIngredientButtons('Green Papaya', 16),
+                    _buildIngredientButtons('Lemon', 36),
+                  ],
+                ),
+                SizedBox(height: 30),
+                _buildIngredientCategoryName(context, 'Condiments'),
+                Wrap( // List of Buttons per Row
+                  spacing: screenSize.width * 0.02,
+                  runSpacing: screenSize.height * 0.01,
+                  children: <Widget>[
+                    _buildIngredientButtons('Toyo', 12),
+                    _buildIngredientButtons('Patis', 19),
+                    _buildIngredientButtons('Knorr Liquid Seasoning', 23),
+                  ],
+                ),
+                SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
+                _buildIngredientCategoryName(context, 'Grains & Cereals'),
+                Wrap( // Use Wrap instead of Row for the list of buttons
+                  spacing: screenSize.width * 0.02, // Space between children in the main axis
+                  runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
+                  children: <Widget>[
+                    _buildIngredientButtons('Kanin', 15),
+                    _buildIngredientButtons('Kaning Malagkit', 51),
+                  ],
+                ),
+                SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
+                _buildIngredientCategoryName(context, 'Pre-made Doughs & Wrappers'),
+                Wrap( // Use Wrap instead of Row for the list of buttons
+                  spacing: screenSize.width * 0.02, // Space between children in the main axis
+                  runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
+                  children: <Widget>[
+                    _buildIngredientButtons('Lumpia Wrapper', 46),
+                  ],
+                ),
+                SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
+                _buildIngredientCategoryName(context, 'Sauces & Dips'),
+                Wrap( // Use Wrap instead of Row for the list of buttons
+                  spacing: screenSize.width * 0.02, // Space between children in the main axis
+                  runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
+                  children: <Widget>[
+                    _buildIngredientButtons('Tomato Sauce', 37),
+                  ],
+                ),
+                SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
+                _buildIngredientCategoryName(context, 'Dairy-Free & Meat Substitutes'),
+                Wrap( // Use Wrap instead of Row for the list of buttons
+                  spacing: screenSize.width * 0.02, // Space between children in the main axis
+                  runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
+                  children: <Widget>[
+                    _buildIngredientButtons('Gata ng Niyog', 28),
+                  ],
+                ),
+                SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
+                _buildIngredientCategoryName(context, 'Inumin'),
+                Wrap( // Use Wrap instead of Row for the list of buttons
+                  spacing: screenSize.width * 0.02, // Space between children in the main axis
+                  runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
+                  children: <Widget>[
+                    _buildIngredientButtons('Pineapple Juice', 24),
+                    _buildIngredientButtons('Tubig', 52),
+                  ],
+                ),
+                SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
+                _buildIngredientCategoryName(context, 'Dairy & Eggs'),
+                Wrap( // Use Wrap instead of Row for the list of buttons
+                  spacing: screenSize.width * 0.02, // Space between children in the main axis
+                  runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
+                  children: <Widget>[
+                    _buildIngredientButtons('Itlog', 22),
+                    _buildIngredientButtons('Evaporated Milk', 29),
+                    _buildIngredientButtons('Butter', 30),
+                    _buildIngredientButtons('Condensed Milk', 32),
+                  ],
+                ),
+                SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
+                _buildIngredientCategoryName(context, 'Mga Keso'),
+                Wrap( // Use Wrap instead of Row for the list of buttons
+                  spacing: screenSize.width * 0.02, // Space between children in the main axis
+                  runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
+                  children: <Widget>[
+                    _buildIngredientButtons('Cheddar Cheese', 31),
+                  ],
+                ),
+                SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
+                _buildIngredientCategoryName(context, 'Herbs & Spices'),
+                Wrap( // Use Wrap instead of Row for the list of buttons
+                  spacing: screenSize.width * 0.02, // Space between children in the main axis
+                  runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
+                  children: <Widget>[
+                    _buildIngredientButtons('Luya', 18),
+                    _buildIngredientButtons('Dried Bay Leaves', 39),
+                    _buildIngredientButtons('Garlic Powder', 47),
+                    _buildIngredientButtons('Parsley', 48),
+                  ],
+                ),
+                SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
+                _buildIngredientCategoryName(context, 'Oils & Fats'),
+                Wrap( // Use Wrap instead of Row for the list of buttons
+                  spacing: screenSize.width * 0.02, // Space between children in the main axis
+                  runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
+                  children: <Widget>[
+                    _buildIngredientButtons('Sesame Oil', 49),
+                  ],
+                ),
+                SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
+                _buildIngredientCategoryName(context, 'Sugars & Sweeteners'),
+                Wrap( // Use Wrap instead of Row for the list of buttons
+                  spacing: screenSize.width * 0.02, // Space between children in the main axis
+                  runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
+                  children: <Widget>[
+                    _buildIngredientButtons('Brown Sugar', 25),
+                    _buildIngredientButtons('White Sugar', 33),
+                  ],
+                ),
+                SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
+                _buildIngredientCategoryName(context, 'Baking'),
+                Wrap( // Use Wrap instead of Row for the list of buttons
+                  spacing: screenSize.width * 0.02, // Space between children in the main axis
+                  runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
+                  children: <Widget>[
+                    _buildIngredientButtons('Harina', 34),
+                    _buildIngredientButtons('Cocoa Powder', 50),
+                  ],
+                ),
+                SizedBox(height: 30),
+                _buildIngredientCategoryName(context, 'Filter'),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: <Widget>[
+                      _buildFilterButtons('Breakfast', 0),
+                      _buildFilterButtons('Lunch', 1),
+                      _buildFilterButtons('Dinner', 2),
+                      _buildFilterButtons('Desserts', 3),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

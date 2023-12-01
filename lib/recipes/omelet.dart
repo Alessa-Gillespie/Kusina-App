@@ -24,13 +24,13 @@ import 'package:kusina_app_v3/recipes_bank.dart';
 import 'package:provider/provider.dart';
 import 'package:kusina_app_v3/stateManagement/buttons.dart';
 
-class Menudo extends StatefulWidget {
+class Omelet extends StatefulWidget {
 
   @override
-  _MenudoState createState() => _MenudoState();
+  _OmeletState createState() => _OmeletState();
 }
 
-class _MenudoState extends State<Menudo> {
+class _OmeletState extends State<Omelet> {
 
   //TODO: fix the error in order to use selectedRecipe object that is passed from recipe_block.dart
   //attributes of the selected recipe
@@ -86,7 +86,7 @@ class _MenudoState extends State<Menudo> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Menudo',
+                  Text('Omelet',
                     style: kHeading1TextStyle,
                     textAlign: TextAlign.left,
                   ),
@@ -103,7 +103,7 @@ class _MenudoState extends State<Menudo> {
               Positioned(
                 top: -10,
                 right: 0,
-                child: _buildActionButtons('menudo'),
+                child: _buildActionButtons('omelet'),
               ),
             ]
         ),
@@ -154,21 +154,12 @@ class _MenudoState extends State<Menudo> {
 
     // List of ingredients
     List<String> ingredients = [
-      '2 lbs. Pork, cut into serving pieces',
-      '1/4 lb. Pig Liver',
-      '1 cup Potatoes, diced',
-      '1 piece Carrot, cubed',
-      '1/2 cup Soy Sauce',
-      '1/2 piece Lemon',
+      '3 pieces large Eggs',
+      '2 pieces Tomatoes, diced',
       '1 piece Onion, chopped',
-      '3 cloves Garlic, minced',
-      '1 teaspoon Sugar',
-      '3/4 cup Tomato Sauce',
-      '1 cup Water',
-      '4 pieces Hotdogs, sliced diagonally',
+      '1/4 teaspoon ground Black Pepper',
+      '1/4 teaspoon Sea Salt',
       '2 tablespoons Cooking oil',
-      '2 to 3 pieces Dried Bay Leaves',
-      'Salt and Pepper to taste',
     ];
 
     return Column(
@@ -197,14 +188,13 @@ class _MenudoState extends State<Menudo> {
 
     // List of instructions
     List<String> instructionsList = [
-      '1. Combine pork, soysauce, and lemon in a bowl. Marinate for at least 1 hour.',
-      '2. Heat oil in a pan',
-      '3. Saute garlic and onion.',
-      '4. Add the marinated pork. Cook for 5 to 7 minutes.',
-      '5. Pour in tomato sauce and water and then add the bay leaves. Let boil and simmer for 30 minutes to an hour depending on the toughness of the pork. Note: Add water as necessary.',
-      '6. Add-in the liver and hot dogs. Cook for 5 minutes.',
-      '7. Put-in potatoes, carrots, sugar, salt, and pepper. Stir and cook for 8 to 12 minutes.',
-      '8. Serve. Share and enjoy.',
+      '1. Crack the eggs and then place in a medium bowl. Add the salt and pepper and then beat using a wire whisk or fork. Set aside.',
+      '2. Heat the cooking oil in a pan.',
+      '3. Sauté the onion and tomatoes for 2 minutes',
+      '4. Pour-in the beaten egg mixture. Spread the mixture by tilting the pan sideways. Continue to cook in medium heat for 3 to 4 minutes.',
+      '5. Flip the omelet with the aid of a wide spatula and then cook the other side for 3 minutes. Note: If you are having a hard time flipping the omelet, try to first place the egg on a wide plate (the cooked side should be facing down). Quickly flip the plate on top of the pan so that the omelet will slide to the pan with the uncooked side facing down.',
+      '6. Turn off the heat and then transfer the omelet to a serving plate. Enjoy with pandesal or garlic rice. Serve with banana ketchup.',
+      '7. Share and enjoy.',
       // Add more instructions as needed
     ];
 
@@ -262,7 +252,7 @@ class _MenudoState extends State<Menudo> {
     );
 
     Text link = Text(
-      'https://panlasangpinoy.com/pork-menudo-recipe/',
+      'https://panlasangpinoy.com/filipino-omelet-recipe/',
       style: kBodyTextStyle,
     );
 
@@ -302,7 +292,7 @@ class _MenudoState extends State<Menudo> {
       backgroundColor: kBackgroundColor,
       body: ListView(
         children: <Widget>[
-          _buildImageContainer('images/menudo.jpg'),
+          _buildImageContainer('images/omelet.jpg'),
           _buildRecipeContainer(),
         ],
       ),

@@ -86,7 +86,7 @@ class _Cassava_CakeState extends State<Cassava_Cake> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Tinola',
+                  Text('Cassava Cake',
                     style: kHeading1TextStyle,
                     textAlign: TextAlign.left,
                   ),
@@ -103,7 +103,7 @@ class _Cassava_CakeState extends State<Cassava_Cake> {
               Positioned(
                 top: -10,
                 right: 0,
-                child: _buildActionButtons(),
+                child: _buildActionButtons('cassava_cake'),
               ),
             ]
         ),
@@ -111,39 +111,38 @@ class _Cassava_CakeState extends State<Cassava_Cake> {
     );
   }
 
-  Widget _buildActionButtons(){
-    Widget heartIcon = FloatingActionButton.small(
-      onPressed: (){
-        setState(() {
-          isHeartIconPressed == true
-              ? isHeartIconPressed = false
-              : isHeartIconPressed = true;
-        });
-      },
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      child:  isHeartIconPressed == true
-          ? activeHeart
-          : inactiveHeart,
-    );
-    Widget listIcon = FloatingActionButton.small(
-      onPressed: (){
-        final buttons = context.read<ButtonsModel>();
-        buttons.setMyRecipe('Cassava Cake');
-        Navigator.pushNamed(context, AppRoutes.missingIngredients);
-      },
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      child: Icon(
-        FontAwesomeIcons.list,
-        color: kTextColor,
-      ),
-    );
-    return Column(
-      children: [
-        heartIcon,
-        listIcon,
-      ],
+  Widget _buildActionButtons(String heartIconId){
+    return Consumer<ButtonsModel>(
+        builder: (context, heartIconModel, child) {
+          Widget heartIcon = FloatingActionButton.small(
+            onPressed: (){
+              heartIconModel.toggleHeartIcon(heartIconId);
+            },
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            child:  heartIconModel.isHeartIconPressed(heartIconId) == true
+                ? activeHeart
+                : inactiveHeart,
+          );
+          Widget listIcon = FloatingActionButton.small(
+            onPressed: (){
+              final buttons = context.read<ButtonsModel>();
+              Navigator.pushNamed(context, AppRoutes.missingIngredients);
+            },
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            child: Icon(
+              FontAwesomeIcons.list,
+              color: kTextColor,
+            ),
+          );
+          return Column(
+            children: [
+              heartIcon,
+              listIcon,
+            ],
+          );
+        }
     );
   }
 
@@ -155,16 +154,21 @@ class _Cassava_CakeState extends State<Cassava_Cake> {
 
     // List of ingredients
     List<String> ingredients = [
-      '1 whole Chicken, cut into serving pieces',
-      '36 ounces Rice washing',
-      '1/2 piece Green Papaya, cut into wedges',
-      '1 tablespoon Garlic minced',
-      '1 piece Onion chopped',
-      '1 thumb Ginger, cut into strips',
-      '2 tablespoon Fish Sauce',
-      '3 tablespoons Fish Sauce',
-      '1 cup Hot Pepper Leaves',
-      '1/4 teaspoon Ground Black Pepper',
+      '2 packs Grated Cassava, about 2 lbs total weight',
+      '2 cups Coconut Milk',
+      '1/2 12 oz. can Evaporated Milk',
+      '3 pieces Egg',
+      '1/4 cup Butter, melted',
+      '6 tablespoons Cheddar Cheese, grated',
+      '1/2 cup Condensed Milk',
+      '14 tablespoons Granulated White Sugar',
+      '',
+      'Topping Ingredients',
+      '2 tablespoons Flour',
+      '2 tablespoons Sugar',
+      '1/2 cup Condensed Milk',
+      '2 tablespoons Cheddar Cheese, grated',
+      '2 cups Coconut Milk'
     ];
 
     return Column(
@@ -193,13 +197,19 @@ class _Cassava_CakeState extends State<Cassava_Cake> {
 
     // List of instructions
     List<String> instructionsList = [
-      '1. Sauté the garlic, onion, and ginger',
-      '2. Put-in the chicken and cook until color turns light brown',
-      '3. Add the fish sauce. Stir. Pour rice washing into the cooking pot. Let boil. Cover the pot and simmer for 45 minutes. Note: add water if needed.',
-      '4. Add green papaya. Cook for 5 minutes',
-      '5. Add the hot pepper leaves or malunggay leaves. Stir and cook for 1 minute.',
-      '6. Season with ground black pepper. Note you can also add fish sauce or salt if needed.',
-      '7. Transfer to a serving bowl. Serve hot. Share and enjoy!',
+      '1. Make the batter by combining the grated cassava, butter, 1/2 cup condensed milk, 1/2 cup evaporated milk, 6 tablespoons cheddar cheese, 14 tablespoons sugar, and 2 eggs in a mixing bowl and mix thoroughly.',
+      '2. Add the 2 cups coconut milk in the mixing bowl where the mixed ingredients are. Mix again.',
+      '3. Grease the baking tray then pour-in the batter (these are the ingredients that you just mixed together).',
+      '4. Pre -heat oven for 350 degrees Fahrenheit for 10 minutes then put-in the baking tray with batter and bake for 1 hour. Remove from the oven and set aside.',
+      '5. Meanwhile prepare the topping by combining 2 tablespoons sugar and flour in the heated saucepan.',
+      '6. Pour-in 1/2 cup condensed milk then mix thoroughly.',
+      '7. Add 2 tablespoons cheddar cheese while stirring constantly.',
+      '8. Pour 2 cups of coconut milk and stir constantly for 10 minutes',
+      '9. Pour the topping over the Cassava Cake (baked batter) and spread evenly.',
+      '10. Separate the yolk from the egg white of the remaining egg (we’ll be needing the egg white only)',
+      '11. Glaze the topping with the egg white using a basting brush. Simply dip the brush to the egg white and brush it on the cassava cake.',
+      '12. Set your oven to broil mode. Broil the Cassava cake until color turns light brown.',
+      '13. Garnish with extra grated cheese on top. Serve. Share and enjoy.',
       // Add more instructions as needed
     ];
 
@@ -257,7 +267,7 @@ class _Cassava_CakeState extends State<Cassava_Cake> {
     );
 
     Text link = Text(
-      'https://panlasangpinoy.com/filipino-chicken-tinola-recipe/e',
+      'https://panlasangpinoy.com/filipino-food-dessert-holiday-cassava-cake-recipe/',
       style: kBodyTextStyle,
     );
 

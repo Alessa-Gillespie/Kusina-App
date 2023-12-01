@@ -15,6 +15,12 @@ import 'package:kusina_app_v3/recipes/tapsilog.dart';
 import 'package:kusina_app_v3/recipes/testingV1.dart';
 import 'package:kusina_app_v3/recipes/cassava_cake.dart';
 import 'package:kusina_app_v3/recipes/menudo.dart';
+import 'package:kusina_app_v3/recipes/bulalo.dart';
+import 'package:kusina_app_v3/recipes/lumpiang_shanghai.dart';
+import 'package:kusina_app_v3/recipes/champorado.dart';
+import 'package:kusina_app_v3/recipes/daing.dart';
+import 'package:kusina_app_v3/recipes/tuyo.dart';
+import 'package:kusina_app_v3/recipes/omelet.dart';
 
 
 class AppRoutes {
@@ -44,6 +50,12 @@ class AppRoutes {
    static const String testingV1 = '/testingV1';
    static const String cassava_cake = '/cassava_cake';
    static const String menudo = '/menudo';
+   static const String bulalo = '/bulalo';
+   static const String lumpiang_shanghai = '/lumpiang_shanghai';
+   static const String champorado = '/champorado';
+   static const String daing = '/daing';
+   static const String tuyo = '/tuyo';
+   static const String omelet = '/omelet';
 
   static Map<String, WidgetBuilder> routes = {
 
@@ -69,6 +81,12 @@ class AppRoutes {
     testingV1: (context) => TestingV1(),
     cassava_cake: (context) => Cassava_Cake(),
     menudo: (context) => Menudo(),
+    bulalo: (context) => Bulalo(),
+    lumpiang_shanghai: (context) => Lumpiang_Shanghai(),
+    champorado: (context) => Champorado(),
+    daing: (context) => Daing(),
+    tuyo: (context) => Tuyo(),
+    omelet: (context) => Omelet(),
 
   };
 }

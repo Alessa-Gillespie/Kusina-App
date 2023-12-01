@@ -24,13 +24,13 @@ import 'package:kusina_app_v3/recipes_bank.dart';
 import 'package:provider/provider.dart';
 import 'package:kusina_app_v3/stateManagement/buttons.dart';
 
-class Menudo extends StatefulWidget {
+class Lumpiang_Shanghai extends StatefulWidget {
 
   @override
-  _MenudoState createState() => _MenudoState();
+  _Lumpiang_ShanghaiState createState() => _Lumpiang_ShanghaiState();
 }
 
-class _MenudoState extends State<Menudo> {
+class _Lumpiang_ShanghaiState extends State<Lumpiang_Shanghai> {
 
   //TODO: fix the error in order to use selectedRecipe object that is passed from recipe_block.dart
   //attributes of the selected recipe
@@ -86,7 +86,7 @@ class _MenudoState extends State<Menudo> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Menudo',
+                  Text('Lumpiang Shanghai',
                     style: kHeading1TextStyle,
                     textAlign: TextAlign.left,
                   ),
@@ -103,7 +103,7 @@ class _MenudoState extends State<Menudo> {
               Positioned(
                 top: -10,
                 right: 0,
-                child: _buildActionButtons('menudo'),
+                child: _buildActionButtons('lumpiang_shanghai'),
               ),
             ]
         ),
@@ -154,21 +154,19 @@ class _MenudoState extends State<Menudo> {
 
     // List of ingredients
     List<String> ingredients = [
-      '2 lbs. Pork, cut into serving pieces',
-      '1/4 lb. Pig Liver',
-      '1 cup Potatoes, diced',
-      '1 piece Carrot, cubed',
-      '1/2 cup Soy Sauce',
-      '1/2 piece Lemon',
-      '1 piece Onion, chopped',
-      '3 cloves Garlic, minced',
-      '1 teaspoon Sugar',
-      '3/4 cup Tomato Sauce',
-      '1 cup Water',
-      '4 pieces Hotdogs, sliced diagonally',
-      '2 tablespoons Cooking oil',
-      '2 to 3 pieces Dried Bay Leaves',
-      'Salt and Pepper to taste',
+      '50 pieces Lumpia Wrapper',
+      '3 cups Cooking Oil',
+       '',
+      'Filling Ingredients',
+      '1 1/2 lbs Ground Pork',
+      '2 pieces Onion, minced',
+      '2 pieces Carrots, minced',
+      '1 1/2 teaspoons Garlic powder',
+      '1/2 teaspoon Ground Black Pepper',
+      '1/2 cup Parsley, chopped',
+      '1 1/2 teaspoons Salt',
+      '1 tablespoon Sesame Oil',
+      '2 Eggs',
     ];
 
     return Column(
@@ -197,14 +195,10 @@ class _MenudoState extends State<Menudo> {
 
     // List of instructions
     List<String> instructionsList = [
-      '1. Combine pork, soysauce, and lemon in a bowl. Marinate for at least 1 hour.',
-      '2. Heat oil in a pan',
-      '3. Saute garlic and onion.',
-      '4. Add the marinated pork. Cook for 5 to 7 minutes.',
-      '5. Pour in tomato sauce and water and then add the bay leaves. Let boil and simmer for 30 minutes to an hour depending on the toughness of the pork. Note: Add water as necessary.',
-      '6. Add-in the liver and hot dogs. Cook for 5 minutes.',
-      '7. Put-in potatoes, carrots, sugar, salt, and pepper. Stir and cook for 8 to 12 minutes.',
-      '8. Serve. Share and enjoy.',
+      '1. Combine all filling ingredients in a bowl. Mix well.',
+      '2. Scoop around 1 to 1 1/2 tablespoons of filling and place over a piece of lumpia wrapper. Spread the filling and then fold both sides of the wrapper. Fold the bottom. Brush beaten egg mixture on the top end of the wrapper. Roll-up until completely wrapped. Perform the same step until all mixture are consumed.',
+      '3. Heat oil in a cooking pot. Deep fry lumpia in medium heat until it floats.',
+      '4. Remove from the pot. Let excess oil drip. Serve. Share and enjoy.',
       // Add more instructions as needed
     ];
 
@@ -262,7 +256,7 @@ class _MenudoState extends State<Menudo> {
     );
 
     Text link = Text(
-      'https://panlasangpinoy.com/pork-menudo-recipe/',
+      'https://panlasangpinoy.com/filipino-lumpia-recipe/',
       style: kBodyTextStyle,
     );
 
@@ -302,7 +296,7 @@ class _MenudoState extends State<Menudo> {
       backgroundColor: kBackgroundColor,
       body: ListView(
         children: <Widget>[
-          _buildImageContainer('images/menudo.jpg'),
+          _buildImageContainer('images/lumpiang_shanghai.jpg'),
           _buildRecipeContainer(),
         ],
       ),

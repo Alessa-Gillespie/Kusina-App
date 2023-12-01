@@ -46,6 +46,7 @@ class _shoppingListState extends State<ShoppingList> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Shopping List'),
+        automaticallyImplyLeading: false,
       ),
       body: SafeArea(
       // final buttons = context.read<ButtonsModel>();
@@ -56,8 +57,6 @@ class _shoppingListState extends State<ShoppingList> {
                     // mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       SizedBox(height: 50),
-                      Text('Shopping List', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                      SizedBox(height: 30),
                       if (buttons.isRecipeInBank('Tinola')) ...[
                         Padding(
                           padding: EdgeInsets.all(20),
@@ -303,103 +302,106 @@ class _shoppingListState extends State<ShoppingList> {
                         ),
                       ],
                       if (buttons.isRecipeInBank('Menudo')) ...[
-                        Padding(
-                          padding: EdgeInsets.all(20),
-                          child: Column(
-                            children: <Widget>[
-                              Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    Text('Menudo',
-                                        style: TextStyle(
-                                            fontSize: 40.0,
-                                            // change this value to change the size
-                                            fontWeight: FontWeight.bold)),
-                                    Padding(
-                                      padding: EdgeInsets.only(right: 20), // To adjust "Clear" button away from the left side
-                                      child: ElevatedButton(
-                                        onPressed: () {
-                                          // Get the Buttons instance
-                                          final buttons = context.read<ButtonsModel>();
+                        Container(
+                          color: Colors.white,
+                          child: Padding(
+                            padding: EdgeInsets.all(20),
+                            child: Column(
+                              children: <Widget>[
+                                Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: <Widget>[
+                                      Text('Menudo',
+                                          style: TextStyle(
+                                              fontSize: 40.0,
+                                              // change this value to change the size
+                                              fontWeight: FontWeight.bold)),
+                                      Padding(
+                                        padding: EdgeInsets.only(right: 20), // To adjust "Clear" button away from the left side
+                                        child: ElevatedButton(
+                                          onPressed: () {
+                                            // Get the Buttons instance
+                                            final buttons = context.read<ButtonsModel>();
 
-                                          // Set all elements in filters and ingredients to Colors.white
-                                          buttons.removeFromRecipeBank('Menudo');
-                                          buttons.removeFromMissingIngredientsBank('Baboy');
-                                          buttons.removeFromMissingIngredientsBank('Atay ng Baboy');
-                                          buttons.removeFromMissingIngredientsBank('Patatas');
-                                          buttons.removeFromMissingIngredientsBank('Carrot');
-                                          buttons.removeFromMissingIngredientsBank('Toyo');
-                                          buttons.removeFromMissingIngredientsBank('Lemon');
-                                          buttons.removeFromMissingIngredientsBank('Sibuyas');
-                                          buttons.removeFromMissingIngredientsBank('Bawang');
-                                          buttons.removeFromMissingIngredientsBank('White Sugar');
-                                          buttons.removeFromMissingIngredientsBank('Tomato Sauce');
-                                          buttons.removeFromMissingIngredientsBank('Hotdog');
-                                          buttons.removeFromMissingIngredientsBank('Dried Bay Leaves');
-                                          buttons.removeFromMissingIngredientsBank('Salt');
-                                          buttons.removeFromMissingIngredientsBank('Pepper');
-                                          Navigator.pushNamed(context, AppRoutes.shoppingListScreen);
-                                        },
-                                        child: Text(
-                                          'Remove',
-                                          style: TextStyle(fontSize: 18), // Increase text size
-                                        ),
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: Colors.white, // background color
-                                          foregroundColor: Colors.black, // text color
-                                          // shadowColor: Colors.transparent, // shadow color
-                                          side: BorderSide(color: Colors.white, width: 0), // border color and width
+                                            // Set all elements in filters and ingredients to Colors.white
+                                            buttons.removeFromRecipeBank('Menudo');
+                                            buttons.removeFromMissingIngredientsBank('Baboy');
+                                            buttons.removeFromMissingIngredientsBank('Atay ng Baboy');
+                                            buttons.removeFromMissingIngredientsBank('Patatas');
+                                            buttons.removeFromMissingIngredientsBank('Carrot');
+                                            buttons.removeFromMissingIngredientsBank('Toyo');
+                                            buttons.removeFromMissingIngredientsBank('Lemon');
+                                            buttons.removeFromMissingIngredientsBank('Sibuyas');
+                                            buttons.removeFromMissingIngredientsBank('Bawang');
+                                            buttons.removeFromMissingIngredientsBank('White Sugar');
+                                            buttons.removeFromMissingIngredientsBank('Tomato Sauce');
+                                            buttons.removeFromMissingIngredientsBank('Hotdog');
+                                            buttons.removeFromMissingIngredientsBank('Dried Bay Leaves');
+                                            buttons.removeFromMissingIngredientsBank('Salt');
+                                            buttons.removeFromMissingIngredientsBank('Pepper');
+                                            Navigator.pushNamed(context, AppRoutes.shoppingListScreen);
+                                          },
+                                          child: Text(
+                                            'Remove',
+                                            style: TextStyle(fontSize: 18), // Increase text size
+                                          ),
+                                          style: ElevatedButton.styleFrom(
+                                            backgroundColor: Colors.white, // background color
+                                            foregroundColor: Colors.black, // text color
+                                            // shadowColor: Colors.transparent, // shadow color
+                                            side: BorderSide(color: Colors.white, width: 0), // border color and width
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  ]),
-                              Column(
-                                children: <Widget>[
-                                  if (buttons.isIngredientMissing('Baboy')) ...[
-                                    Text('Baboy', style: TextStyle(fontSize: 18)),
+                                    ]),
+                                Column(
+                                  children: <Widget>[
+                                    if (buttons.isIngredientMissing('Baboy')) ...[
+                                      Text('Baboy', style: TextStyle(fontSize: 18)),
+                                    ],
+                                    if (buttons.isIngredientMissing('Atay ng Baboy')) ...[
+                                      Text('Atay ng Baboy', style: TextStyle(fontSize: 18)),
+                                    ],
+                                    if (buttons.isIngredientMissing('Patatas')) ...[
+                                      Text('Patatas', style: TextStyle(fontSize: 18)),
+                                    ],
+                                    if (buttons.isIngredientMissing('Carrot')) ...[
+                                      Text('Carrot', style: TextStyle(fontSize: 18)),
+                                    ],
+                                    if (buttons.isIngredientMissing('Toyo')) ...[
+                                      Text('Toyo', style: TextStyle(fontSize: 18)),
+                                    ],
+                                    if (buttons.isIngredientMissing('Lemon')) ...[
+                                      Text('Lemon', style: TextStyle(fontSize: 18)),
+                                    ],
+                                    if (buttons.isIngredientMissing('Sibuyas')) ...[
+                                      Text('Sibuyas', style: TextStyle(fontSize: 18)),
+                                    ],
+                                    if (buttons.isIngredientMissing('Bawang')) ...[
+                                      Text('Garlic/Bawang', style: TextStyle(fontSize: 18)),
+                                    ],
+                                    if (buttons.isIngredientMissing('White Sugar')) ...[
+                                      Text('White Sugar', style: TextStyle(fontSize: 18)),
+                                    ],
+                                    if (buttons.isIngredientMissing('Tomato Sauce')) ...[
+                                      Text('Tomato Sauce', style: TextStyle(fontSize: 18)),
+                                    ],
+                                    if (buttons.isIngredientMissing('Hotdog')) ...[
+                                      Text('Hotdog', style: TextStyle(fontSize: 18)),
+                                    ],
+                                    if (buttons.isIngredientMissing('Dried Bay Leaves')) ...[
+                                      Text('Dried Bay Leaves', style: TextStyle(fontSize: 18)),
+                                    ],
+                                    if (buttons.isIngredientMissing('Salt')) ...[
+                                      Text('Salt', style: TextStyle(fontSize: 18)),
+                                    ],
+                                    if (buttons.isIngredientMissing('Pepper')) ...[
+                                      Text('Pepper', style: TextStyle(fontSize: 18)),
+                                    ],
                                   ],
-                                  if (buttons.isIngredientMissing('Atay ng Baboy')) ...[
-                                    Text('Atay ng Baboy', style: TextStyle(fontSize: 18)),
-                                  ],
-                                  if (buttons.isIngredientMissing('Patatas')) ...[
-                                    Text('Patatas', style: TextStyle(fontSize: 18)),
-                                  ],
-                                  if (buttons.isIngredientMissing('Carrot')) ...[
-                                    Text('Carrot', style: TextStyle(fontSize: 18)),
-                                  ],
-                                  if (buttons.isIngredientMissing('Toyo')) ...[
-                                    Text('Toyo', style: TextStyle(fontSize: 18)),
-                                  ],
-                                  if (buttons.isIngredientMissing('Lemon')) ...[
-                                    Text('Lemon', style: TextStyle(fontSize: 18)),
-                                  ],
-                                  if (buttons.isIngredientMissing('Sibuyas')) ...[
-                                    Text('Sibuyas', style: TextStyle(fontSize: 18)),
-                                  ],
-                                  if (buttons.isIngredientMissing('Bawang')) ...[
-                                    Text('Garlic/Bawang', style: TextStyle(fontSize: 18)),
-                                  ],
-                                  if (buttons.isIngredientMissing('White Sugar')) ...[
-                                    Text('White Sugar', style: TextStyle(fontSize: 18)),
-                                  ],
-                                  if (buttons.isIngredientMissing('Tomato Sauce')) ...[
-                                    Text('Tomato Sauce', style: TextStyle(fontSize: 18)),
-                                  ],
-                                  if (buttons.isIngredientMissing('Hotdog')) ...[
-                                    Text('Hotdog', style: TextStyle(fontSize: 18)),
-                                  ],
-                                  if (buttons.isIngredientMissing('Dried Bay Leaves')) ...[
-                                    Text('Dried Bay Leaves', style: TextStyle(fontSize: 18)),
-                                  ],
-                                  if (buttons.isIngredientMissing('Salt')) ...[
-                                    Text('Salt', style: TextStyle(fontSize: 18)),
-                                  ],
-                                  if (buttons.isIngredientMissing('Pepper')) ...[
-                                    Text('Pepper', style: TextStyle(fontSize: 18)),
-                                  ],
-                                ],
-                              )
-                            ],
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ],

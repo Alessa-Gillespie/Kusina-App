@@ -24,13 +24,13 @@ import 'package:kusina_app_v3/recipes_bank.dart';
 import 'package:provider/provider.dart';
 import 'package:kusina_app_v3/stateManagement/buttons.dart';
 
-class Menudo extends StatefulWidget {
+class Daing extends StatefulWidget {
 
   @override
-  _MenudoState createState() => _MenudoState();
+  _DaingState createState() => _DaingState();
 }
 
-class _MenudoState extends State<Menudo> {
+class _DaingState extends State<Daing> {
 
   //TODO: fix the error in order to use selectedRecipe object that is passed from recipe_block.dart
   //attributes of the selected recipe
@@ -86,7 +86,7 @@ class _MenudoState extends State<Menudo> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Menudo',
+                  Text('Daing',
                     style: kHeading1TextStyle,
                     textAlign: TextAlign.left,
                   ),
@@ -103,7 +103,7 @@ class _MenudoState extends State<Menudo> {
               Positioned(
                 top: -10,
                 right: 0,
-                child: _buildActionButtons('menudo'),
+                child: _buildActionButtons('daing'),
               ),
             ]
         ),
@@ -154,21 +154,13 @@ class _MenudoState extends State<Menudo> {
 
     // List of ingredients
     List<String> ingredients = [
-      '2 lbs. Pork, cut into serving pieces',
-      '1/4 lb. Pig Liver',
-      '1 cup Potatoes, diced',
-      '1 piece Carrot, cubed',
-      '1/2 cup Soy Sauce',
-      '1/2 piece Lemon',
-      '1 piece Onion, chopped',
-      '3 cloves Garlic, minced',
-      '1 teaspoon Sugar',
-      '3/4 cup Tomato Sauce',
-      '1 cup Water',
-      '4 pieces Hotdogs, sliced diagonally',
-      '2 tablespoons Cooking oil',
-      '2 to 3 pieces Dried Bay Leaves',
-      'Salt and Pepper to taste',
+      '1 medium sized Milkfish, cleaned and scales removed',
+      '10 tablespoons White or Cane Vinegar',
+      '1 teaspoon crushed Black Pepper',
+      '1 head Garlic, minced',
+      '1/4 teaspoon Cayenne Pepper Powder, optional',
+      '1/2 teaspoon Coarse Sea Salt',
+      '1/2 cup Cooking oil'
     ];
 
     return Column(
@@ -197,14 +189,13 @@ class _MenudoState extends State<Menudo> {
 
     // List of instructions
     List<String> instructionsList = [
-      '1. Combine pork, soysauce, and lemon in a bowl. Marinate for at least 1 hour.',
-      '2. Heat oil in a pan',
-      '3. Saute garlic and onion.',
-      '4. Add the marinated pork. Cook for 5 to 7 minutes.',
-      '5. Pour in tomato sauce and water and then add the bay leaves. Let boil and simmer for 30 minutes to an hour depending on the toughness of the pork. Note: Add water as necessary.',
-      '6. Add-in the liver and hot dogs. Cook for 5 minutes.',
-      '7. Put-in potatoes, carrots, sugar, salt, and pepper. Stir and cook for 8 to 12 minutes.',
-      '8. Serve. Share and enjoy.',
+      '1. Combine vinegar, pepper, salt, garlic, and cayenne pepper powder in a bowl. Stir to mix the ingredients. Set aside.',
+      '2. Butterfly the bangus (slice from the top) and the place it inside a large re-sealable plastic bag.',
+      '3. Pour the vinegar mixture in the bag and then let all the air out. Seal the bag and refrigerate overnight.',
+      '4. Remove the fish from the bag and let the liquid drip.',
+      '5. Heat the cooking oil in a pan. Once the oil gets hot, fry the fish in medium heat until one side gets crisp. Turn it over and repeat the process on the other side.',
+      '6. Remove from the pan and place in a serving plate. Serve with bowl of spicy vinegar.',
+      '7. Share and enjoy.',
       // Add more instructions as needed
     ];
 
@@ -262,7 +253,7 @@ class _MenudoState extends State<Menudo> {
     );
 
     Text link = Text(
-      'https://panlasangpinoy.com/pork-menudo-recipe/',
+      'https://panlasangpinoy.com/daing-na-bangus-fried-milkfish-marinated-in-vinegar/',
       style: kBodyTextStyle,
     );
 
@@ -302,7 +293,7 @@ class _MenudoState extends State<Menudo> {
       backgroundColor: kBackgroundColor,
       body: ListView(
         children: <Widget>[
-          _buildImageContainer('images/menudo.jpg'),
+          _buildImageContainer('images/daing.jpg'),
           _buildRecipeContainer(),
         ],
       ),
