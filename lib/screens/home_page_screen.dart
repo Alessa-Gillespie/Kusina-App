@@ -1,14 +1,40 @@
-//TODO: disable back button in app from home
+//TODO: edit RecipeBlock
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kusina_app_v3/recipe_block.dart';
 import 'package:kusina_app_v3/button_components.dart';
+import 'package:kusina_app_v3/recipes_bank.dart';
 import 'package:kusina_app_v3/routes//app_routes.dart';
 import 'package:kusina_app_v3/styles.dart';
 import 'package:kusina_app_v3/navbar.dart';
+import 'package:kusina_app_v3/recipe.dart'; //temporary. import recipe bank instead
 
+//TEMPORARY
+Recipe recipeObject =  Recipe(
+  name: 'Lugaw',
+  imagePath: '',
+  ingredientsList: [
+    '1 cup long grain white rice',
+    '4 to 5 cups water',
+    '2 teaspoons salt',
+    '1/4 cup rousong pork floss',
+  ],
+  instructionsList: [
+    '1. Pour water in a cooking pot. Bring to a boil.'
+        '2. Put-in the rice. Continue cooking for 30 minutes or until the texture becomes thick, while stirring once in awhile.'
+        '3. Add the salt, stir and then cook for 2 minutes more.',
+    '4. Transfer to a serving bowl. Top with a tablespoon of rousing.',
+    '5. Serve hot. Share and enjoy!',
+  ],
+  //video:
+  sourceLink: 'https://panlasangpinoy.com/lugaw-recipe/', //source
+);
+
+/* parang di naman nagagamit
 const spaceBetweenTextAndBlock = 17;
 const spaceBetweenRecipeBlocks = 18;
+*/
 
 class HomePageScreen extends StatefulWidget {
   @override
@@ -81,7 +107,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 TextButton(
                   onPressed: (){
                     //TODO: link to recipes page (no selected ingredients)
-                    Navigator.pushNamed(context, AppRoutes.ingredientsPageScreen);
+                    Navigator.pushNamed(context, AppRoutes.ingredientsPageScreen);//temporary only
                   },
                   child: Text(
                       'See more',
@@ -94,31 +120,16 @@ class _HomePageScreenState extends State<HomePageScreen> {
               height: 17, //spaceBetweenTextAndBlock
             ),
             RecipeBlock(
-              child: placeholder,//child height should be 170
-              //recipe's image
-              text:'Recipe Name',
-              //recipe's name
-              color: kBlockColor,
-              onPress: () {
-                Navigator.pushNamed(context, AppRoutes.recipeInstructionsPageScreen);
-              },
+              recipe: recipeObject,//get Recipe object from RecipesBank to get recipe name and image
+              //child: placeholder,//child height should be 170
+                                //recipe's image
+             // text: recipeObject.name,
+             //  onPress: () {
+             //    //pass the recipe object in this block to recipe instructions page
+             //    Navigator.pushNamed(context, AppRoutes.recipeInstructionsPageScreen);
+             //  },
             ),
-            RecipeBlock(
-              child: placeholder,
-              text: 'Long Recipe Name Recipe Name Recipe Recipe Name ',
-              color: kBlockColor,
-              onPress: () {
-                //TODO: direct to recipe instruction page
-              },
-            ),
-            RecipeBlock(
-              child: placeholder,
-              text: 'Recipe Name',
-              color: kBlockColor,
-              onPress: () {
-                //TODO: direct to recipe instruction page
-              },
-            ),
+            /*
             IngredientButton(
               text: 'Chicken',
               onPress: () {
@@ -141,6 +152,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 //add to some list for processing for result?
               },
             ),
+            */
           ],
         ),
       ),
@@ -152,7 +164,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
     return Scaffold(
       backgroundColor: kBackgroundColor,
       appBar: AppBar(
-        //TODO: edit the header (add color, change font style)
         title: Text(
           'Kusina',
           style: GoogleFonts.sansitaSwashed(

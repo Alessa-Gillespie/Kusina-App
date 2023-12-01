@@ -1,3 +1,4 @@
+//commented out Recipe Block (properties are changed. go to recipe_block.dart to see)
 import 'package:flutter/material.dart';
 import 'package:kusina_app_v3/recipe_block.dart';
 import 'package:kusina_app_v3/button_components.dart';
@@ -116,33 +117,33 @@ class _FavoritesPageScreenState extends State<FavoritesPageScreen> {
         padding: const EdgeInsets.all(25),
         child: ListView(
           children: <RecipeBlock>[
-            RecipeBlock(
-              child: placeholder, //child height should be 170
-              //recipe's image
-              text: 'Recipe Name', //recipe's name
-              color: kBlockColor,
-              onPress: () {
-                //TODO: direct to recipe instruction page
-              },
-            ),
-            RecipeBlock(
-              child: placeholder, //child height should be 170
-              //recipe's image
-              text: 'Recipe Name', //recipe's name
-              color: kBlockColor,
-              onPress: () {
-                //TODO: direct to recipe instruction page
-              },
-            ),
-            RecipeBlock(
-              child: placeholder, //child height should be 170
-              //recipe's image
-              text: 'Recipe Name', //recipe's name
-              color: kBlockColor,
-              onPress: () {
-                //TODO: direct to recipe instruction page
-              },
-            ),
+            // RecipeBlock(
+            //   child: placeholder, //child height should be 170
+            //   //recipe's image
+            //   text: 'Recipe Name', //recipe's name
+            //   color: kBlockColor,
+            //   onPress: () {
+            //     //TODO: direct to recipe instruction page
+            //   },
+            // ),
+            // RecipeBlock(
+            //   child: placeholder, //child height should be 170
+            //   //recipe's image
+            //   text: 'Recipe Name', //recipe's name
+            //   color: kBlockColor,
+            //   onPress: () {
+            //     //TODO: direct to recipe instruction page
+            //   },
+            // ),
+            // RecipeBlock(
+            //   child: placeholder, //child height should be 170
+            //   //recipe's image
+            //   text: 'Recipe Name', //recipe's name
+            //   color: kBlockColor,
+            //   onPress: () {
+            //     //TODO: direct to recipe instruction page
+            //   },
+            // ),
           ],
         ),
       ),
