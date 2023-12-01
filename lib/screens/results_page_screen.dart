@@ -1,3 +1,4 @@
+//commented out Recipe Block (properties are changed. go to recipe_block.dart to see)
 import 'package:flutter/material.dart';
 import 'package:kusina_app_v3/navbar.dart';
 import 'package:kusina_app_v3/recipe_block.dart';
@@ -149,26 +150,26 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                   if (buttons.ingredients[1] == Colors.yellow && buttons.filters[0] != Colors.black &&  buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black)
                   Padding(
                     padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                    child: RecipeBlock(
-                      child: buildImageContainer('images/Tinola.jpg'),
-                      text: 'Tinola',
-                      color: Colors.white,
-                      onPress: () {
-                        Navigator.pushNamed(context, AppRoutes.tinola);
-                      },
-                    ),
+                    // child: RecipeBlock(
+                    //   child: buildImageContainer('images/Tinola.jpg'),
+                    //   text: 'Tinola',
+                    //   color: Colors.white,
+                    //   onPress: () {
+                    //     Navigator.pushNamed(context, AppRoutes.tinola);
+                    //   },
+                    // ),
                   ),
                   if (buttons.ingredients[12] == Colors.yellow && buttons.filters[1] != Colors.black &&  buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black)
                   Padding(
                     padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                    child: RecipeBlock(
-                      child: buildImageContainer('images/Tapsilog.jpg'),
-                      text: 'Tapsilog',
-                      color: Colors.white,
-                      onPress: () {
-                        Navigator.pushNamed(context, AppRoutes.tapsilog);
-                      },
-                    ),
+                    // child: RecipeBlock(
+                    //   child: buildImageContainer('images/Tapsilog.jpg'),
+                    //   text: 'Tapsilog',
+                    //   color: Colors.white,
+                    //   onPress: () {
+                    //     Navigator.pushNamed(context, AppRoutes.tapsilog);
+                    //   },
+                    // ),
                   ),
         ]
                 ))),

@@ -17,22 +17,37 @@ import 'package:kusina_app_v3/button_components.dart';
 import 'package:kusina_app_v3/routes//app_routes.dart';
 import 'package:kusina_app_v3/styles.dart';
 import 'package:kusina_app_v3/navbar.dart';
+import 'package:kusina_app_v3/recipe.dart';
+import 'package:kusina_app_v3/recipes_bank.dart';
 
 class RecipeInstructionsPageScreen extends StatefulWidget {
+  // recipe object passed from recipe block
+  // cant use static variable here for some reason
+  static Recipe selectedRecipe = Recipe( //for initialization
+                                  name: 'Recipe name',
+                                  imagePath: '',
+                                  ingredientsList: ['1 cup item','1 cup item','1 cup item'],
+                                  instructionsList: ['1. do this', '1. do this', '1. do this'],
+                                  sourceLink: 'https://url-ng-recipe.com/recipe',
+                                );
+
   @override
   _RecipeInstructionsPageScreenState createState() => _RecipeInstructionsPageScreenState();
 }
 
 class _RecipeInstructionsPageScreenState extends State<RecipeInstructionsPageScreen> {
-  //attributes of the selected recipe - should not be hardcoded and instead apply OOP
-  String imagePath = 'images/Tinola.jpg';//used in _buildImageContainer()
-  String recipeName = 'Recipe Name';
-  String recipeIngredients = 'Recipe Ingredients list';
-  //instruction
-  //video url
-  //source url
+
+  //TODO: fix the error in order to use selectedRecipe object that is passed from recipe_block.dart
+  //attributes of the selected recipe
+  // String imagePath = selectedRecipe.imagePath;//used in _buildImageContainer()
+  String recipeName = 'Recipe Name';//selectedRecipe.name;
+  // List<String> recipeIngredients = selectedRecipe.ingredientsList;
+  // List<String> recipeInstructions = selectedRecipe.instructionsList;
+  // //add selected recipe's video link
+  // String recipeSourceLink = selectedRecipe.sourceLink;
 
   //styling
+  bool isHeartIconPressed = false;
   Icon inactiveHeart =  Icon(
     FontAwesomeIcons.heart,
     color: kTextColor,
@@ -41,7 +56,6 @@ class _RecipeInstructionsPageScreenState extends State<RecipeInstructionsPageScr
     FontAwesomeIcons.solidHeart,
     color: kMainColor,
   );
-  bool isHeartIconPressed = false;
 
   //TEMPORARY CONTAINER PLACEHOLDER FOR IMAGE
   Container placeholder = Container(
@@ -146,11 +160,10 @@ class _RecipeInstructionsPageScreenState extends State<RecipeInstructionsPageScr
     Widget ingredient = Container(
       padding: EdgeInsets.only(bottom: 10),
       child: Text(
-        '100 tsp    incompatible type BoxParentData',
+        '1 cup item',
         style: kBodyTextStyle,
       ),
     );
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
