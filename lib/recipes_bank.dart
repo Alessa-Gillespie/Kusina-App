@@ -5,7 +5,7 @@ import 'package:kusina_app_v3/recipes/lugaw.dart';
 import 'recipe.dart';
 class RecipeBank {
   static final List recipeBank = [
-    Lugaw(),//option 1, list the constructor but import the package
+    Lugaw(),//option 1, list the constructor but import the package,
     Recipe(
       name: 'Lugaw',
       imagePath: '',
@@ -27,26 +27,22 @@ class RecipeBank {
     ),//option 2, type Recipe, relatively easy to access, but code will be lengthy
   ];
 
-
- // Recipe getRecipe(String searchName) {//used to pass recipe objects to recipe_block.dart
+/*
+ Recipe getRecipe(String searchName) {//used by results page (model?) to pass recipe objects to recipe_block.dart
     //TODO: iterate list, search Recipe object with the attribute name == searchName
-  //   for (Recipe r in recipeBank) {
-  //     for(int i=0; i < recipeBank.length; i++){
-  //       if(recipeBank[i].name == name){ //name is found
-  //         return recipeBank[i];//return recipe object
-  //       }
-  //       else if { //name is not found, go to next item in the list
-  //         continue;
-  //       }
-  //       else {
-  //         return null;//null if wala talaga sa list, show emptypage in respective page (shopping list or favorites)
-  //       }
-  //     }
-  //   }
-  //
-  // }
+      /*
+      pseudocode:
+      for (int=0, i < recipeBank.length; nextitem){
+        //compare each recipeBank[i].name == searchName
+          //if true: return recipeBank[i] (recipe object, not its name only)
+          //if false: next item
+          //if nareach na yung end and wala talaga: idk what to do hahaha catch error???
+      }
+      */
+ }
+ */
 
-  /*
+  /* FROM QUIZZLER>QUESTIONBANK
   void nextQuestion() {
     if (_questionNumber < _questionBank.length - 1) {
       _questionNumber++;

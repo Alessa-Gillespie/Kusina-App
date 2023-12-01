@@ -21,15 +21,10 @@ import 'package:kusina_app_v3/recipe.dart';
 import 'package:kusina_app_v3/recipes_bank.dart';
 
 class RecipeInstructionsPageScreen extends StatefulWidget {
-  // recipe object passed from recipe block
-  // cant use static variable here for some reason
-  static Recipe selectedRecipe = Recipe( //for initialization
-                                  name: 'Recipe name',
-                                  imagePath: '',
-                                  ingredientsList: ['1 cup item','1 cup item','1 cup item'],
-                                  instructionsList: ['1. do this', '1. do this', '1. do this'],
-                                  sourceLink: 'https://url-ng-recipe.com/recipe',
-                                );
+  //the static variable kung san pinapass ni recipe_block yung recipe object niya
+  //static para kada tap ng recipe block, nag iiba yung magdidisplay depende sa anong recipe object ang nasa recipe_block
+  static Recipe selectedRecipe = Recipe.initialization(); //for initialization only. displays placeholder stuff for name, ingredients etc.
+                                                          // this is expected to change if may pinass na variable si recipe_block
 
   @override
   _RecipeInstructionsPageScreenState createState() => _RecipeInstructionsPageScreenState();
@@ -37,14 +32,24 @@ class RecipeInstructionsPageScreen extends StatefulWidget {
 
 class _RecipeInstructionsPageScreenState extends State<RecipeInstructionsPageScreen> {
 
-  //TODO: fix the error in order to use selectedRecipe object that is passed from recipe_block.dart
-  //attributes of the selected recipe
-  // String imagePath = selectedRecipe.imagePath;//used in _buildImageContainer()
-  String recipeName = 'Recipe Name';//selectedRecipe.name;
-  // List<String> recipeIngredients = selectedRecipe.ingredientsList;
-  // List<String> recipeInstructions = selectedRecipe.instructionsList;
-  // //add selected recipe's video link
-  // String recipeSourceLink = selectedRecipe.sourceLink;
+  final Recipe _recipe = RecipeInstructionsPageScreen.selectedRecipe; //the passed recipe object from recipe_block
+
+  _RecipeInstructionsPageScreenState(){ //access _recipe's attribute and set
+    _recipeImagePath = _recipe.imagePath;
+    _recipeName = _recipe.name;
+    _recipeIngredients = _recipe.ingredientsList;
+    _recipeInstructions = _recipe.instructionsList;
+    //add recipeVideo
+    _recipeSourceLink = _recipe.sourceLink;
+  }
+
+  //class's own copy of attributes of _recipe, the class's own private copy of the passed recipe from recipe_block
+  String? _recipeImagePath;//used in _buildImageContainer() below
+  String? _recipeName;//used in _buildRecipeContainer() below
+  List<String>? _recipeIngredients; //used in _buildIngredientsContainer() below
+  List<String>? _recipeInstructions; //used in _buildInstructionsContainer() below
+  //add recipeVideo
+  String? _recipeSourceLink; //used in _buildSourceContainer() below
 
   //styling
   bool isHeartIconPressed = false;
@@ -57,6 +62,7 @@ class _RecipeInstructionsPageScreenState extends State<RecipeInstructionsPageScr
     color: kMainColor,
   );
 
+  /*
   //TEMPORARY CONTAINER PLACEHOLDER FOR IMAGE
   Container placeholder = Container(
     //put image widget here instead of container
@@ -64,19 +70,20 @@ class _RecipeInstructionsPageScreenState extends State<RecipeInstructionsPageScr
     decoration: BoxDecoration(
       color: Colors.red,
       borderRadius: BorderRadius.circular(
-          10.0), //TODO: Fix border radius border between container/image and text should be 0
-    ),
+          10.0),
+          ),
   );
+   */
 
   Widget _buildImageContainer(){
     return  Container(
       width: 600,
       height: 220,
       color: Colors.blue,
-      //TODO: please help in fixing this. this should display the recipe image
+      //TODO: display image here
       // decoration: BoxDecoration(
       //   image: DecorationImage(
-      //     image: AssetImage(imagePath),
+      //     image: AssetImage(_recipeImagePath),
       //     fit: BoxFit.cover,
       //   ),
       // ),
@@ -93,7 +100,7 @@ class _RecipeInstructionsPageScreenState extends State<RecipeInstructionsPageScr
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(//recipe name
-                  recipeName,
+                  _recipeName!,
                   style: kHeading1TextStyle,
                   textAlign: TextAlign.left,
                 ),
@@ -152,32 +159,28 @@ class _RecipeInstructionsPageScreenState extends State<RecipeInstructionsPageScr
     );
   }
 
+  Widget _getTextWidgets (List<String>? strings){ //extracts items from list and puts each in a widget in a column
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+        children: strings!.map((item) => Container(
+          padding: EdgeInsets.only(bottom: 12),
+          child: Text(
+            item,
+            // textAlign: TextAlign.justify,
+            style: kBodyTextStyle.copyWith(height: 1.5),
+          ),
+        )).toList()
+    );
+  }
+
   Widget _buildIngredientsContainer(){
-    Text subheading = Text(
-      'Ingredients',
-      style: kRecipeInstrucSubheadingTextStyle,
-    );
-    Widget ingredient = Container(
-      padding: EdgeInsets.only(bottom: 10),
-      child: Text(
-        '1 cup item',
-        style: kBodyTextStyle,
-      ),
-    );
+    Text subheading = Text('Ingredients', style: kRecipeInstrucSubheadingTextStyle,);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         subheading,
         SizedBox(height: 15),
-        //TODO: make some kind of a builder to dynamically display ingredients from the recipe's ingredient list
-        ingredient,
-        ingredient,
-        ingredient,
-        ingredient,
-        ingredient,
-        ingredient,
-        ingredient,
-        ingredient,
+        _getTextWidgets(_recipeIngredients),
       ],
     );
   }
@@ -187,29 +190,21 @@ class _RecipeInstructionsPageScreenState extends State<RecipeInstructionsPageScr
       'Instructions',
       style: kRecipeInstrucSubheadingTextStyle,
     );
-    Widget instructions = Container(
-      padding: EdgeInsets.only(bottom: 12),
-      child: Text(
-        '1. do this do that do this do that do this do that do this do that do this do that do this do that',
-        style: kBodyTextStyle,
-      ),
-    );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         subheading,
         SizedBox(height: 15),
         //TODO: make some kind of a builder to dynamically display procedures from the recipe's instuctions list
-        instructions,
-        instructions,
-        instructions,
-        instructions,
-        instructions,
-        instructions,
+        // instructions,
+        // instructions,
+        // instructions,
+        _getTextWidgets(_recipeInstructions),
       ],
     );
   }
 
+  //TODO: display video here
   Widget _buildVideoContainer(){
     Text subheading = Text(
       'Video',
@@ -244,12 +239,10 @@ class _RecipeInstructionsPageScreenState extends State<RecipeInstructionsPageScr
       'Source',
       style: kRecipeInstrucSubheadingTextStyle,
     );
-
     Text link = Text(
-      'https://url-ng-recipe.com/recipe',
+      _recipeSourceLink!,
       style: kBodyTextStyle,
     );
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

@@ -11,8 +11,8 @@ import 'package:kusina_app_v3/navbar.dart';
 import 'package:kusina_app_v3/recipe.dart'; //temporary. import recipe bank instead
 
 //TEMPORARY
-Recipe recipeObject =  Recipe(
-  name: 'Lugaw',
+Recipe lugawRecipeObject =  Recipe(
+  name: 'Lugaw (from home page)',
   imagePath: '',
   ingredientsList: [
     '1 cup long grain white rice',
@@ -21,20 +21,34 @@ Recipe recipeObject =  Recipe(
     '1/4 cup rousong pork floss',
   ],
   instructionsList: [
-    '1. Pour water in a cooking pot. Bring to a boil.'
-        '2. Put-in the rice. Continue cooking for 30 minutes or until the texture becomes thick, while stirring once in awhile.'
-        '3. Add the salt, stir and then cook for 2 minutes more.',
+    '1. Pour water in a cooking pot. Bring to a boil.',
+    '2. Put-in the rice. Continue cooking for 30 minutes or until the texture becomes thick, while stirring once in awhile.',
+    '3. Add the salt, stir and then cook for 2 minutes more.',
     '4. Transfer to a serving bowl. Top with a tablespoon of rousing.',
     '5. Serve hot. Share and enjoy!',
   ],
   //video:
   sourceLink: 'https://panlasangpinoy.com/lugaw-recipe/', //source
 );
-
-/* parang di naman nagagamit
-const spaceBetweenTextAndBlock = 17;
-const spaceBetweenRecipeBlocks = 18;
-*/
+Recipe tinolaRecipeObject =  Recipe( //incomplete info for attributes
+  name: 'Tinola (from home page)',
+  imagePath: '',
+  ingredientsList: [
+    '1 cup long grain white rice',
+    '4 to 5 cups water',
+    '2 teaspoons salt',
+    '1/4 cup rousong pork floss',
+  ],
+  instructionsList: [
+    '1. Pour water in a cooking pot. Bring to a boil.',
+    '2. Put-in the rice. Continue cooking for 30 minutes or until the texture becomes thick, while stirring once in awhile.',
+    '3. Add the salt, stir and then cook for 2 minutes more.',
+    '4. Transfer to a serving bowl. Top with a tablespoon of rousing.',
+    '5. Serve hot. Share and enjoy!',
+  ],
+  //video:
+  sourceLink: 'https://panlasangpinoy.com/lugaw-recipe/', //source
+);
 
 class HomePageScreen extends StatefulWidget {
   @override
@@ -120,39 +134,11 @@ class _HomePageScreenState extends State<HomePageScreen> {
               height: 17, //spaceBetweenTextAndBlock
             ),
             RecipeBlock(
-              recipe: recipeObject,//get Recipe object from RecipesBank to get recipe name and image
-              //child: placeholder,//child height should be 170
-                                //recipe's image
-             // text: recipeObject.name,
-             //  onPress: () {
-             //    //pass the recipe object in this block to recipe instructions page
-             //    Navigator.pushNamed(context, AppRoutes.recipeInstructionsPageScreen);
-             //  },
+              recipe: lugawRecipeObject
             ),
-            /*
-            IngredientButton(
-              text: 'Chicken',
-              onPress: () {
-                //change button color
-                setState((){
-                  IngredientButton.changeButtonColor();
-                });
-                //add to some list for processing for result?
-              },
+            RecipeBlock(
+                recipe: tinolaRecipeObject
             ),
-            SizedBox(height: 10,),
-            BottomButton(
-              text: 'Shortcut to [insert page]',
-              onPress: () {
-                //change button color
-                setState((){
-                  BottomButton.changeButtonColor();
-                });
-                //Navigator.pushNamed(context, AppRoutes.favoritesPageScreen);
-                //add to some list for processing for result?
-              },
-            ),
-            */
           ],
         ),
       ),
@@ -182,9 +168,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
       ),
       bottomNavigationBar: NavBar(
         selectedIndex: 0, //lets NavBar() know what page this is. 0 = home, 1 = recipes, and so on
-        // onPress: (){
-        //   Navigator.pushNamed(context, AppRoutes.ingredientsPageScreen);
-        // },
       ),
     );
   }
