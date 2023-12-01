@@ -145,7 +145,7 @@ class _MissingIngredientsPage extends State<MissingIngredientsPage> {
                     Text('Sibuyas'),
                   ],
                   if (buttons.ingredients[17] != Colors.yellow) ...[
-                    Text('Garlic/Bawang'),
+                    Text('Bawang'),
                   ],
                   if (buttons.ingredients[33] != Colors.yellow) ...[
                     Text('White Sugar'),
@@ -229,6 +229,80 @@ class _MissingIngredientsPage extends State<MissingIngredientsPage> {
                     Text('Itlog'),
                   ],
                 ],
+
+                if (buttons.getMyRecipe() == 'Champorado') ...[
+                  if (buttons.ingredients[50] != Colors.yellow) ...[
+                    Text('Cocoa Powder'),
+                  ],
+                  if (buttons.ingredients[51] != Colors.yellow) ...[
+                    Text('Kaning Malagkit'),
+                  ],
+                  if (buttons.ingredients[52] != Colors.yellow) ...[
+                    Text('Tubig'),
+                  ],
+                  if (buttons.ingredients[33] != Colors.yellow) ...[
+                    Text('White Sugar'),
+                  ],
+                  if (buttons.ingredients[32] != Colors.yellow) ...[
+                    Text('Condensed Milk'),
+                  ],
+                  if (buttons.ingredients[29] != Colors.yellow) ...[
+                    Text('Evaporated Milk'),
+                  ],
+                ],
+
+                if (buttons.getMyRecipe() == 'Daing') ...[
+                  if (buttons.ingredients[53] != Colors.yellow) ...[
+                    Text('Bangus'),
+                  ],
+                  if (buttons.ingredients[54] != Colors.yellow) ...[
+                    Text('Suka'),
+                  ],
+                  if (buttons.ingredients[44] != Colors.yellow) ...[
+                    Text('Black Pepper'),
+                  ],
+                  if (buttons.ingredients[17] != Colors.yellow) ...[
+                    Text('Bawang'),
+                  ],
+                  if (buttons.ingredients[55] != Colors.yellow) ...[
+                    Text('Cayenne Pepper Powder'),
+                  ],
+                  if (buttons.ingredients[56] != Colors.yellow) ...[
+                    Text('Sea Salt'),
+                  ],
+                ],
+
+                if (buttons.getMyRecipe() == 'Tuyo') ...[
+                  if (buttons.ingredients[57] != Colors.yellow) ...[
+                    Text('Tuyo Salted Dried Fish'),
+                  ],
+                  if (buttons.ingredients[15] != Colors.yellow) ...[
+                    Text('Kanin'),
+                  ],
+                  if (buttons.ingredients[5] != Colors.yellow) ...[
+                    Text('Kamatis'),
+                  ],
+                  if (buttons.ingredients[54] != Colors.yellow) ...[
+                    Text('Suka'),
+                  ],
+                ],
+                if (buttons.getMyRecipe() == 'Omelet') ...[
+                  if (buttons.ingredients[58] != Colors.yellow) ...[
+                    Text('Red Onion'),
+                  ],
+                  if (buttons.ingredients[22] != Colors.yellow) ...[
+                    Text('Itlog'),
+                  ],
+                  if (buttons.ingredients[5] != Colors.yellow) ...[
+                    Text('Kamatis'),
+                  ],
+                  if (buttons.ingredients[44] != Colors.yellow) ...[
+                    Text('Black Pepper'),
+                  ],
+                  if (buttons.ingredients[56] != Colors.yellow) ...[
+                    Text('Sea Salt'),
+                  ],
+                ]
                 // Add more Text widgets here for additional strings
               ],
             ),
@@ -364,7 +438,7 @@ Widget _buildNavigationBar(BuildContext context, Size deviceSize) {
             buttons.addToMissingIngredientsBank('Sibuyas');
           }
           if (buttons.ingredients[17] != Colors.yellow) {
-            buttons.addToMissingIngredientsBank('Garlic/Bawang');
+            buttons.addToMissingIngredientsBank('Bawang');
           }
           if (buttons.ingredients[33] != Colors.yellow) {
             buttons.addToMissingIngredientsBank('White Sugar');
@@ -448,6 +522,85 @@ Widget _buildNavigationBar(BuildContext context, Size deviceSize) {
           }
           if (buttons.ingredients[22] != Colors.yellow) {
             buttons.addToMissingIngredientsBank('Itlog');
+          }
+        }
+
+        if (buttons.getMyRecipe() == 'Champorado') {
+          buttons.addToRecipeBank(buttons.getMyRecipe());
+          if (buttons.ingredients[50] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Cocoa Powder');
+          }
+          if (buttons.ingredients[51] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Kaning Malagkit');
+          }
+          if (buttons.ingredients[52] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Tubig');
+          }
+          if (buttons.ingredients[33] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('White Sugar');
+          }
+          if (buttons.ingredients[32] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Condensed Milk');
+          }
+          if (buttons.ingredients[29] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Evaporated Milk');
+          }
+        }
+
+        if (buttons.getMyRecipe() == 'Daing') {
+          buttons.addToRecipeBank(buttons.getMyRecipe());
+          if (buttons.ingredients[53] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Bangus');
+          }
+          if (buttons.ingredients[54] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Suka');
+          }
+          if (buttons.ingredients[44] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Black Pepper');
+          }
+          if (buttons.ingredients[17] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Bawang');
+          }
+          if (buttons.ingredients[55] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Cayenne Pepper Powder');
+          }
+          if (buttons.ingredients[56] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Sea Salt');
+          }
+        }
+
+        if (buttons.getMyRecipe() == 'Tuyo') {
+          buttons.addToRecipeBank(buttons.getMyRecipe());
+          if (buttons.ingredients[57] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Tuyo Salted Dried Fish');
+          }
+          if (buttons.ingredients[15] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Kanin');
+          }
+          if (buttons.ingredients[5] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Kamatis');
+          }
+          if (buttons.ingredients[54] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Suka');
+          }
+        }
+
+        if (buttons.getMyRecipe() == 'Omelet') {
+          buttons.addToRecipeBank(buttons.getMyRecipe());
+          if (buttons.ingredients[58] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Red Onion');
+          }
+          if (buttons.ingredients[22] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Itlog');
+          }
+          if (buttons.ingredients[5] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Kamatis');
+          }
+          if (buttons.ingredients[44] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Black Pepper');
+          }
+          if (buttons.ingredients[56] != Colors.yellow) {
+            buttons.addToMissingIngredientsBank('Sea Salt');
           }
         }
 

@@ -151,7 +151,7 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                 ),
               ),
               SizedBox(height: 30),
-              if (buttons.ingredients[1] == Colors.yellow
+              if ((buttons.ingredients[1] == Colors.yellow
           || buttons.ingredients[15] == Colors.yellow
           || buttons.ingredients[16] == Colors.yellow
           || buttons.ingredients[17] == Colors.yellow
@@ -159,9 +159,9 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
           || buttons.ingredients[18] == Colors.yellow
           || buttons.ingredients[12] == Colors.yellow
           || buttons.ingredients[20] == Colors.yellow
-          || buttons.ingredients[21] == Colors.yellow
-          && buttons.filters[0] != Colors.black && buttons.filters[2] != Colors.
-              black && buttons.filters[3] != Colors.black)
+          || buttons.ingredients[21] == Colors.yellow)
+                    && (buttons.filters[0] != Colors.black
+             && buttons.filters[3] != Colors.black))
           Padding(
           padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
       child: RecipeBlock(
@@ -175,7 +175,7 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
         },
       ),
     ),
-    if (buttons.ingredients[0] == Colors.yellow
+    if ((buttons.ingredients[0] == Colors.yellow
     || buttons.ingredients[22] == Colors.yellow
     || buttons.ingredients[23] == Colors.yellow
     || buttons.ingredients[17] == Colors.yellow
@@ -183,8 +183,8 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
     || buttons.ingredients[25] == Colors.yellow
     || buttons.ingredients[26] == Colors.yellow
     || buttons.ingredients[14] == Colors.yellow
-    || buttons.ingredients[15] == Colors.yellow
-    && buttons.filters[1] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black)
+    || buttons.ingredients[15] == Colors.yellow)
+    && (buttons.filters[1] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black))
     Padding(
     padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
     child: RecipeBlock(
@@ -198,7 +198,7 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
     },
     ),
     ),
-    if (buttons.ingredients[27] == Colors.yellow
+    if ((buttons.ingredients[27] == Colors.yellow
     || buttons.ingredients[28] == Colors.yellow
     || buttons.ingredients[29] == Colors.yellow
     || buttons.ingredients[22] == Colors.yellow
@@ -206,8 +206,8 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
     || buttons.ingredients[31] == Colors.yellow
     || buttons.ingredients[32] == Colors.yellow
     || buttons.ingredients[33] == Colors.yellow
-    || buttons.ingredients[34] == Colors.yellow
-    && buttons.filters[1] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[0] != Colors.black)
+    || buttons.ingredients[34] == Colors.yellow)
+    && (buttons.filters[1] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[0] != Colors.black))
     Padding(
     padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
     child: RecipeBlock(
@@ -221,7 +221,7 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
     },
     ),
     ),
-                if (buttons.ingredients[2] == Colors.yellow
+                if ((buttons.ingredients[2] == Colors.yellow
                 || buttons.ingredients[35] == Colors.yellow
                 || buttons.ingredients[4] == Colors.yellow
                 || buttons.ingredients[3] == Colors.yellow
@@ -234,8 +234,8 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                 || buttons.ingredients[38] == Colors.yellow
                 || buttons.ingredients[39] == Colors.yellow
                 || buttons.ingredients[14] == Colors.yellow
-                || buttons.ingredients[40] == Colors.yellow
-                        && buttons.filters[0] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black)
+                || buttons.ingredients[40] == Colors.yellow)
+                        && (buttons.filters[0] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black))
                   Padding(
                     padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                     child: RecipeBlock(
@@ -249,14 +249,14 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                       },
                     ),
                   ),
-                if (buttons.ingredients[0] == Colors.yellow
+                if ((buttons.ingredients[0] == Colors.yellow
                     || buttons.ingredients[41] == Colors.yellow
                     || buttons.ingredients[42] == Colors.yellow
                     || buttons.ingredients[43] == Colors.yellow
                     || buttons.ingredients[44] == Colors.yellow
                     || buttons.ingredients[45] == Colors.yellow
                     || buttons.ingredients[13] == Colors.yellow
-                    || buttons.ingredients[12] == Colors.yellow && buttons.filters[0] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black)
+                    || buttons.ingredients[12] == Colors.yellow) && (buttons.filters[0] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black))
                   Padding(
                     padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                     child: RecipeBlock(
@@ -270,7 +270,7 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                       },
                     ),
                   ),
-                if (buttons.ingredients[46] == Colors.yellow
+                if ((buttons.ingredients[46] == Colors.yellow
                     || buttons.ingredients[47] == Colors.yellow
                     || buttons.ingredients[2] == Colors.yellow
                     || buttons.ingredients[13] == Colors.yellow
@@ -280,7 +280,7 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                     || buttons.ingredients[48] == Colors.yellow
                     || buttons.ingredients[49] == Colors.yellow
                     || buttons.ingredients[14] == Colors.yellow
-                    || buttons.ingredients[22] == Colors.yellow && buttons.filters[0] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black)
+                    || buttons.ingredients[22] == Colors.yellow) && (buttons.filters[0] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black))
                   Padding(
                     padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                     child: RecipeBlock(
@@ -290,6 +290,79 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                       onPress: () {
                         final buttons = context.read<ButtonsModel>();
                         buttons.setMyRecipe('Lumpiang Shanghai');
+                        Navigator.pushNamed(context, AppRoutes.testingV1);
+                      },
+                    ),
+                  ),
+                if ((buttons.ingredients[50] == Colors.yellow
+                   || buttons.ingredients[51] == Colors.yellow
+                    || buttons.ingredients[52] == Colors.yellow
+                    || buttons.ingredients[33] == Colors.yellow
+                   || buttons.ingredients[32] == Colors.yellow
+                  || buttons.ingredients[29] == Colors.yellow) && (buttons.filters[0] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[1] != Colors.black))
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                    child: RecipeBlock(
+                      child: buildImageContainer('images/champorado.png'),
+                      text: 'Champorado',
+                      color: Colors.white,
+                      onPress: () {
+                        final buttons = context.read<ButtonsModel>();
+                        buttons.setMyRecipe('Champorado');
+                        Navigator.pushNamed(context, AppRoutes.testingV1);
+                      },
+                    ),
+                  ),
+    if ((buttons.ingredients[53] == Colors.yellow
+                    || buttons.ingredients[54] == Colors.yellow
+                    || buttons.ingredients[44] == Colors.yellow
+                    || buttons.ingredients[17] == Colors.yellow
+                    || buttons.ingredients[55] == Colors.yellow
+                    || buttons.ingredients[56] == Colors.yellow) && (buttons.filters[0] != Colors.black &&  buttons.filters[3] != Colors.black))
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                    child: RecipeBlock(
+                      child: buildImageContainer('images/daing.jpg'),
+                      text: 'Daing',
+                      color: Colors.white,
+                      onPress: () {
+                        final buttons = context.read<ButtonsModel>();
+                        buttons.setMyRecipe('Daing');
+                        Navigator.pushNamed(context, AppRoutes.testingV1);
+                      },
+                    ),
+                  ),
+                if ((buttons.ingredients[57] == Colors.yellow
+                  || buttons.ingredients[15] == Colors.yellow
+                  || buttons.ingredients[5] == Colors.yellow
+                  || buttons.ingredients[54] == Colors.yellow) && (buttons.filters[0] != Colors.black &&  buttons.filters[3] != Colors.black &&  buttons.filters[2] != Colors.black))
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                    child: RecipeBlock(
+                      child: buildImageContainer('images/tuyo.jpg'),
+                      text: 'Tuyo',
+                      color: Colors.white,
+                      onPress: () {
+                        final buttons = context.read<ButtonsModel>();
+                        buttons.setMyRecipe('Tuyo');
+                        Navigator.pushNamed(context, AppRoutes.testingV1);
+                      },
+                    ),
+                  ),
+                if ((buttons.ingredients[58] == Colors.yellow
+                    || buttons.ingredients[22] == Colors.yellow
+                    || buttons.ingredients[5] == Colors.yellow
+                    || buttons.ingredients[44] == Colors.yellow
+                    || buttons.ingredients[56] == Colors.yellow) && (buttons.filters[1] != Colors.black &&  buttons.filters[2] != Colors.black &&  buttons.filters[3] != Colors.black))
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                    child: RecipeBlock(
+                      child: buildImageContainer('images/omelet.jpg'),
+                      text: 'Omelet',
+                      color: Colors.white,
+                      onPress: () {
+                        final buttons = context.read<ButtonsModel>();
+                        buttons.setMyRecipe('Omelet');
                         Navigator.pushNamed(context, AppRoutes.testingV1);
                       },
                     ),

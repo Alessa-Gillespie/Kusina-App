@@ -81,6 +81,8 @@ flutter:
     - images/menudo.jpg
     - images/giniling.jpg
     - images/fried_tilapia.jpg
+    - images/daing.jpg
+    - images/omelet.jpg
     - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see

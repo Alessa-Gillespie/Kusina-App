@@ -50,12 +50,11 @@ class RecipeBlock extends StatelessWidget {
     return Container(
       height: 170,
       decoration: BoxDecoration(
-        color: Colors.red,//show red container since wala pang picture
-        //TODO: fix error below to display recipe's image
-        // image: DecorationImage(
-        //   image: AssetImage(_recipeImagePath),
-        //   fit: BoxFit.cover,
-        // ),
+        color: Colors.red,//show red container if walang picture
+        image: DecorationImage(
+          image: AssetImage(_recipeImagePath!),
+          fit: BoxFit.cover,
+        ),
         borderRadius: BorderRadius.circular(10.0),
       ),
     );
@@ -75,7 +74,7 @@ class RecipeBlock extends StatelessWidget {
     return  GestureDetector(
       onTap: () {
         RecipeInstructionsPageScreen.selectedRecipe = _recipe!; //pass the recipe object in this class to recipe instructions page's static variable
-                                                              //recipe instructions page will use this recipe object to display its attributes such as the name, ingredients, instructions, etc.
+        //recipe instructions page will use this recipe object to display its attributes such as the name, ingredients, instructions, etc.
         Navigator.pushNamed(context, AppRoutes.recipeInstructionsPageScreen);
       },
       child: _buildRecipeBlock(),

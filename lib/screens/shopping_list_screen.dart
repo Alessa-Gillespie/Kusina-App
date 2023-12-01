@@ -194,7 +194,7 @@ class _shoppingListState extends State<ShoppingList> {
                                   if (buttons.isIngredientMissing('Knorr Liquid Seasoning')) ...[
                                     Text('Knorr Liquid Seasoning', style: TextStyle(fontSize: 18)),
                                   ],
-                                  if (buttons.isIngredientMissing('Garlic/Bawang')) ...[
+                                  if (buttons.isIngredientMissing('Bawang')) ...[
                                     Text('Garlic/Bawang', style: TextStyle(fontSize: 18)),
                                   ],
                                   if (buttons.isIngredientMissing('Pineapple Juice')) ...[
@@ -328,7 +328,7 @@ class _shoppingListState extends State<ShoppingList> {
                                           buttons.removeFromMissingIngredientsBank('Toyo');
                                           buttons.removeFromMissingIngredientsBank('Lemon');
                                           buttons.removeFromMissingIngredientsBank('Sibuyas');
-                                          buttons.removeFromMissingIngredientsBank('Garlic/Bawang');
+                                          buttons.removeFromMissingIngredientsBank('Bawang');
                                           buttons.removeFromMissingIngredientsBank('White Sugar');
                                           buttons.removeFromMissingIngredientsBank('Tomato Sauce');
                                           buttons.removeFromMissingIngredientsBank('Hotdog');
@@ -373,7 +373,7 @@ class _shoppingListState extends State<ShoppingList> {
                                   if (buttons.isIngredientMissing('Sibuyas')) ...[
                                     Text('Sibuyas', style: TextStyle(fontSize: 18)),
                                   ],
-                                  if (buttons.isIngredientMissing('Garlic/Bawang')) ...[
+                                  if (buttons.isIngredientMissing('Bawang')) ...[
                                     Text('Garlic/Bawang', style: TextStyle(fontSize: 18)),
                                   ],
                                   if (buttons.isIngredientMissing('White Sugar')) ...[
@@ -559,6 +559,271 @@ class _shoppingListState extends State<ShoppingList> {
                                   ],
                                   if (buttons.isIngredientMissing('Itlog')) ...[
                                     Text('Itlog', style: TextStyle(fontSize: 18)),
+                                  ],
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                      if (buttons.isRecipeInBank('Champorado')) ...[
+                        Padding(
+                          padding: EdgeInsets.all(20),
+                          child: Column(
+                            children: <Widget>[
+                              Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text('Champorado',
+                                        style: TextStyle(
+                                            fontSize: 30.0,
+                                            // change this value to change the size
+                                            fontWeight: FontWeight.bold)),
+                                    Padding(
+                                      padding: EdgeInsets.only(right: 20), // To adjust "Clear" button away from the left side
+                                      child: ElevatedButton(
+                                        onPressed: () {
+                                          // Get the Buttons instance
+                                          final buttons = context.read<ButtonsModel>();
+
+                                          // Set all elements in filters and ingredients to Colors.white
+                                          buttons.removeFromRecipeBank('Champorado');
+                                          buttons.removeFromMissingIngredientsBank('Cocoa Powder');
+                                          buttons.removeFromMissingIngredientsBank('Kaning Malagkit');
+                                          buttons.removeFromMissingIngredientsBank('Tubig');
+                                          buttons.removeFromMissingIngredientsBank('White Sugar');
+                                          buttons.removeFromMissingIngredientsBank('Condensed Milk');
+                                          buttons.removeFromMissingIngredientsBank('Evaporated Milk');
+                                          Navigator.pushNamed(context, AppRoutes.shoppingListScreen);
+                                        },
+                                        child: Text(
+                                          'Remove',
+                                          style: TextStyle(fontSize: 18), // Increase text size
+                                        ),
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Colors.white, // background color
+                                          foregroundColor: Colors.black, // text color
+                                          // shadowColor: Colors.transparent, // shadow color
+                                          side: BorderSide(color: Colors.white, width: 0), // border color and width
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+                              Column(
+                                children: <Widget>[
+                                  if (buttons.isIngredientMissing('Cocoa Powder')) ...[
+                                    Text('Cocoa Powder', style: TextStyle(fontSize: 18)),
+                                  ],
+                                  if (buttons.isIngredientMissing('Kaning Malagkit')) ...[
+                                    Text('Kaning Malagkit', style: TextStyle(fontSize: 18)),
+                                  ],
+                                  if (buttons.isIngredientMissing('Water/Tubig')) ...[
+                                    Text('Water/Tubig', style: TextStyle(fontSize: 18)),
+                                  ],
+                                  if (buttons.isIngredientMissing('White Sugar')) ...[
+                                    Text('White Sugar', style: TextStyle(fontSize: 18)),
+                                  ],
+                                  if (buttons.isIngredientMissing('Condensed Milk')) ...[
+                                    Text('Condensed Milk', style: TextStyle(fontSize: 18)),
+                                  ],
+                                  if (buttons.isIngredientMissing('Evaporated Milk')) ...[
+                                    Text('Evaporated Milk', style: TextStyle(fontSize: 18)),
+                                  ],
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                      if (buttons.isRecipeInBank('Daing')) ...[
+                        Padding(
+                          padding: EdgeInsets.all(20),
+                          child: Column(
+                            children: <Widget>[
+                              Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text('Daing',
+                                        style: TextStyle(
+                                            fontSize: 30.0,
+                                            // change this value to change the size
+                                            fontWeight: FontWeight.bold)),
+                                    Padding(
+                                      padding: EdgeInsets.only(right: 20), // To adjust "Clear" button away from the left side
+                                      child: ElevatedButton(
+                                        onPressed: () {
+                                          // Get the Buttons instance
+                                          final buttons = context.read<ButtonsModel>();
+
+                                          // Set all elements in filters and ingredients to Colors.white
+                                          buttons.removeFromRecipeBank('Daing');
+                                          buttons.removeFromMissingIngredientsBank('Bangus');
+                                          buttons.removeFromMissingIngredientsBank('Suka');
+                                          buttons.removeFromMissingIngredientsBank('Black Pepper');
+                                          buttons.removeFromMissingIngredientsBank('Bawang');
+                                          buttons.removeFromMissingIngredientsBank('Cayenne Pepper Powder');
+                                          buttons.removeFromMissingIngredientsBank('Sea Salt');
+                                          Navigator.pushNamed(context, AppRoutes.shoppingListScreen);
+                                        },
+                                        child: Text(
+                                          'Remove',
+                                          style: TextStyle(fontSize: 18), // Increase text size
+                                        ),
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Colors.white, // background color
+                                          foregroundColor: Colors.black, // text color
+                                          // shadowColor: Colors.transparent, // shadow color
+                                          side: BorderSide(color: Colors.white, width: 0), // border color and width
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+                              Column(
+                                children: <Widget>[
+                                  if (buttons.isIngredientMissing('Bangus')) ...[
+                                    Text('Bangus', style: TextStyle(fontSize: 18)),
+                                  ],
+                                  if (buttons.isIngredientMissing('Suka')) ...[
+                                    Text('Suka', style: TextStyle(fontSize: 18)),
+                                  ],
+                                  if (buttons.isIngredientMissing('Black Pepper')) ...[
+                                    Text('Black Pepper', style: TextStyle(fontSize: 18)),
+                                  ],
+                                  if (buttons.isIngredientMissing('Bawang')) ...[
+                                    Text('Garlic/Bawang', style: TextStyle(fontSize: 18)),
+                                  ],
+                                  if (buttons.isIngredientMissing('Cayenne Pepper Powder')) ...[
+                                    Text('Cayenne Pepper Powder', style: TextStyle(fontSize: 18)),
+                                  ],
+                                  if (buttons.isIngredientMissing('Sea Salt')) ...[
+                                    Text('Sea Salt', style: TextStyle(fontSize: 18)),
+                                  ],
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                      if (buttons.isRecipeInBank('Tuyo')) ...[
+                        Padding(
+                          padding: EdgeInsets.all(20),
+                          child: Column(
+                            children: <Widget>[
+                              Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text('Tuyo',
+                                        style: TextStyle(
+                                            fontSize: 30.0,
+                                            // change this value to change the size
+                                            fontWeight: FontWeight.bold)),
+                                    Padding(
+                                      padding: EdgeInsets.only(right: 20), // To adjust "Clear" button away from the left side
+                                      child: ElevatedButton(
+                                        onPressed: () {
+                                          // Get the Buttons instance
+                                          final buttons = context.read<ButtonsModel>();
+
+                                          // Set all elements in filters and ingredients to Colors.white
+                                          buttons.removeFromRecipeBank('Tuyo');
+                                          buttons.removeFromMissingIngredientsBank('Tuyo Salted Dried Fish');
+                                          buttons.removeFromMissingIngredientsBank('Kanin');
+                                          buttons.removeFromMissingIngredientsBank('Kamatis');
+                                          buttons.removeFromMissingIngredientsBank('Suka');
+                                          Navigator.pushNamed(context, AppRoutes.shoppingListScreen);
+                                        },
+                                        child: Text(
+                                          'Remove',
+                                          style: TextStyle(fontSize: 18), // Increase text size
+                                        ),
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Colors.white, // background color
+                                          foregroundColor: Colors.black, // text color
+                                          // shadowColor: Colors.transparent, // shadow color
+                                          side: BorderSide(color: Colors.white, width: 0), // border color and width
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+                              Column(
+                                children: <Widget>[
+                                  if (buttons.isIngredientMissing('Tuyo Salted Dried Fish')) ...[
+                                    Text('Tuyo Salted Dried Fish', style: TextStyle(fontSize: 18)),
+                                  ],
+                                  if (buttons.isIngredientMissing('Kanin')) ...[
+                                    Text('Kanin', style: TextStyle(fontSize: 18)),
+                                  ],
+                                  if (buttons.isIngredientMissing('Kamatis')) ...[
+                                    Text('Kamatis', style: TextStyle(fontSize: 18)),
+                                  ],
+                                  if (buttons.isIngredientMissing('Suka')) ...[
+                                    Text('Suka', style: TextStyle(fontSize: 18)),
+                                  ],
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+
+                      if (buttons.isRecipeInBank('Omelet')) ...[
+                        Padding(
+                          padding: EdgeInsets.all(20),
+                          child: Column(
+                            children: <Widget>[
+                              Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text('Omelet',
+                                        style: TextStyle(
+                                            fontSize: 30.0,
+                                            // change this value to change the size
+                                            fontWeight: FontWeight.bold)),
+                                    Padding(
+                                      padding: EdgeInsets.only(right: 20), // To adjust "Clear" button away from the left side
+                                      child: ElevatedButton(
+                                        onPressed: () {
+                                          // Get the Buttons instance
+                                          final buttons = context.read<ButtonsModel>();
+
+                                          // Set all elements in filters and ingredients to Colors.white
+                                          buttons.removeFromRecipeBank('Omelet');
+                                          buttons.removeFromMissingIngredientsBank('Red Onion');
+                                          buttons.removeFromMissingIngredientsBank('Itlog');
+                                          buttons.removeFromMissingIngredientsBank('Kamatis');
+                                          buttons.removeFromMissingIngredientsBank('Black Pepper');
+                                          buttons.removeFromMissingIngredientsBank('Sea Salt');
+                                          Navigator.pushNamed(context, AppRoutes.shoppingListScreen);
+                                        },
+                                        child: Text(
+                                          'Remove',
+                                          style: TextStyle(fontSize: 18), // Increase text size
+                                        ),
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Colors.white, // background color
+                                          foregroundColor: Colors.black, // text color
+                                          // shadowColor: Colors.transparent, // shadow color
+                                          side: BorderSide(color: Colors.white, width: 0), // border color and width
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+                              Column(
+                                children: <Widget>[
+                                  if (buttons.isIngredientMissing('Red Onion')) ...[
+                                    Text('Red Onion', style: TextStyle(fontSize: 18)),
+                                  ],
+                                  if (buttons.isIngredientMissing('Itlog')) ...[
+                                    Text('Itlog', style: TextStyle(fontSize: 18)),
+                                  ],
+                                  if (buttons.isIngredientMissing('Kamatis')) ...[
+                                    Text('Kamatis', style: TextStyle(fontSize: 18)),
+                                  ],
+                                  if (buttons.isIngredientMissing('Black Pepper')) ...[
+                                    Text('Black Pepper', style: TextStyle(fontSize: 18)),
+                                  ],
+                                  if (buttons.isIngredientMissing('Sea Salt')) ...[
+                                    Text('Sea Salt', style: TextStyle(fontSize: 18)),
                                   ],
                                 ],
                               )

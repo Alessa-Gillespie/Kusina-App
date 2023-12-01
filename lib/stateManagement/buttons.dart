@@ -69,6 +69,15 @@ class ButtonsModel extends ChangeNotifier {
     Colors.white, // (8UT23) ('Garlic Powder', 47)
     Colors.white, // (8UT23) ('Parsley', 48)
     Colors.white, // (8UT23) ('Sesame Oil', 49)
+    Colors.white, // (8UT23) ('Cocoa Powder', 50)
+    Colors.white, // (8UT23) ('Kaning Malagkit', 51)
+    Colors.white, // (8UT23) ('Water/Tubig', 52)
+    Colors.white, // (8UT23) ('Bangus', 53)
+    Colors.white, // (8UT23) ('Vinegar/Suka', 54)
+    Colors.white, // (8UT23) ('Cayenne Pepper Powder', 55)
+    Colors.white, // (8UT23) ('Sea Salt', 56)
+    Colors.white, // (8UT23) ('Tuyo Salted Dried Fish', 57)
+    Colors.white, // (8UT23) ('Red Onion', 58)
   ];
 
   void updateIngredientsButton(int index, Color color) {

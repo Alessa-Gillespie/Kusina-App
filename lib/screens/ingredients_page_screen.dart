@@ -215,6 +215,7 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
                   _buildIngredientButtons('Bok Choy', 42),
                   _buildIngredientButtons('Mais', 43),
                   _buildIngredientButtons('Green Onions', 45),
+                  _buildIngredientButtons('Red Onion', 58),
                 ],
               ),
               SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
@@ -226,6 +227,17 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
                   _buildIngredientButtons('Isda', 6),
                   _buildIngredientButtons('Hipon', 7),
                   _buildIngredientButtons('Crab', 8),
+                  _buildIngredientButtons('Bangus', 53),
+                  _buildIngredientButtons('Tuyo Salted Dried Fish', 57),
+                ],
+              ),
+              SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
+              _buildIngredientCategoryName(context, 'Dressings & Vinegar'),
+              Wrap( // Use Wrap instead of Row for the list of buttons
+                spacing: screenSize.width * 0.02, // Space between children in the main axis
+                runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
+                children: <Widget>[
+                  _buildIngredientButtons('Suka', 54),
                 ],
               ),
               SizedBox(height: 30),
@@ -239,6 +251,8 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
                   _buildIngredientButtons('Pamintang Puti', 26),
                   _buildIngredientButtons('Pepper', 40),
                   _buildIngredientButtons('Black Pepper', 44),
+                  _buildIngredientButtons('Cayenne Pepper Powder', 55),
+                  _buildIngredientButtons('Sea Salt', 56),
                 ],
               ),
               SizedBox(height: 30),
@@ -272,6 +286,7 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
                 runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
                 children: <Widget>[
                   _buildIngredientButtons('Kanin', 15),
+                  _buildIngredientButtons('Kaning Malagkit', 51),
                 ],
               ),
               SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
@@ -308,6 +323,7 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
                 runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
                 children: <Widget>[
                   _buildIngredientButtons('Pineapple Juice', 24),
+                  _buildIngredientButtons('Tubig', 52),
                 ],
               ),
               SizedBox(height: screenSize.height * 0.03), // Use a percentage of the screen height
@@ -369,6 +385,7 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
                 runSpacing: screenSize.height * 0.01, // Space between children in the cross axis
                 children: <Widget>[
                   _buildIngredientButtons('Harina', 34),
+                  _buildIngredientButtons('Cocoa Powder', 50),
                 ],
               ),
               SizedBox(height: 30),
