@@ -24,13 +24,13 @@ import 'package:kusina_app_v3/recipes_bank.dart';
 import 'package:provider/provider.dart';
 import 'package:kusina_app_v3/stateManagement/buttons.dart';
 
-class Tapsilog extends StatefulWidget {
+class Menudo extends StatefulWidget {
 
   @override
-  _TapsilogState createState() => _TapsilogState();
+  _MenudoState createState() => _MenudoState();
 }
 
-class _TapsilogState extends State<Tapsilog> {
+class _MenudoState extends State<Menudo> {
 
   //TODO: fix the error in order to use selectedRecipe object that is passed from recipe_block.dart
   //attributes of the selected recipe
@@ -129,7 +129,7 @@ class _TapsilogState extends State<Tapsilog> {
     Widget listIcon = FloatingActionButton.small(
       onPressed: (){
         final buttons = context.read<ButtonsModel>();
-        buttons.setMyRecipe('Tapsilog');
+        buttons.setMyRecipe('Menudo');
         Navigator.pushNamed(context, AppRoutes.missingIngredients);
       },
       backgroundColor: Colors.transparent,
@@ -297,7 +297,7 @@ class _TapsilogState extends State<Tapsilog> {
       backgroundColor: kBackgroundColor,
       body: ListView(
         children: <Widget>[
-          _buildImageContainer('images/Tapsilog.jpg'),
+          _buildImageContainer('images/menudo.jpg'),
           _buildRecipeContainer(),
         ],
       ),

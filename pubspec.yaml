@@ -68,6 +68,19 @@ flutter:
   assets:
     - images/Tinola.jpg
     - images/Tapsilog.jpg
+    - images/cassava_cake.jpg
+    - images/Adobo.jpg
+    - images/buko_salad.jpg
+    - images/bulalo.png
+    - images/champorado.png
+    - images/halo_halo.jpg
+    - images/lumpiang_shanghai.jpg
+    - images/Tocino.jpg
+    - images/tuyo.jpg
+    - images/sinangag.jpg
+    - images/menudo.jpg
+    - images/giniling.jpg
+    - images/fried_tilapia.jpg
     - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see

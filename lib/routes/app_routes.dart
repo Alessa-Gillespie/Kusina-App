@@ -12,6 +12,9 @@ import 'package:kusina_app_v3/screens/recipe_instructions_page_screen.dart';
 // Recipe Instruction Pages
 import 'package:kusina_app_v3/recipes/tinola.dart';
 import 'package:kusina_app_v3/recipes/tapsilog.dart';
+import 'package:kusina_app_v3/recipes/testingV1.dart';
+import 'package:kusina_app_v3/recipes/cassava_cake.dart';
+import 'package:kusina_app_v3/recipes/menudo.dart';
 
 
 class AppRoutes {
@@ -38,6 +41,9 @@ class AppRoutes {
    // Recipe Instruction Pages
    static const String tinola = '/tinola';
    static const String tapsilog= '/tapsilog';
+   static const String testingV1 = '/testingV1';
+   static const String cassava_cake = '/cassava_cake';
+   static const String menudo = '/menudo';
 
   static Map<String, WidgetBuilder> routes = {
 
@@ -60,6 +66,9 @@ class AppRoutes {
     // Recipe Instruction Pages
     tinola: (context) => Tinola(),
     tapsilog: (context) => Tapsilog(),
+    testingV1: (context) => TestingV1(),
+    cassava_cake: (context) => Cassava_Cake(),
+    menudo: (context) => Menudo(),
 
   };
 }
