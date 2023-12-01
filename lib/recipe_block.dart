@@ -50,12 +50,11 @@ class RecipeBlock extends StatelessWidget {
     return Container(
       height: 170,
       decoration: BoxDecoration(
-        color: Colors.red,//show red container since wala pang picture
-        //TODO: fix error below to display recipe's image
-        // image: DecorationImage(
-        //   image: AssetImage(_recipeImagePath),
-        //   fit: BoxFit.cover,
-        // ),
+        color: Colors.red,//show red container if walang picture
+        image: DecorationImage(
+          image: AssetImage(_recipeImagePath!),
+          fit: BoxFit.cover,
+        ),
         borderRadius: BorderRadius.circular(10.0),
       ),
     );

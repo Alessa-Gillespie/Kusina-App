@@ -13,7 +13,7 @@ import 'package:kusina_app_v3/recipe.dart'; //temporary. import recipe bank inst
 //TEMPORARY
 Recipe lugawRecipeObject =  Recipe(
   name: 'Lugaw (from home page)',
-  imagePath: '',
+  imagePath: 'images/Tinola.jpg',
   ingredientsList: [
     '1 cup long grain white rice',
     '4 to 5 cups water',
@@ -32,7 +32,7 @@ Recipe lugawRecipeObject =  Recipe(
 );
 Recipe tinolaRecipeObject =  Recipe( //incomplete info for attributes
   name: 'Tinola (from home page)',
-  imagePath: '',
+  imagePath: 'images/Tinola.jpg',
   ingredientsList: [
     '1 cup long grain white rice',
     '4 to 5 cups water',
