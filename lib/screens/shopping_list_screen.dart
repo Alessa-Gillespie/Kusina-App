@@ -48,7 +48,8 @@ class _shoppingListState extends State<ShoppingList> {
         title: Text('Shopping List'),
       ),
       body: SafeArea(
-        child: _shoppingListIsEmpty
+      // final buttons = context.read<ButtonsModel>();
+        child: context.read<ButtonsModel>().isRecipeBankEmpty()
                 ? _buildEmptySection() //displays empty section
                 : SingleChildScrollView( //displays the contents of shopping list
                   child: Column(
@@ -74,11 +75,17 @@ class _shoppingListState extends State<ShoppingList> {
                                         onPressed: () {
                                           // Get the Buttons instance
                                           final buttons = context.read<ButtonsModel>();
-
                                           // Set all elements in filters and ingredients to Colors.white
                                           buttons.removeFromRecipeBank('Tinola');
                                           buttons.removeFromMissingIngredientsBank('Chicken');
                                           buttons.removeFromMissingIngredientsBank('Sibuyas');
+                                          buttons.removeFromMissingIngredientsBank('Kanin');
+                                          buttons.removeFromMissingIngredientsBank('Green Papaya');
+                                          buttons.removeFromMissingIngredientsBank('Bawang');
+                                          buttons.removeFromMissingIngredientsBank('Luya');
+                                          buttons.removeFromMissingIngredientsBank('Toyo');
+                                          buttons.removeFromMissingIngredientsBank('Hot Pepper Leaves');
+                                          buttons.removeFromMissingIngredientsBank('Ground Black Pepper');
                                           Navigator.pushNamed(context, AppRoutes.shoppingListScreen);
                                         },
                                         child: Text(
@@ -95,12 +102,35 @@ class _shoppingListState extends State<ShoppingList> {
                                     ),
 
                                   ]),
-                              Row(children: <Widget>[
+                              Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
                                 if (buttons.isIngredientMissing('Chicken')) ...[
                                   Text('Chicken', style: TextStyle(fontSize: 18)),
                                 ],
                                 if (buttons.isIngredientMissing('Sibuyas')) ...[
                                   Text('Sibuyas', style: TextStyle(fontSize: 18)),
+                                ],
+                                if (buttons.isIngredientMissing('Sibuyas')) ...[
+                                  Text('Kanin', style: TextStyle(fontSize: 18)),
+                                ],
+                                if (buttons.isIngredientMissing('Sibuyas')) ...[
+                                  Text('Green Papaya', style: TextStyle(fontSize: 18)),
+                                ],
+                                if (buttons.isIngredientMissing('Sibuyas')) ...[
+                                  Text('Bawang', style: TextStyle(fontSize: 18)),
+                                ],
+                                if (buttons.isIngredientMissing('Sibuyas')) ...[
+                                  Text('Luya', style: TextStyle(fontSize: 18)),
+                                ],
+                                if (buttons.isIngredientMissing('Sibuyas')) ...[
+                                  Text('Toyo', style: TextStyle(fontSize: 18)),
+                                ],
+                                if (buttons.isIngredientMissing('Sibuyas')) ...[
+                                  Text('Hot Pepper Leaves', style: TextStyle(fontSize: 18)),
+                                ],
+                                if (buttons.isIngredientMissing('Sibuyas')) ...[
+                                  Text('Ground Black Pepper', style: TextStyle(fontSize: 18)),
                                 ],
                               ]),
                             ],

@@ -147,7 +147,16 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                     ),
                   ),
                   SizedBox(height: 30),
-                  if (buttons.ingredients[1] == Colors.yellow && buttons.filters[0] != Colors.black &&  buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black)
+                  if (buttons.ingredients[1] == Colors.yellow
+                      || buttons.ingredients[15] == Colors.yellow
+                      || buttons.ingredients[16] == Colors.yellow
+                      || buttons.ingredients[17] == Colors.yellow
+                      || buttons.ingredients[13] == Colors.yellow
+                      || buttons.ingredients[18] == Colors.yellow
+                      || buttons.ingredients[12] == Colors.yellow
+                      || buttons.ingredients[20] == Colors.yellow
+                      || buttons.ingredients[21] == Colors.yellow
+                      && buttons.filters[0] != Colors.black &&  buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black)
                   Padding(
                     padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                      child: RecipeBlock(

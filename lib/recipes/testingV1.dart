@@ -24,13 +24,22 @@ import 'package:kusina_app_v3/recipes_bank.dart';
 import 'package:provider/provider.dart';
 import 'package:kusina_app_v3/stateManagement/buttons.dart';
 
-class Tinola extends StatefulWidget {
+class TestingV1 extends StatefulWidget {
+  // recipe object passed from recipe block
+  // cant use static variable here for some reason
+  static Recipe selectedRecipe = Recipe( //for initialization
+    name: 'Recipe name',
+    imagePath: '',
+    ingredientsList: ['1 cup item','1 cup item','1 cup item'],
+    instructionsList: ['1. do this', '1. do this', '1. do this'],
+    sourceLink: 'https://url-ng-recipe.com/recipe',
+  );
 
   @override
-  _TinolaState createState() => _TinolaState();
+  _TestingV1State createState() => _TestingV1State();
 }
 
-class _TinolaState extends State<Tinola> {
+class _TestingV1State extends State<TestingV1> {
 
   //TODO: fix the error in order to use selectedRecipe object that is passed from recipe_block.dart
   //attributes of the selected recipe

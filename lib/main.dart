@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
      // theme: theme,
       title: 'kusina_v3', // Title
       debugShowCheckedModeBanner: false, // (^3)
-      initialRoute: AppRoutes.recipeInstructionsPageScreen,
+      initialRoute: AppRoutes.homePage,
       routes: AppRoutes.routes,
       theme: ThemeData( // (^4)
        // primarySwatch: Colors.blue, (Ignore For Now)

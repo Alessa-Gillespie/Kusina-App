@@ -6,6 +6,19 @@ class ButtonsModel extends ChangeNotifier {
   List<Color> ingredients = [
     // Note in DART, list indices start at 0
 
+    /*
+    Chicken,
+    Rice,
+    Green Papaya,
+    Garlic,
+    Onion,
+    Ginger,
+    Fish Sauce,
+    Hot Pepper Leaves,
+    Black Pepper
+    */
+
+
     Colors.white, // (8UT23) [For Counting Purposes (Use Ctrl F) ('Beef', 0)
     Colors.white, // (8UT23) ('Chicken', 1)
     Colors.white, // (8UT23) ('Pork/Baboy', 2)
@@ -55,6 +68,10 @@ class ButtonsModel extends ChangeNotifier {
 
   bool isRecipeInBank(String recipe) {
     return recipeBank.contains(recipe);
+  }
+
+  bool isRecipeBankEmpty() {
+    return recipeBank.isEmpty;
   }
 
   void removeFromRecipeBank(String recipe) {

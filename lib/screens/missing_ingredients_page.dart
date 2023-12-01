@@ -39,7 +39,28 @@ class _MissingIngredientsPage extends State<MissingIngredientsPage> {
                   ],
                   if (buttons.ingredients[13] != Colors.yellow) ...[
                     Text('Sibuyas'),
-                  ]
+                  ],
+                  if (buttons.ingredients[15] != Colors.yellow) ...[
+                    Text('Kanin'),
+                  ],
+                  if (buttons.ingredients[16] != Colors.yellow) ...[
+                    Text('Green Papaya'),
+                  ],
+                  if (buttons.ingredients[17] != Colors.yellow) ...[
+                    Text('Bawang'),
+                  ],
+                  if (buttons.ingredients[18] != Colors.yellow) ...[
+                    Text('Luya'),
+                  ],
+                  if (buttons.ingredients[12] != Colors.yellow) ...[
+                    Text('Toyo'),
+                  ],
+                  if (buttons.ingredients[20] != Colors.yellow) ...[
+                    Text('Hot Pepper Leaves'),
+                  ],
+                  if (buttons.ingredients[21] != Colors.yellow) ...[
+                    Text('Ground Black Pepper'),
+                  ],
                 ],
                 if (buttons.getMyRecipe() == 'Tapsilog') ...[
                   if (buttons.ingredients[14] != Colors.yellow) ...[
