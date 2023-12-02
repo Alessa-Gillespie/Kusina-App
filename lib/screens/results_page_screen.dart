@@ -20,6 +20,130 @@ class ResultsPageScreen extends StatefulWidget {
 
 class resultsPageScreenState extends State<ResultsPageScreen> {
 
+  int countRecipes(BuildContext context) {
+    int count = 0;
+    ButtonsModel buttons = Provider.of<ButtonsModel>(context, listen: false);
+
+    if ((buttons.ingredients[1] == Colors.yellow
+        || buttons.ingredients[15] == Colors.yellow
+        || buttons.ingredients[16] == Colors.yellow
+        || buttons.ingredients[17] == Colors.yellow
+        || buttons.ingredients[13] == Colors.yellow
+        || buttons.ingredients[18] == Colors.yellow
+        || buttons.ingredients[12] == Colors.yellow
+        || buttons.ingredients[20] == Colors.yellow
+        || buttons.ingredients[21] == Colors.yellow)
+        && (buttons.filters[0] != Colors.black && buttons.filters[3] != Colors.black)) {
+      count++;
+    }
+
+    if ((buttons.ingredients[0] == Colors.yellow
+        || buttons.ingredients[22] == Colors.yellow
+        || buttons.ingredients[23] == Colors.yellow
+        || buttons.ingredients[17] == Colors.yellow
+        || buttons.ingredients[24] == Colors.yellow
+        || buttons.ingredients[25] == Colors.yellow
+        || buttons.ingredients[26] == Colors.yellow
+        || buttons.ingredients[14] == Colors.yellow
+        || buttons.ingredients[15] == Colors.yellow)
+        && (buttons.filters[1] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black)) {
+      count++;
+    }
+
+    if ((buttons.ingredients[27] == Colors.yellow
+        || buttons.ingredients[28] == Colors.yellow
+        || buttons.ingredients[29] == Colors.yellow
+        || buttons.ingredients[22] == Colors.yellow
+        || buttons.ingredients[30] == Colors.yellow
+        || buttons.ingredients[31] == Colors.yellow
+        || buttons.ingredients[32] == Colors.yellow
+        || buttons.ingredients[33] == Colors.yellow
+        || buttons.ingredients[34] == Colors.yellow)
+        && (buttons.filters[1] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[0] != Colors.black)) {
+      count++;
+    }
+
+    if ((buttons.ingredients[2] == Colors.yellow
+        || buttons.ingredients[35] == Colors.yellow
+        || buttons.ingredients[4] == Colors.yellow
+        || buttons.ingredients[3] == Colors.yellow
+        || buttons.ingredients[12] == Colors.yellow
+        || buttons.ingredients[36] == Colors.yellow
+        || buttons.ingredients[13] == Colors.yellow
+        || buttons.ingredients[17] == Colors.yellow
+        || buttons.ingredients[33] == Colors.yellow
+        || buttons.ingredients[37] == Colors.yellow
+        || buttons.ingredients[38] == Colors.yellow
+        || buttons.ingredients[39] == Colors.yellow
+        || buttons.ingredients[14] == Colors.yellow
+        || buttons.ingredients[40] == Colors.yellow)
+        && (buttons.filters[0] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black)) {
+      count++;
+    }
+
+    if ((buttons.ingredients[0] == Colors.yellow
+        || buttons.ingredients[41] == Colors.yellow
+        || buttons.ingredients[42] == Colors.yellow
+        || buttons.ingredients[43] == Colors.yellow
+        || buttons.ingredients[44] == Colors.yellow
+        || buttons.ingredients[45] == Colors.yellow
+        || buttons.ingredients[13] == Colors.yellow
+        || buttons.ingredients[12] == Colors.yellow) && (buttons.filters[0] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black)) {
+      count++;
+    }
+
+    if ((buttons.ingredients[46] == Colors.yellow
+        || buttons.ingredients[47] == Colors.yellow
+        || buttons.ingredients[2] == Colors.yellow
+        || buttons.ingredients[13] == Colors.yellow
+        || buttons.ingredients[3] == Colors.yellow
+        || buttons.ingredients[47] == Colors.yellow
+        || buttons.ingredients[21] == Colors.yellow
+        || buttons.ingredients[48] == Colors.yellow
+        || buttons.ingredients[49] == Colors.yellow
+        || buttons.ingredients[14] == Colors.yellow
+        || buttons.ingredients[22] == Colors.yellow) && (buttons.filters[0] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black)) {
+      count++;
+    }
+
+    if ((buttons.ingredients[50] == Colors.yellow
+        || buttons.ingredients[51] == Colors.yellow
+        || buttons.ingredients[52] == Colors.yellow
+        || buttons.ingredients[33] == Colors.yellow
+        || buttons.ingredients[32] == Colors.yellow
+        || buttons.ingredients[29] == Colors.yellow) && (buttons.filters[0] != Colors.black && buttons.filters[1] != Colors.black && buttons.filters[2] != Colors.black)) {
+      count++;
+    }
+
+    if ((buttons.ingredients[53] == Colors.yellow
+        || buttons.ingredients[54] == Colors.yellow
+        || buttons.ingredients[44] == Colors.yellow
+        || buttons.ingredients[17] == Colors.yellow
+        || buttons.ingredients[55] == Colors.yellow
+        || buttons.ingredients[56] == Colors.yellow) && (buttons.filters[0] != Colors.black && buttons.filters[3] != Colors.black)) {
+      count++;
+    }
+
+    if ((buttons.ingredients[57] == Colors.yellow
+        || buttons.ingredients[15] == Colors.yellow
+        || buttons.ingredients[5] == Colors.yellow
+        || buttons.ingredients[54] == Colors.yellow) && (buttons.filters[0] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black)) {
+      count++;
+    }
+
+    if ((buttons.ingredients[58] == Colors.yellow
+        || buttons.ingredients[22] == Colors.yellow
+        || buttons.ingredients[5] == Colors.yellow
+        || buttons.ingredients[44] == Colors.yellow
+        || buttons.ingredients[56] == Colors.yellow) && (buttons.filters[1] != Colors.black && buttons.filters[2] != Colors.black && buttons.filters[3] != Colors.black)) {
+      count++;
+    }
+
+    // Add more conditions here...
+
+    return count;
+  }
+
   Container placeholder = Container(
     //put image widget here instead of container
     height: 130,
@@ -80,6 +204,8 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
 
   @override
   Widget build(BuildContext context) {
+    int recipeCount = countRecipes(context);
+    List<Widget> recipeWidgets = [];
     // Get the Buttons instance
     final buttons = context.watch<ButtonsModel>();
 
@@ -96,12 +222,12 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                       padding: EdgeInsets.only(left: 25),
                       // To adjust "Select Ingredients" Header away from the left side)
                       child: Text(
-                        'You can make 1 ingredient with the\nwith the ingredient you selected',
+                        'You can make $recipeCount recipe(s) with the\nwith the ingredient you selected',
                         style: TextStyle(
                             fontSize: 22, fontWeight: FontWeight.bold),
                       )),
                 ]),
-                SizedBox(height: 15),
+                SizedBox(height: 30),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   // MainAxisAlignment.spaceBetween value means that the free space is evenly distributed between the children.
@@ -129,7 +255,7 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 15),
+                SizedBox(height: 25),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   // MainAxisAlignment.spaceBetween value means that the free space is evenly distributed between the children.
@@ -180,6 +306,7 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                       },
                     ),
                   ),
+
                 if ((buttons.ingredients[0] == Colors.yellow
                     || buttons.ingredients[22] == Colors.yellow
                     || buttons.ingredients[23] == Colors.yellow
