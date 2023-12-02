@@ -154,7 +154,7 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
     ),
   );
 
-  Widget buildImageContainer(String imagePath) {
+  Widget buildImageContainer(String imagePath) {   // Abstraction
     return Container(
       height: 130,
       decoration: BoxDecoration(
@@ -166,6 +166,7 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
       ),
     );
   }
+
 
   Widget _buildFilterButtons(String label, int index) {
     return Padding(
@@ -205,7 +206,7 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
   @override
   Widget build(BuildContext context) {
     int recipeCount = countRecipes(context);
-    List<Widget> recipeWidgets = [];
+    List<Widget> recipeWidgets = [];  // Polymorphism
     // Get the Buttons instance
     final buttons = context.watch<ButtonsModel>();
 
