@@ -45,7 +45,7 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
 
   Widget _buildFilterButtons(String label, int index) {
     return Padding(
-      padding: EdgeInsets.all(7),
+      padding: EdgeInsets.only(right: 13),
       child: ElevatedButton(
         onPressed: () {
           final buttonsModel = context.read<ButtonsModel>();
@@ -90,43 +90,56 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
       body: SafeArea(
           child: SingleChildScrollView(
               child: Column(children: <Widget>[
-                SizedBox(height: 50),
+                SizedBox(height: 40),
                 Row(children: <Widget>[
                   Padding(
-                      padding: EdgeInsets.only(left: 20),
+                      padding: EdgeInsets.only(left: 25),
                       // To adjust "Select Ingredients" Header away from the left side)
                       child: Text(
-                        'You can do many recipes \nwith the ingredients you selected',
+                        'You can make 1 ingredient with the\nwith the ingredient you selected',
                         style: TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.bold),
+                            fontSize: 22, fontWeight: FontWeight.bold),
                       )),
                 ]),
-                SizedBox(height: 30),
+                SizedBox(height: 15),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   // MainAxisAlignment.spaceBetween value means that the free space is evenly distributed between the children.
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.only(left: 15),
+                      padding: EdgeInsets.only(left: 25),
                       // To adjust "Select Ingredients" Header away from the left side)
                       child: Text(
                         'Ingredients\n(selected ingredients)',
                         style: TextStyle(fontSize: 20),
                       ),
                     ),
+                    Padding(
+                      padding: EdgeInsets.only(right: 20),
+                      // To adjust "Select Ingredients" Header away from the left side)
+                      child: TextButton(
+                        onPressed: (){
+                          Navigator.pushNamed(context, AppRoutes.ingredientsPageScreen);
+                        },
+                        child: Text(
+                          'edit',
+                          style: TextStyle(fontSize: 20, color: Colors.black),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 15),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   // MainAxisAlignment.spaceBetween value means that the free space is evenly distributed between the children.
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.only(left: 20),
+                      padding: EdgeInsets.only(left: 25),
                       // To adjust "Select Ingredients Header away from the left edge)
                       child: Text(
                         "Filter",
-                        style: TextStyle(fontSize: 24),
+                        style: TextStyle(fontSize: 20),
                       ),
                     ),
                   ],
@@ -135,6 +148,7 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: <Widget>[
+                      SizedBox(width: 25,),
                       _buildFilterButtons('Breakfast', 0),
                       _buildFilterButtons('Lunch', 1),
                       _buildFilterButtons('Dinner', 2),
@@ -142,7 +156,7 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 45),
                 if ((buttons.ingredients[1] == Colors.yellow
                     || buttons.ingredients[15] == Colors.yellow
                     || buttons.ingredients[16] == Colors.yellow

@@ -58,7 +58,7 @@ class _FavoritesPageScreenState extends State<FavoritesPageScreen> {
 
   Widget _buildFilterButtons(String label, int index) {
     return Padding(
-      padding: EdgeInsets.all(7),
+      padding: EdgeInsets.only(right: 13),
       child: ElevatedButton(
         onPressed: () {
           final buttonsModel = context.read<ButtonsModel>();
@@ -143,19 +143,19 @@ class _FavoritesPageScreenState extends State<FavoritesPageScreen> {
               SizedBox(height: 22),
               Row(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Text(
-                      "Filter",
-                      style: TextStyle(fontSize: 24),
-                    ),
+                  SizedBox(width: 25,),
+                  Text(
+                    "Filter",
+                    style: TextStyle(fontSize: 22),
                   ),
                 ],
               ),
+              SizedBox(height: 5),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: <Widget>[
+                    SizedBox(width: 25,),
                     _buildFilterButtons('Breakfast', 0),
                     _buildFilterButtons('Lunch', 1),
                     _buildFilterButtons('Dinner', 2),
@@ -163,7 +163,7 @@ class _FavoritesPageScreenState extends State<FavoritesPageScreen> {
                   ],
                 ),
               ), //filter
-              SizedBox(height: 30),
+              SizedBox(height: 40),
               if ((buttons.filters[0] != Colors.black &&
                   buttons.filters[3] != Colors.black) && (buttons.isHeartIconPressed('tinola')))
                 Padding(

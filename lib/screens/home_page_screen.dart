@@ -21,15 +21,19 @@ class HomePageScreen extends StatefulWidget {
 
 class _HomePageScreenState extends State<HomePageScreen> {
   //TEMPORARY CONTAINER PLACEHOLDER FOR IMAGE
-  Container placeholder = Container(
-    //put image widget here instead of container
-    height: 170, //this should be the image height
-    decoration: BoxDecoration(
-      color: Colors.red,
-      borderRadius: BorderRadius.circular(
-          10.0), //TODO: Fix border radius border between container/image and text should be 0
-    ),
-  );
+  Widget buildImageContainer(String imagePath) {
+    return Container(
+      height: 170,
+      decoration: BoxDecoration(
+        color: Colors.red,
+        image: DecorationImage(
+          image: AssetImage(imagePath),
+          fit: BoxFit.cover,
+        ),
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+    );
+  }
 
   //if button is pressed, it will change its color
   bool isMiddleButtonPressed = false;
@@ -102,7 +106,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       TextButton(
                         onPressed: (){
                           //TODO: link to recipes page (no selected ingredients)
-                          Navigator.pushNamed(context, AppRoutes.ingredientsPageScreen);
+                          Navigator.pushNamed(context, AppRoutes.resultsPageScreen);
                         },
                         child: Text(
                             'See more',
@@ -115,7 +119,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     height: 17, //spaceBetweenTextAndBlock
                   ),
                   RecipeBlock(
-                    child: placeholder,//child height should be 170
+                    child: buildImageContainer(''),
                     //recipe's image
                     text:
                     'Recipe Name',
@@ -126,7 +130,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     },
                   ),
                   RecipeBlock(
-                    child: placeholder,
+                    child: buildImageContainer(''),
                     text: 'Long Recipe Name Recipe Name Recipe Recipe Name ',
                     color: kBlockColor,
                     onPress: () {
@@ -134,7 +138,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     },
                   ),
                   RecipeBlock(
-                    child: placeholder,
+                    child: buildImageContainer(''),
                     text: 'Recipe Name',
                     color: kBlockColor,
                     onPress: () {
