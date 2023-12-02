@@ -96,7 +96,7 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                       padding: EdgeInsets.only(left: 20),
                       // To adjust "Select Ingredients" Header away from the left side)
                       child: Text(
-                        'You can make 1 ingredient with the\nwith the ingredient you selected',
+                        'You can do many recipes \nwith the ingredients you selected',
                         style: TextStyle(
                             fontSize: 24, fontWeight: FontWeight.bold),
                       )),
@@ -111,14 +111,6 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                       // To adjust "Select Ingredients" Header away from the left side)
                       child: Text(
                         'Ingredients\n(selected ingredients)',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 0),
-                      // To adjust "Select Ingredients" Header away from the left side)
-                      child: Text(
-                        'edit',
                         style: TextStyle(fontSize: 20),
                       ),
                     ),

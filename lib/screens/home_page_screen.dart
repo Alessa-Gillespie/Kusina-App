@@ -141,28 +141,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       //TODO: direct to recipe instruction page
                     },
                   ),
-                  IngredientButton(
-                    text: 'Chicken',
-                    onPress: () {
-                      //change button color
-                      setState((){
-                        IngredientButton.changeButtonColor();
-                      });
-                      //add to some list for processing for result?
-                    },
-                  ),
-                  SizedBox(height: 10,),
-                  BottomButton(
-                    text: 'Shortcut to [insert page]',
-                    onPress: () {
-                      //change button color
-                      setState((){
-                        BottomButton.changeButtonColor();
-                      });
-                      //Navigator.pushNamed(context, AppRoutes.favoritesPageScreen);
-                      //add to some list for processing for result?
-                    },
-                  ),
                 ],
               ),
             ),
