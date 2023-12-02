@@ -6,9 +6,17 @@ import 'package:kusina_app_v3/button_components.dart';
 import 'package:kusina_app_v3/routes//app_routes.dart';
 import 'package:kusina_app_v3/styles.dart';
 import 'package:kusina_app_v3/navbar.dart';
+import 'dart:math';
+
+
+// Import the provider packages
+import 'package:provider/provider.dart';
+import 'package:kusina_app_v3/stateManagement/buttons.dart';
 
 const spaceBetweenTextAndBlock = 17;
 const spaceBetweenRecipeBlocks = 18;
+
+
 
 /*
 const kInactiveButtonColor = Colors.yellow;
@@ -20,6 +28,8 @@ class HomePageScreen extends StatefulWidget {
 }
 
 class _HomePageScreenState extends State<HomePageScreen> {
+
+
   //TEMPORARY CONTAINER PLACEHOLDER FOR IMAGE
   Widget buildImageContainer(String imagePath) {
     return Container(
@@ -35,11 +45,129 @@ class _HomePageScreenState extends State<HomePageScreen> {
     );
   }
 
+
+
   //if button is pressed, it will change its color
   bool isMiddleButtonPressed = false;
 
+
   @override
   Widget build(BuildContext context) {
+
+    List<RecipeBlock> recipes = [
+      RecipeBlock(
+        child: buildImageContainer('images/Tinola.jpg'),
+        text: 'Tinola',
+        color: Colors.white,
+        onPress: () {
+          final buttons = context.read<ButtonsModel>();
+          buttons.setMyRecipe('Tinola');
+          Navigator.pushNamed(context, AppRoutes.tinola);
+        },
+      ),
+      RecipeBlock(
+        child: buildImageContainer('images/menudo.jpg'),
+        text: 'Menudo',
+        color: Colors.white,
+        onPress: () {
+          final buttons = context.read<ButtonsModel>();
+          buttons.setMyRecipe('Menudo');
+          Navigator.pushNamed(context, AppRoutes.menudo);
+        },
+      ),
+
+       RecipeBlock(
+        child: buildImageContainer('images/lumpiang_shanghai.jpg'),
+        text: 'Lumpiang Shanghai',
+        color: Colors.white,
+        onPress: () {
+          final buttons = context.read<ButtonsModel>();
+          buttons.setMyRecipe('Lumpiang Shanghai');
+          Navigator.pushNamed(context, AppRoutes.lumpiang_shanghai);
+        },
+      ),
+
+      RecipeBlock(
+        child: buildImageContainer('images/tuyo.jpg'),
+        text: 'Tuyo',
+        color: Colors.white,
+        onPress: () {
+          final buttons = context.read<ButtonsModel>();
+          buttons.setMyRecipe('Tuyo');
+          Navigator.pushNamed(context, AppRoutes.tuyo);
+        },
+      ),
+
+      RecipeBlock(
+        child: buildImageContainer('images/omelet.jpg'),
+        text: 'Omelet',
+        color: Colors.white,
+        onPress: () {
+          final buttons = context.read<ButtonsModel>();
+          buttons.setMyRecipe('Omelet');
+          Navigator.pushNamed(context, AppRoutes.omelet);
+        },
+      ),
+
+      RecipeBlock(
+        child: buildImageContainer('images/bulalo.png'),
+        text: 'Bulalo',
+        color: Colors.white,
+        onPress: () {
+          final buttons = context.read<ButtonsModel>();
+          buttons.setMyRecipe('Bulalo');
+          Navigator.pushNamed(context, AppRoutes.bulalo);
+        },
+      ),
+
+      RecipeBlock(
+        child: buildImageContainer('images/champorado.png'),
+        text: 'Champorado',
+        color: Colors.white,
+        onPress: () {
+          final buttons = context.read<ButtonsModel>();
+          buttons.setMyRecipe('Champorado');
+          Navigator.pushNamed(context, AppRoutes.champorado);
+        },
+      ),
+
+      RecipeBlock(
+        child: buildImageContainer('images/cassava_cake.jpg'),
+        text: 'Cassava Cake',
+        color: Colors.white,
+        onPress: () {
+          final buttons = context.read<ButtonsModel>();
+          buttons.setMyRecipe('Cassava Cake');
+          Navigator.pushNamed(context, AppRoutes.cassava_cake);
+        },
+      ),
+
+      RecipeBlock(
+        child: buildImageContainer('images/Tapsilog.jpg'),
+        text: 'Tapsilog',
+        color: Colors.white,
+        onPress: () {
+          final buttons = context.read<ButtonsModel>();
+          buttons.setMyRecipe('Tapsilog');
+          Navigator.pushNamed(context, AppRoutes.tapsilog);
+        },
+      ),
+
+      RecipeBlock(
+        child: buildImageContainer('images/daing.jpg'),
+        text: 'Daing',
+        color: Colors.white,
+        onPress: () {
+          final buttons = context.read<ButtonsModel>();
+          buttons.setMyRecipe('Daing');
+          Navigator.pushNamed(context, AppRoutes.daing);
+        },
+      ),
+      // Add more recipes here...
+    ];
+    final random = Random();
+    final recipe = recipes[random.nextInt(recipes.length)];
+
     return Scaffold(
       backgroundColor: kBackgroundColor,
       appBar: AppBar(
@@ -118,32 +246,9 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   SizedBox(
                     height: 17, //spaceBetweenTextAndBlock
                   ),
-                  RecipeBlock(
-                    child: buildImageContainer(''),
-                    //recipe's image
-                    text:
-                    'Recipe Name',
-                    //recipe's name
-                    color: kBlockColor,
-                    onPress: () {
-                      //TODO: direct to recipe instruction page
-                    },
-                  ),
-                  RecipeBlock(
-                    child: buildImageContainer(''),
-                    text: 'Long Recipe Name Recipe Name Recipe Recipe Name ',
-                    color: kBlockColor,
-                    onPress: () {
-                      //TODO: direct to recipe instruction page
-                    },
-                  ),
-                  RecipeBlock(
-                    child: buildImageContainer(''),
-                    text: 'Recipe Name',
-                    color: kBlockColor,
-                    onPress: () {
-                      //TODO: direct to recipe instruction page
-                    },
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                    child: recipe,
                   ),
                 ],
               ),
