@@ -26,13 +26,13 @@ class _MissingIngredientsPage extends State<MissingIngredientsPage> {
           child: Container(
             padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.blueAccent),
+              border: Border.all(color: Colors.black),
               borderRadius: BorderRadius.circular(10),
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                Icon(Icons.shopping_cart, size: deviceSize.width * 0.2), // Use a percentage of the screen width
+                Icon(Icons.shopping_cart, size: deviceSize.width * 0.2, color: Colors.yellow), // Use a percentage of the screen width
                 if (buttons.getMyRecipe() == 'Tinola') ...[
                   if (buttons.ingredients[1] != Colors.yellow) ...[
                     Text('Chicken'),
