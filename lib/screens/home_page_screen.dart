@@ -1,4 +1,3 @@
-//TODO: disable back button in app from home
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kusina_app_v3/recipe_block.dart';
@@ -16,21 +15,14 @@ import 'package:kusina_app_v3/stateManagement/buttons.dart';
 const spaceBetweenTextAndBlock = 17;
 const spaceBetweenRecipeBlocks = 18;
 
-
-
-/*
-const kInactiveButtonColor = Colors.yellow;
-const kActiveButtonColor = Colors.black;
-*/
 class HomePageScreen extends StatefulWidget {
   @override
   _HomePageScreenState createState() => _HomePageScreenState();
 }
 
 class _HomePageScreenState extends State<HomePageScreen> {
-
-
-  //TEMPORARY CONTAINER PLACEHOLDER FOR IMAGE
+  //if button is pressed, it will change its color
+  bool isMiddleButtonPressed = false;
   Widget buildImageContainer(String imagePath) {
     return Container(
       height: 170,
@@ -44,12 +36,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
       ),
     );
   }
-
-
-
-  //if button is pressed, it will change its color
-  bool isMiddleButtonPressed = false;
-
 
   @override
   Widget build(BuildContext context) {
@@ -75,8 +61,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
           Navigator.pushNamed(context, AppRoutes.menudo);
         },
       ),
-
-       RecipeBlock(
+      RecipeBlock(
         child: buildImageContainer('images/lumpiang_shanghai.jpg'),
         text: 'Lumpiang Shanghai',
         color: Colors.white,
@@ -86,18 +71,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
           Navigator.pushNamed(context, AppRoutes.lumpiang_shanghai);
         },
       ),
-
-      RecipeBlock(
-        child: buildImageContainer('images/tuyo.jpg'),
-        text: 'Tuyo',
-        color: Colors.white,
-        onPress: () {
-          final buttons = context.read<ButtonsModel>();
-          buttons.setMyRecipe('Tuyo');
-          Navigator.pushNamed(context, AppRoutes.tuyo);
-        },
-      ),
-
       RecipeBlock(
         child: buildImageContainer('images/omelet.jpg'),
         text: 'Omelet',
@@ -108,7 +81,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
           Navigator.pushNamed(context, AppRoutes.omelet);
         },
       ),
-
       RecipeBlock(
         child: buildImageContainer('images/bulalo.png'),
         text: 'Bulalo',
@@ -119,7 +91,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
           Navigator.pushNamed(context, AppRoutes.bulalo);
         },
       ),
-
       RecipeBlock(
         child: buildImageContainer('images/champorado.png'),
         text: 'Champorado',
@@ -130,7 +101,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
           Navigator.pushNamed(context, AppRoutes.champorado);
         },
       ),
-
       RecipeBlock(
         child: buildImageContainer('images/cassava_cake.jpg'),
         text: 'Cassava Cake',
@@ -141,7 +111,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
           Navigator.pushNamed(context, AppRoutes.cassava_cake);
         },
       ),
-
       RecipeBlock(
         child: buildImageContainer('images/Tapsilog.jpg'),
         text: 'Tapsilog',
@@ -152,7 +121,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
           Navigator.pushNamed(context, AppRoutes.tapsilog);
         },
       ),
-
       RecipeBlock(
         child: buildImageContainer('images/daing.jpg'),
         text: 'Daing',
@@ -167,11 +135,9 @@ class _HomePageScreenState extends State<HomePageScreen> {
     ];
     final random = Random();
     final recipe = recipes[random.nextInt(recipes.length)];
-
     return Scaffold(
       backgroundColor: kBackgroundColor,
       appBar: AppBar(
-        //TODO: edit the header (add color, change font style)
         title: Text(
           'Kusina',
           style: GoogleFonts.sansitaSwashed(
@@ -195,16 +161,12 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     'Ready to cook?',
                     style: kBodyTextStyle,
                   ),
-                  SizedBox(
-                    height: 17,
-                  ),
+                  SizedBox(height: 17),
                   Text('What ingredients \ndo you have?',
                     textAlign: TextAlign.center,
                     style: kHeading1TextStyle,
                   ),
-                  SizedBox(
-                    height: 17,
-                  ),
+                  SizedBox(  height: 17,),
                   MiddleButton(
                     text: 'Select Ingredients',
                     icon: Icons.arrow_forward_rounded,
@@ -221,37 +183,30 @@ class _HomePageScreenState extends State<HomePageScreen> {
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),
-            child: Expanded(
-              child: Column(
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Recipe Suggestions',
-                        style: kBodyBoldTextStyle,
+            child: Column(
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      'Recipe Suggestion',
+                      style: kBodyBoldTextStyle,
+                    ),
+                    TextButton(
+                      onPressed: (){
+                        Navigator.pushNamed(context, AppRoutes.resultsPageScreen);
+                      },
+                      child: Text(
+                          'See more',
+                          style: kSmallTextStyle
                       ),
-                      TextButton(
-                        onPressed: (){
-                          //TODO: link to recipes page (no selected ingredients)
-                          Navigator.pushNamed(context, AppRoutes.resultsPageScreen);
-                        },
-                        child: Text(
-                            'See more',
-                            style: kSmallTextStyle
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 17, //spaceBetweenTextAndBlock
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                    child: recipe,
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+                SizedBox( height: 17, //spaceBetweenTextAndBlock
+                ),
+                recipe,
+              ],
             ),
           ),
         ],

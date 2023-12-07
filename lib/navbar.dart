@@ -20,11 +20,15 @@ class NavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
     return Container(
       color: kNavBarColor,
-      height: 68,
+      height: height/10.5,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 40, vertical:0),
+        padding: EdgeInsets.symmetric(horizontal: width*0.08, vertical:0),
         child: Flexible(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -100,10 +104,6 @@ class IconGroup extends StatelessWidget{
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            //IconButton(
-            //   icon: new Image.asset("images/IG.png"),
-            //   scale: 0.5,
-            // ),
             Icon(
                 icon,
                 color: color,
