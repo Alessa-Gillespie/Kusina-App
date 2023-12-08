@@ -50,13 +50,13 @@ import 'package:kusina_app_v3/styles.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([
+  WidgetsFlutterBinding.ensureInitialized(); // Binding Dart Layer & Flutter Engine.
+  SystemChrome.setPreferredOrientations([ // Keep it vertival.
     DeviceOrientation.portraitUp,
   ]);
   runApp(
     ChangeNotifierProvider(
-      create: (context) => ButtonsModel(),
+      create: (context) => ButtonsModel(), // Making it accesible.
       child: MyApp(),
     ),
   );
@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
      // theme: theme,
       title: 'kusina_v3', // Title
       debugShowCheckedModeBanner: false, // (^3)
-      initialRoute: AppRoutes.homePage,
+      initialRoute: AppRoutes.homePage, // Initial route.
       routes: AppRoutes.routes,
       theme: ThemeData( // (^4)
        // primarySwatch: Colors.blue, (Ignore For Now)

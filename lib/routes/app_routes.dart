@@ -76,6 +76,8 @@ class AppRoutes {
     // appNavigationScreen: (context) => AppNavigationScreen()
 
     // Recipe Instruction Pages
+
+    // Function that takes a BuildContext object and returns an instance of the IngredientsPageScreen widget.
     tinola: (context) => Tinola(),
     tapsilog: (context) => Tapsilog(),
     testingV1: (context) => TestingV1(),

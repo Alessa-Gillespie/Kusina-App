@@ -225,7 +225,7 @@ class resultsPageScreenState extends State<ResultsPageScreen> {
                       child: Text(
                         'You can make $recipeCount recipe(s) with the\nwith the ingredient you selected',
                         style: TextStyle(
-                            fontSize: 22, fontWeight: FontWeight.bold),
+                            fontSize: 18, fontWeight: FontWeight.bold),
                       )),
                 ]),
                 SizedBox(height: 30),

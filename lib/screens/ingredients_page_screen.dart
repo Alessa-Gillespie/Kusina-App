@@ -418,13 +418,18 @@ class _ingredientsPageScreenState extends State<IngredientsPageScreen> {
 
 Widget _buildIngredientCategoryName(BuildContext context, String category_name) {
   return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween, // MainAxisAlignment.spaceBetween value means that the free space is evenly distributed between the children.
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: <Widget>[
       Padding(
-        padding: EdgeInsets.only(left: 20), // To adjust "Select Ingredients Header away from the left edge)
-        child: Text(
-          category_name,
-          style: TextStyle(fontSize: 24),
+        padding: EdgeInsets.only(left: 20),
+        child: Flexible(
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              category_name,
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
         ),
       ),
     ],

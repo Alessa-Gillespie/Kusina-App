@@ -107,7 +107,7 @@ class IconGroup extends StatelessWidget{
             Icon(
                 icon,
                 color: color,
-                size: 24
+                size: 19
             ),
             SizedBox(height: 3),
             Text(

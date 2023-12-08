@@ -95,7 +95,6 @@ class ButtonsModel extends ChangeNotifier {
   ];
 
 
-
   Map<String, bool> _heartIcons = {};
 
   bool isHeartIconPressed(String id) => _heartIcons[id] ?? false;
