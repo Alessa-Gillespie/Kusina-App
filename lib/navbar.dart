@@ -28,55 +28,63 @@ class NavBar extends StatelessWidget {
       color: kNavBarColor,
       height: height/10.5,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: width*0.08, vertical:0),
+        padding: EdgeInsets.symmetric(horizontal: width*0.04, vertical:0),
         child: Flexible(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              IconGroup(
-                  icon: FontAwesomeIcons.house,
-                  text: 'Home',
-                  color: selectedIndex == 0
-                      ? _ActiveNavColor
-                      : _InactiveNavColor,
-                  onPress: () {
-                    Navigator.pushNamed(context, AppRoutes.homePage);
-                  }
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 12),
+              Expanded(
                 child: IconGroup(
-                    icon: FontAwesomeIcons.bookOpen,
-                    text: 'Recipes',
-                    color: selectedIndex == 1
+                    icon: FontAwesomeIcons.house,
+                    text: 'Home',
+                    color: selectedIndex == 0
                         ? _ActiveNavColor
                         : _InactiveNavColor,
                     onPress: () {
-                      Navigator.pushNamed(context, AppRoutes.resultsPageScreen); //if no selected ingredients,
-                                                                                 // it should be recipes page instead
+                      Navigator.pushNamed(context, AppRoutes.homePage);
                     }
                 ),
               ),
-              IconGroup(
-                  icon: FontAwesomeIcons.cartShopping,
-                  text: 'Shopping List',
-                  color: selectedIndex == 2
-                      ? _ActiveNavColor
-                      : _InactiveNavColor,
-                  onPress: () {
-                    Navigator.pushNamed(context, AppRoutes.shoppingListScreen);
-                  }
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 12),
+                  child: IconGroup(
+                      icon: FontAwesomeIcons.bookOpen,
+                      text: 'Recipes',
+                      color: selectedIndex == 1
+                          ? _ActiveNavColor
+                          : _InactiveNavColor,
+                      onPress: () {
+                        Navigator.pushNamed(context, AppRoutes.resultsPageScreen); //if no selected ingredients,
+                                                                                   // it should be recipes page instead
+                      }
+                  ),
+                ),
               ),
-              IconGroup(
-                  icon: FontAwesomeIcons.solidHeart,
-                  text: 'Favorites',
-                  color: selectedIndex == 3
-                      ? _ActiveNavColor
-                      : _InactiveNavColor,
-                  onPress: () {
-                    Navigator.pushNamed(context, AppRoutes.favoritesPageScreen);
-                  }
+              Expanded(
+                child: IconGroup(
+                    icon: FontAwesomeIcons.cartShopping,
+                    text: 'Shopping List',
+                    color: selectedIndex == 2
+                        ? _ActiveNavColor
+                        : _InactiveNavColor,
+                    onPress: () {
+                      Navigator.pushNamed(context, AppRoutes.shoppingListScreen);
+                    }
+                ),
+              ),
+              Expanded(
+                child: IconGroup(
+                    icon: FontAwesomeIcons.solidHeart,
+                    text: 'Favorites',
+                    color: selectedIndex == 3
+                        ? _ActiveNavColor
+                        : _InactiveNavColor,
+                    onPress: () {
+                      Navigator.pushNamed(context, AppRoutes.favoritesPageScreen);
+                    }
+                ),
               ),
             ],
           ),
